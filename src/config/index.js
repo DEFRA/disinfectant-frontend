@@ -64,12 +64,12 @@ const config = convict({
     default: 'info',
     env: 'LOG_LEVEL'
   },
-  //added new
+  // added new
   disinfectant: {
     apiPath: {
       doc: 'Disinfectant Backend REST API path',
       format: String,
-      default: 'http://localhost:3004',//need env specific url
+      default: 'http://localhost:3004', // need env specific url
       env: 'DIS_BE_API'
     }
   },

@@ -1,5 +1,5 @@
 import { approvedDisinfectantController } from '~/src/server/approved-disinfectants/controller.js'
-import { postController } from '~/src/server/approved-disinfectants/post-controller.js'
+// import { postController } from '~/src/server/approved-disinfectants/post-controller.js'
 
 /**
  * Sets up the routes used in the /about page.

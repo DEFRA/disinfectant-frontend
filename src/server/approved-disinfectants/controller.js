@@ -2,28 +2,26 @@
  * A GDS styled example about page controller.
  * Provided as an example, remove or modify as required.
  */
-import { proxyFetch } from '~/src/server/common/helpers/proxy-fetch.js'
-import { config } from '~/src/config/index.js'
-import {appSpecificConstants } from '~/src/server/common/helpers/constants.js'
+// import { proxyFetch } from '~/src/server/common/helpers/proxy-fetch.js'
+// import { config } from '~/src/config/index.js'
+// import { appSpecificConstants } from '~/src/server/common/helpers/constants.js'
 import { approvedCategories } from './pageConfigs/approvedCategory.js'
-import { pageSummaryTexts }  from './staticTexts/pageSummaryTexts.js'
+import { pageSummaryTexts } from './staticTexts/pageSummaryTexts.js'
 import { chemicalGroup } from './pageConfigs/chemicalGroup.js'
 import { utility } from '../common/utility.js'
 import { tableConfig } from './pageConfigs/tableConfig.js'
-import { externalLinks } from './staticTexts/externalLinks.js' 
-  
-const disAppConfig = config.get('disinfectant')
-const apiPath = disAppConfig.apiPath;
+import { externalLinks } from './staticTexts/externalLinks.js'
+
+// const disAppConfig = config.get('disinfectant')
+// const apiPath = disAppConfig.apiPath
 
 const approvedDisinfectantController = {
   handler: async (request, h) => {
-     
+    const pagingConfig = {
+      items: utility.pageIndexGenerator('A', 'Z', 'view all')
+    }
 
-   const pagingConfig ={ 
-      items: utility.pageIndexGenerator('A','Z','view all')
-   }  
-  
-   //#region Test 
+    // #region Test
     //  const options = {
     //   method: 'GET',
     //   headers: {
@@ -31,191 +29,195 @@ const approvedDisinfectantController = {
     //   }
     // }
 
-    //  response = await proxyFetch(`${apiPath}/mock-api/lookup`,options)   
+    //  response = await proxyFetch(`${apiPath}/mock-api/lookup`,options)
 
     // axios.get(`${apiPath}/mock-api/lookup`,options)
-     //const response = await axios.get(`${apiPath}/mock-api/lookup`)
-   
-    //var t = response.data; 
-    //#endregion 
+    // const response = await axios.get(`${apiPath}/mock-api/lookup`)
 
-    let productRows = [
+    // var t = response.data;
+    // #endregion
+
+    const productRows = [
       [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
       ],
       [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
       ],
       [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
-      ],[
+      ],
+      [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
-      ],[
+      ],
+      [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
-      ],[
+      ],
+      [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
-      ],[
+      ],
+      [
         {
-          text: "Advisal®"
+          text: 'Advisal®'
         },
         {
-          text: "Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391"
+          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
         },
         {
-          text: "Peracetic acid Not approved Formaldehyde"
+          text: 'Peracetic acid Not approved Formaldehyde'
         },
         {
-          text: "Not approved"
+          text: 'Not approved'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "200"
+          text: '200'
         },
         {
-          text: "300"
+          text: '300'
         },
         {
-          text: "Not Approved"
+          text: 'Not Approved'
         }
       ]
       // [
@@ -224,10 +226,9 @@ const approvedDisinfectantController = {
       //     text: "No Results found"
       //   }
       // ]
-      
     ]
 
-    tableConfig.rows = productRows;     
+    tableConfig.rows = productRows
 
     return h.view('approved-disinfectants/index', {
       pageTitle: 'Approved Defra-approved disinfectants',
@@ -236,7 +237,7 @@ const approvedDisinfectantController = {
       chemicalGroup,
       pageSummaryTexts,
       pagingConfig,
-      tableConfig ,
+      tableConfig,
       externalLinks,
       breadcrumbs: [
         {
@@ -245,12 +246,10 @@ const approvedDisinfectantController = {
         },
         {
           text: 'Defra-approved disinfectants'
-        }]
+        }
+      ]
     })
   }
-
 }
 
 export { approvedDisinfectantController }
- 
-

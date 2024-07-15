@@ -1,6 +1,5 @@
 export const appSpecificConstants = {
-  apiEndpoint : {
-    lookup: '/lookup' 
-
+  apiEndpoint: {
+    lookup: '/lookup'
   }
 }
