@@ -231,8 +231,8 @@ const approvedDisinfectantController = {
     tableConfig.rows = productRows
 
     return h.view('approved-disinfectants/index', {
-      pageTitle: 'Approved Defra-approved disinfectants',
-      heading: 'Disinfectants Approved for use in England,Scotland and Wales',
+      pageTitle: pageSummaryTexts.pageTitle,
+      heading: pageSummaryTexts.pageHeader,
       approvedCategories,
       chemicalGroup,
       pageSummaryTexts,

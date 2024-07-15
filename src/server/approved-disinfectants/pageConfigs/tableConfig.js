@@ -4,13 +4,13 @@ export const tableConfig = {
   classes: 'govuk-table--small-text-until-tablet',
   head: [
     {
-      text: 'Disinfectant Name'
+      text: 'Disinfectant name'
     },
     {
-      text: 'Company Name and Address'
+      text: 'Company name and address'
     },
     {
-      text: 'Chemical Name'
+      text: 'Chemical group'
     },
     {
       text: 'Foot and Mouth Disease Orders (FMDO)'

@@ -11,23 +11,23 @@ export const approvedCategories = {
   items: [
     {
       value: 'fmdo',
-      text: 'Foot and Mouth disease Orders'
+      text: 'Foot and Mouth Disease Orders (FMDO)'
     },
     {
       value: 'svdo',
-      text: 'Swine Vesicular disease Orders'
+      text: 'Swine Vesicular Disease Orders (SVDO)'
     },
     {
       value: 'dpoa',
-      text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order'
+      text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)'
     },
     {
-      value: 'to',
-      text: 'Tuberculosis Orders'
+      value: 'tbo',
+      text: 'Tuberculosis Orders (TBO)'
     },
     {
       value: 'go',
-      text: 'General Orders'
+      text: 'General Orders (GO)'
     }
   ]
 }
