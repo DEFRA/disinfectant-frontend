@@ -1,0 +1,172 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appHeading({
+    text: heading,
+    caption: ""
+  }) }}
+
+  {# <form method='post' action='/'> #}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body">
+          {{pageSummaryTexts.disinfectantTableHowToReadText}}
+        </p>
+        <p class="govuk-body">
+          {{pageSummaryTexts.disinfectantTableHowToReadLinkText}}
+          <a href="{{externalLinks.disInfectantHowToLink}}" class="govuk-link">{{pageSummaryTexts.defraDisinfectantWhenAndHowText}}</a>.
+  </p>
+
+        <div>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                {{pageSummaryTexts.learnMoreAboutApprovalText}}
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="example">
+                  {{pageSummaryTexts.approvalCategoriesHeader}}
+                </label>
+              </h1>
+              <p class="govuk-body">
+                {{pageSummaryTexts.relevantLawsText}}</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  <a class="govuk-link" href="{{externalLinks.dopLink}}">
+                    {{pageSummaryTexts.diseaseOfPoultryOrder}}</a>  ({{pageSummaryTexts.inText}}
+                  <a class="govuk-link" href="{{externalLinks.dopScotlandLink}}">{{pageSummaryTexts.scotlandText}}</a>
+                  {{pageSummaryTexts.andText}}
+                  {{pageSummaryTexts.inText}}
+                  <a class="govuk-link" href="{{externalLinks.dopWalesLink}}">{{pageSummaryTexts.walesText}}</a>) {{pageSummaryTexts.andText}}
+                  <a class="govuk-link" href="{{externalLinks.avianFluLink}}">
+                    {{pageSummaryTexts.avianInfluenzaText}}
+                  </a>(in <a class="govuk-link" href="{{externalLinks.avianFluScotlandLink}}">{{pageSummaryTexts.scotlandText}}
+                  </a>
+                  {{pageSummaryTexts.andText}}
+                  {{pageSummaryTexts.inText}}
+                  <a class="govuk-link" href="{{externalLinks.avianFluWalesLink}}">{{pageSummaryTexts.walesText}}</a>)</li>
+                <li>
+                  <a class="govuk-link" href="{{externalLinks.svdoLink}}">{{pageSummaryTexts.swineDiseaseText}}
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="{{externalLinks.fmdoLink}}">{{pageSummaryTexts.fmOrderText}}
+                  </a>({{pageSummaryTexts.inText}}
+                  <a class="govuk-link" href="{{externalLinks.fmdoScotlandLink}}">{{pageSummaryTexts.scotlandText}}
+                    <a>{{pageSummaryTexts.andText}}
+                      {{pageSummaryTexts.inText}}
+                      <a class="govuk-link" href="{{externalLinks.fmdoWalesLink}}">{{pageSummaryTexts.walesText}}</a>)</li>
+                    <li>
+                      <a class="govuk-link" href="{{externalLinks.tboLink}}">
+                        {{pageSummaryTexts.tbOderText}}</a>({{pageSummaryTexts.inText}}
+                      <a class="govuk-link" href="{{externalLinks.tboScotlandLink}}">{{pageSummaryTexts.scotlandText}}</a>
+                      {{pageSummaryTexts.andText}}
+                      {{pageSummaryTexts.inText}}
+                      <a class="govuk-link" href="{{externalLinks.tboWalesLink}}">
+                        {{pageSummaryTexts.walesText}}</a>)</li>
+
+                  </ul>
+
+                  <p>{{pageSummaryTexts.generalOrderText}}
+                    <a href="{{externalLinks.goNoteLink}}" class="govuk-link" rel="noreferrer noopener" target="_blank">{{pageSummaryTexts.notifiableDiseasesText}} ({{pageSummaryTexts.opensInNewWindowText}}).</a>
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="event-name">
+                  {{pageSummaryTexts.searchText}}
+                </label>
+              </h1>
+              <div id="event-name-hint" class="govuk-hint">
+                {{pageSummaryTexts.searchHintText}}
+              </div>
+              <input class="govuk-input govuk-!-width-three-quarters" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
+
+              {% from "govuk/components/button/macro.njk" import govukButton %}
+              {{ govukButton({
+                    text: "Search",
+                    name : "searchDisinfectant",
+                    value : "search"
+                  }) }}
+            </div>
+          </div>
+
+          <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+              <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                  <h2 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                      {{pageSummaryTexts.viewFilterText}}
+                    </span>
+                  </h2>
+                </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+                  <p class="govuk-body">
+                    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+                    {{ govukCheckboxes(approvedCategories) }}
+                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+                    {{ govukCheckboxes(chemicalGroup) }}
+
+                    {% from "govuk/components/button/macro.njk" import govukButton %}
+                    {{ govukButton({
+                    text: "Apply Filter",
+                    name : "applyFilter",
+                    value : "apply"
+                  }) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-full">
+            <div class="govuk-inset-text">
+              <p>
+                {{pageSummaryTexts.insetTextFirst}}
+              </p>
+              <p>
+                {{pageSummaryTexts.insetTextSecond}}</p>
+            </div>
+          </div>
+          <div class="govuk-grid-column-full">
+            {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+            {{ govukPagination(pagingConfig)}}
+          </div>
+          <div class="govuk-grid-column-full">
+            {% from "govuk/components/table/macro.njk" import govukTable %}
+            {{ govukTable(tableConfig)}}
+          </div>
+          <div class="govuk-grid-column-full">
+            {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+            {{ govukPagination(pagingConfig)}}
+          </div>
+
+          <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
+            <p class="govuk-body">
+                  Email  <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
+                {{externalLinks.disinfectantOfficalMail}}
+              </a> for further information.
+                </p>
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">{{pageSummaryTexts.publishedText}} 1 June 2024</p>
+            <p class="govuk-body">{{pageSummaryTexts.lastUpdatedText}} 12 July 2024</p>
+          </div>
+        </div>
+      {# </form> #}
+    {% endblock %}

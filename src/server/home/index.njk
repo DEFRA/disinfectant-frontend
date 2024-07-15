@@ -1,5 +1,6 @@
 {% extends 'layouts/page.njk' %}
 
+
 {% block content %}
   {{ appHeading({
     text: heading,
@@ -7,52 +8,199 @@
   }) }}
 
   {% call appPageBody() %}
-    <p>
-      Welcome to the Frontend Template, a starter kit for Core Delivery Platform Node.js Frontends testing
-    </p>
-    <p>
-      Based on <a href="https://github.com/DEFRA/design-standards">DEFRA</a> and <a
-              href="https://design-system.service.gov.uk/">GOV.UK</a> best practices this starter kit provides you with
-      a deployable, production ready template 🙌🏻 to start your new service with.
-    </p>
+     
 
-    <ul>
-      <li>
-        <a href="https://frontend.design-system.service.gov.uk/">GOV.UK Frontend</a>
-      </li>
-      <li>
-        <a href="https://hapi.dev">Hapi</a>
-      </li>
-      <li>
-        <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>
-      </li>
-      <li>
-        <a href="https://github.com/mozilla/node-convict">Node Convict</a>
-      </li>
-      <li>
-        <a href="https://jestjs.io/">Jest testing</a>
-      </li>
-      <li>
-        <a href="https://webdriver.io">WebdriverIO</a> User Journey testing
-      </li>
-      <li>GitHub Actions Pull Request and Publish jobs</li>
-      <li>
-        <a href="https://github.com/pinojs/pino">PinoJs logging</a>
-      </li>
-      <li>
-        <a href="https://standardjs.com">Standard JS</a>
-      </li>
-      <li>
-        <a href="https://eslint.org">ESLint</a>
-      </li>
-      <li>
-        <a href="https://stylelint.io">StyleLint</a>
-      </li>
-      <li>
-        <a href="https://prettier.io">Prettier</a>
-      </li>
-      <li>and lots more... 😎</li>
-    </ul>
+{%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+{%- from "govuk/components/input/macro.njk" import govukInput -%} 
+
+ 
+
+  {{ govukInput({
+    id: 'keywords',
+    name: 'keywords',
+    label: {
+      text: 'Keywords',
+      classes: 'govuk-label--m'
+    }
+  }) }}
+
+  {{ govukCheckboxes({
+    idPrefix: 'type',
+    name: 'type',
+    classes: "govuk-checkboxes--small",
+    fieldset: {
+      legend: {
+        text: 'Type',
+        classes: 'govuk-fieldset__legend--m'
+      }
+    },
+    items: [
+      {
+        value: '1',
+        text: 'Blue (18)',
+        checked: true
+      },
+      {
+        value: '2',
+        text: 'Yellow (5)',
+        checked: true
+      },
+      {
+        value: '3',
+        text: 'Red (2)'
+      }
+    ]
+  }) }}
+
+  {{ govukCheckboxes({
+    idPrefix: 'status',
+    name: 'status',
+    classes: "govuk-checkboxes--small",
+    fieldset: {
+      legend: {
+        text: 'Status',
+        classes: 'govuk-fieldset__legend--m'
+      }
+    },
+    items: [
+      {
+        value: 'complete',
+        text: 'Completed (2)',
+        checked: true
+      },
+      {
+        value: 'incomplete',
+        text: 'Incomplete (5)'
+      },
+      {
+        value: 'inprogress',
+        text: 'In progress (3)',
+        checked: false
+      }
+    ]
+  }) }}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+{{ govukAccordion({
+  id: "accordion-with-summary-sections",
+  items: [
+    {
+      heading: {
+        text: "Understanding agile project management"
+      },
+      summary: {
+        text: "Introductions, methods, core features."
+      },
+      content: {
+        html:
+        '<ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="#">Agile and government services: an introduction</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Agile methods: an introduction</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Core principles of agile</a>
+            </li>
+        </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "Working with agile methods"
+      },
+      summary: {
+        text: "Workspaces, tools and techniques, user stories, planning."
+      },
+      content: {
+        html:
+        '<ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="#">Creating an agile working environment</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Agile tools and techniques</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Set up a team wall</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Writing user stories</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Planning in agile</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Deciding on priorities</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Developing a roadmap</a>
+            </li>
+        </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "Governing agile services"
+      },
+      summary: {
+        text: "Principles, measuring progress, spending money."
+      },
+      content: {
+        html:
+        '<ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="#">Governance principles for agile service delivery</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Measuring and reporting progress</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Spend controls: check if you need approval to spend money on a service</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Spend controls: apply for approval to spend money on a service</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Spend controls: the new pipeline process</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Working across organisational boundaries</a>
+            </li>
+        </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "Phases of an agile project"
+      },
+      summary: {
+        text: "Discovery, alpha, beta, live and retirement."
+      },
+      content: {
+        html:
+        '<ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="#">How the discovery phase works</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">How the alpha phase works</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">How the beta phase works</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">How the live phase works</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">Retiring your service</a>
+            </li>
+        </ul>'
+      }
+    }
+  ]
+}) }}
   {% endcall %}
 
 {% endblock %}

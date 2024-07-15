@@ -6,7 +6,7 @@ const homeController = {
   handler: (request, h) => {
     return h.view('home/index', {
       pageTitle: 'Home',
-      heading: 'Home'
+      heading: 'Disinfectants Approved for use in England,Scotland and Wales'
     })
   }
 }
