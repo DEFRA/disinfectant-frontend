@@ -13,7 +13,7 @@ export const tableConfig = {
       text: 'Chemical Name'
     },
     {
-      text: 'Foot and Mouth Disorder (FMDO)'
+      text: 'Foot and Mouth Disease Orders (FMDO)'
     },
     {
       text: 'Swine Vesicular Disease Orders (SVDO)'
