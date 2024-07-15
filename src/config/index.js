@@ -30,7 +30,7 @@ const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'disinfectant-frontend'
+    default: 'Defra-approved disinfectants'
   },
   root: {
     doc: 'Project root',
@@ -63,6 +63,15 @@ const config = convict({
     format: ['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'],
     default: 'info',
     env: 'LOG_LEVEL'
+  },
+  // added new
+  disinfectant: {
+    apiPath: {
+      doc: 'Disinfectant Backend REST API path',
+      format: String,
+      default: 'http://localhost:3004', // need env specific url
+      env: 'DIS_BE_API'
+    }
   },
   httpProxy: {
     doc: 'HTTP Proxy',
