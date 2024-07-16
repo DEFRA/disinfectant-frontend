@@ -10,24 +10,28 @@ export const chemicalGroup = {
   },
   items: [
     {
-      value: 'fmdo',
-      text: 'Foot and Mouth disease Orders'
+      value: 'Peracetic Acid',
+      text: 'Peracetic Acid'
     },
     {
-      value: 'svdo',
-      text: 'Swine Vesicular disease Orders'
+      value: 'Amphoteric',
+      text: 'Amphoteric'
     },
     {
-      value: 'dpoa',
-      text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order'
+      value: 'Sodium Hydroxide',
+      text: 'Sodium Hydroxide'
     },
     {
-      value: 'to',
-      text: 'Tuberculosis Orders'
+      value: 'Formaldehyde',
+      text: 'Formaldehyde'
     },
     {
-      value: 'go',
-      text: 'General Orders'
+      value: 'Biguanide',
+      text: 'Biguanide'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
     }
   ]
 }

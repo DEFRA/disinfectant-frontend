@@ -1,4 +1,6 @@
 export const pageSummaryTexts = {
+  pageTitle: 'Approved Defra-approved disinfectants',
+  pageHeader: 'Disinfectants approved for use in England,Scotland and Wales',
   disinfectantTableHowToReadText:
     'The table below displays approved disinfectants products and their approved dilution rates for statutory use.',
   disinfectantTableHowToReadLinkText:
