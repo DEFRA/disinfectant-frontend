@@ -1,6 +1,6 @@
 export const chemicalGroup = {
   name: 'chkChemicalGroup',
-  classes: 'govuk-checkboxes--small',
+  classes: 'govuk-checkboxes--small checkboxes-with-two-columns',
   fieldset: {
     legend: {
       text: 'Chemical Groups',
@@ -32,6 +32,31 @@ export const chemicalGroup = {
     {
       value: 'Quicklime',
       text: 'Quicklime'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
+    },
+    {
+      value: 'Quicklime',
+      text: 'Quicklime'
+    },
+    {
+      value:
+        'Quaternary Ammonium Compound (QAC), including Alkyldimethylbenzylammonium chloride (ADBAC) and Didecyldimethylammonium chloride (DDAC)',
+      text: 'Quaternary Ammonium Compound (QAC), including Alkyldimethylbenzylammonium chloride (ADBAC) and Didecyldimethylammonium chloride (DDAC)'
     },
     {
       value:
