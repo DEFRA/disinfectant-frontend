@@ -1,5 +1,5 @@
 {% extends 'layouts/page.njk' %}
-
+{%- from "filter/macro.njk" import mojFilter -%}
 {% block content %}
   {{ appHeading({
     text: heading,
@@ -27,7 +27,7 @@
             </summary>
             <div class="govuk-details__text">
               <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--l" for="example">
+                <label class="govuk-label govuk-label--m" for="example">
                   {{pageSummaryTexts.approvalCategoriesHeader}}
                 </label>
               </h1>
@@ -84,7 +84,7 @@
 
             <div class="govuk-form-group">
               <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--l" for="event-name">
+                <label class="govuk-label govuk-label--m" for="event-name">
                   {{pageSummaryTexts.searchText}}
                 </label>
               </h1>
@@ -116,7 +116,7 @@
                   <p class="govuk-body">
                     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
                     {{ govukCheckboxes(approvedCategories) }}
-                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                    
 
                     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
                     {{ govukCheckboxes(chemicalGroup) }}
@@ -134,11 +134,11 @@
           </div>
           <div class="govuk-grid-column-full">
             <div class="govuk-inset-text">
-              <p>
-                {{pageSummaryTexts.insetTextFirst}}
+              <p class="govuk-body-s">
+                {{pageSummaryTexts.insetTextFirst}}<br>
+                 {{pageSummaryTexts.insetTextSecond}}
               </p>
-              <p>
-                {{pageSummaryTexts.insetTextSecond}}</p>
+               
             </div>
           </div>
           <div class="govuk-grid-column-full">
@@ -156,7 +156,7 @@
 
           <div class="govuk-grid-column-two-thirds">
             <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
-            <p class="govuk-body">
+            <p class="govuk-body-s">
                   Email  <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
                 {{externalLinks.disinfectantOfficalMail}}
               </a> for further information.
@@ -164,8 +164,8 @@
             <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
           </div>
           <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body">{{pageSummaryTexts.publishedText}} 1 June 2024</p>
-            <p class="govuk-body">{{pageSummaryTexts.lastUpdatedText}} 12 July 2024</p>
+            <p class="govuk-body-s">{{pageSummaryTexts.publishedText}} 1 June 2024</p>
+            <p class="govuk-body-s">{{pageSummaryTexts.lastUpdatedText}} 12 July 2024</p>
           </div>
         </div>
       {# </form> #}

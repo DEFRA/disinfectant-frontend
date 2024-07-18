@@ -32,6 +32,11 @@ export const chemicalGroup = {
     {
       value: 'Quicklime',
       text: 'Quicklime'
+    },
+    {
+      value:
+        'Quaternary Ammonium Compound (QAC), including Alkyldimethylbenzylammonium chloride (ADBAC) and Didecyldimethylammonium chloride (DDAC)',
+      text: 'Quaternary Ammonium Compound (QAC), including Alkyldimethylbenzylammonium chloride (ADBAC) and Didecyldimethylammonium chloride (DDAC)'
     }
   ]
 }
