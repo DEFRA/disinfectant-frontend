@@ -18,7 +18,7 @@ import { externalLinks } from './staticTexts/externalLinks.js'
 const approvedDisinfectantController = {
   handler: async (request, h) => {
     const pagingConfig = {
-      items: utility.pageIndexGenerator('A', 'Z', 'view all')
+      items: utility.pageIndexGenerator('A', 'Z', 'View all')
     }
 
     // #region Test
@@ -40,184 +40,342 @@ const approvedDisinfectantController = {
     const productRows = [
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ],
       [
         {
-          text: 'Advisal®'
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Envisal GmbH Eulenbsuch 10a Reppenstedt Germany, 21391'
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Peracetic acid Not approved Formaldehyde'
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '200'
+          html: '200',
+          classes: 'govuk-body-s'
         },
         {
-          text: '300'
+          html: '300',
+          classes: 'govuk-body-s'
         },
         {
-          text: 'Not Approved'
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        }
+      ],
+      [
+        {
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '300',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        }
+      ],
+      [
+        {
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '300',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        }
+      ],
+      [
+        {
+          html: 'Advisal®',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Envisal GmbH <br><span class="govuk-secondary-text-colour" style="color: #505a5f;">Eulenbsuch 10a Reppenstedt Germany, 21391</span>',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Peracetic acid Not approved Formaldehyde',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '200',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: '300',
+          classes: 'govuk-body-s'
+        },
+        {
+          html: 'Not approved',
+          classes: 'govuk-body-s'
         }
       ]
       // [

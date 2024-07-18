@@ -2,9 +2,11 @@ export const utility = {
   pageIndexGenerator: (charA, charZ, currentState) => {
     const a = []
     const j = charZ.charCodeAt(0)
-    if (currentState === 'view all')
-      a.push({ number: 'view all', href: '#', current: true })
-    else a.push({ number: 'view all', href: '#' })
+    const viewAll = 'View all'
+    const numberRange = '0 to 9'
+    if (currentState === viewAll)
+      a.push({ number: viewAll, href: '#', current: true })
+    else a.push({ number: viewAll, href: '#' })
 
     for (let i = charA.charCodeAt(0); i <= j; ++i) {
       if (currentState === String.fromCharCode(i))
@@ -12,9 +14,9 @@ export const utility = {
       else a.push({ number: String.fromCharCode(i), href: '' })
     }
 
-    if (currentState === '0 to 9')
-      a.push({ number: '0 to 9', href: '#', current: true })
-    else a.push({ number: '0 to 9', href: '#' })
+    if (currentState === numberRange)
+      a.push({ number: numberRange, href: '#', current: true })
+    else a.push({ number: numberRange, href: '#' })
 
     return a
   },

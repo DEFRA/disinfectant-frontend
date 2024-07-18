@@ -8,6 +8,8 @@ import {
   SkipLink,
   Accordion
 } from 'govuk-frontend'
+import $ from 'jquery'
+import moj from '@ministryofjustice/frontend'
 
 createAll(Button)
 createAll(Checkboxes)
@@ -16,3 +18,5 @@ createAll(Header)
 createAll(Radios)
 createAll(SkipLink)
 createAll(Accordion)
+window.$ = $
+moj.initAll()
