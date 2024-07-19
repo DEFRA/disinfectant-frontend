@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="govuk-grid-column-full">
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           </div>
           <div class="govuk-grid-column-two-thirds">
 
@@ -88,10 +88,10 @@
                   {{pageSummaryTexts.searchText}}
                 </label>
               </h1>
-              <div id="event-name-hint" class="govuk-hint">
+              {# <div id="event-name-hint" class="govuk-hint">
                 {{pageSummaryTexts.searchHintText}}
-              </div>
-              <input class="govuk-input govuk-!-width-three-quarters" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
+              </div> #}
+              <input class="govuk-input govuk-!-width-three-quarters" placeholder="Type disinfectant name to search" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
 
               {% from "govuk/components/button/macro.njk" import govukButton %}
               {{ govukButton({
@@ -161,11 +161,11 @@
                 {{externalLinks.disinfectantOfficalMail}}
               </a> for further information.
                 </p>
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           </div>
           <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body-s">{{pageSummaryTexts.publishedText}} 1 June 2024</p>
-            <p class="govuk-body-s">{{pageSummaryTexts.lastUpdatedText}} 12 July 2024</p>
+            <p class="govuk-body-s">{{pageSummaryTexts.publishedText}} 1 June 2024<br>{{pageSummaryTexts.lastUpdatedText}}</p>
+             
           </div>
         </div>
       {# </form> #}
