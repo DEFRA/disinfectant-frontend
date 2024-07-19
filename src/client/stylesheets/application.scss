@@ -9,14 +9,24 @@ $govuk-global-styles: true;
 @import "components/all";
 @import "partials/all";
 $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
-@import "../../../node_modules/@ministryofjustice/frontend/moj/all"; 
+@import "../../../node_modules/@ministryofjustice/frontend/moj/all";
 
 // .govuk-width-container {
 //     @include govuk-width-container(1250px);
-//   }
+// }
 
-.checkboxes-with-two-columns{
-   column-count: 2;
-  }
-  
-   
+.govuk-pagination__item {
+
+    @include govuk-font(16);
+    min-width: 40px;
+    padding: govuk-spacing(2) govuk-spacing(2);
+}
+
+.checkboxes-with-two-columns {
+    column-count: 2;
+
+}
+
+.govuk-table {
+    background-color: #ffffff;
+}
