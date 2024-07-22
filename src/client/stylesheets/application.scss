@@ -11,9 +11,9 @@ $govuk-global-styles: true;
 $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 @import "../../../node_modules/@ministryofjustice/frontend/moj/all";
 
-// .govuk-width-container {
-//     @include govuk-width-container(1250px);
-// }
+.govuk-width-container {
+    @include govuk-width-container(1250px);
+}
 
 .govuk-pagination__item {
 
