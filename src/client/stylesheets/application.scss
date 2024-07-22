@@ -34,3 +34,7 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 .gem-c-layout-footer--border {
     border-top: 10px solid #1d70b8;
 }
+
+.govuk-accordion__show-all{
+    display: none;
+}
