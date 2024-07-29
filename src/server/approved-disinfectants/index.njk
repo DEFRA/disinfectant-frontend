@@ -1,12 +1,14 @@
 {% extends 'layouts/page.njk' %}
 {%- from "filter/macro.njk" import mojFilter -%}
+{%- from "filter/macro.njk" import mojFilter -%}
 {% block content %}
   {{ appHeading({
     text: heading,
     caption: ""
   }) }}
 
-  {# <form method='post' action='/'> #}
+  <form id="formDisinfectant" method="POST" action='/'>
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
@@ -75,7 +77,16 @@
                   </p>
                 </div>
               </details>
+             
+
             </div>
+             <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  This page was last updated at {{lastModifiedDateWithTime}}.
+                </strong>
+              </div>
           </div>
           <div class="govuk-grid-column-full">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
@@ -88,15 +99,14 @@
                   {{pageSummaryTexts.searchText}}
                 </label>
               </h1>
-              {# <div id="event-name-hint" class="govuk-hint">
-                {{pageSummaryTexts.searchHintText}}
-              </div> #}
-              <input class="govuk-input govuk-!-width-three-quarters" placeholder="Type disinfectant name to search" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
+              
+              <input class="govuk-input govuk-!-width-three-quarters"  value="{{searchText}}" placeholder="Type disinfectant name to search" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
 
               {% from "govuk/components/button/macro.njk" import govukButton %}
               {{ govukButton({
                     text: "Search",
                     name : "searchDisinfectant",
+                    id : "btnSearch",
                     value : "search"
                   }) }}
             </div>
@@ -116,7 +126,6 @@
                   <p class="govuk-body">
                     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
                     {{ govukCheckboxes(approvedCategories) }}
-                    
 
                     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
                     {{ govukCheckboxes(chemicalGroup) }}
@@ -136,16 +145,16 @@
             <div class="govuk-inset-text">
               <p class="govuk-body-s">
                 {{pageSummaryTexts.insetTextFirst}}<br>
-                 {{pageSummaryTexts.insetTextSecond}}
+                {{pageSummaryTexts.insetTextSecond}}
               </p>
-               
+
             </div>
           </div>
           <div class="govuk-grid-column-full">
             {% from "govuk/components/pagination/macro.njk" import govukPagination %}
             {{ govukPagination(pagingConfig)}}
           </div>
-          <div class="govuk-grid-column-full">
+          <div class="govuk-grid-column-full" id="tableDisinfectant">
             {% from "govuk/components/table/macro.njk" import govukTable %}
             {{ govukTable(tableConfig)}}
           </div>
@@ -164,9 +173,31 @@
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           </div>
           <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body-s">{{pageSummaryTexts.publishedText}} 1 June 2024<br>{{pageSummaryTexts.lastUpdatedText}}</p>
-             
+            <p class="govuk-body-s">{{pageSummaryTexts.publishedText}} 1 June 2024<br>{{pageSummaryTexts.lastUpdatedText}} {{lastModifiedDate}}</p>
+
           </div>
         </div>
-      {# </form> #}
+        <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
+      </form>
+
+      <script>
+        var querystring = document.getElementById('hdnPathValues');
+        const element = document.getElementById("tableDisinfectant");
+        if (querystring.value.trim() !== '') 
+          element.scrollIntoView();
+        
+        var txtSearch = document.getElementById('searchtext')
+        var btnSearch = document.getElementById('btnSearch')
+        txtSearch.addEventListener("keyup", (e) => {
+          btnToggleDisablement();
+        });
+        function btnToggleDisablement() {
+          if (txtSearch.value.length > 2 || txtSearch.value.length === 0) {
+            btnSearch.disabled = false;
+          } else {
+            btnSearch.disabled = true;
+          }
+        }
+      </script>
+
     {% endblock %}

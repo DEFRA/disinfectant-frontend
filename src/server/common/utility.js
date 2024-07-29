@@ -1,24 +1,37 @@
 export const utility = {
   pageIndexGenerator: (charA, charZ, currentState) => {
-    const a = []
+    const items = []
     const j = charZ.charCodeAt(0)
     const viewAll = 'View all'
     const numberRange = '0 to 9'
-    if (currentState === viewAll)
-      a.push({ number: viewAll, href: '#', current: true })
-    else a.push({ number: viewAll, href: '#' })
+    const redirectionURL = '?startwith='
+    const sectionId = '#tableDisinfectant'
+    let current = false
+    if (currentState === viewAll) current = true
+    items.push({
+      number: viewAll,
+      href: `${redirectionURL}${viewAll}${sectionId}`,
+      current: current
+    })
+    current = false
 
     for (let i = charA.charCodeAt(0); i <= j; ++i) {
-      if (currentState === String.fromCharCode(i))
-        a.push({ number: String.fromCharCode(i), href: '#', current: true })
-      else a.push({ number: String.fromCharCode(i), href: '' })
+      if (currentState === String.fromCharCode(i)) current = true
+      items.push({
+        number: String.fromCharCode(i),
+        href: `${redirectionURL}${String.fromCharCode(i)}${sectionId}`,
+        current: current
+      })
+      current = false
     }
+    if (currentState === numberRange) current = true
+    items.push({
+      number: numberRange,
+      href: `${redirectionURL}${numberRange}${sectionId}`,
+      current: current
+    })
 
-    if (currentState === numberRange)
-      a.push({ number: numberRange, href: '#', current: true })
-    else a.push({ number: numberRange, href: '#' })
-
-    return a
+    return items
   },
   test: () => {}
 }

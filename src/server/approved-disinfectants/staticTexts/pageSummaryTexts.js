@@ -1,6 +1,6 @@
 export const pageSummaryTexts = {
   pageTitle: 'Approved Defra-approved disinfectants',
-  pageHeader: 'Disinfectants approved for use in England,Scotland and Wales',
+  pageHeader: 'Disinfectants approved for use in England, Scotland and Wales',
   disinfectantTableHowToReadText:
     'The table below displays approved disinfectants products and their approved dilution rates for statutory use.',
   disinfectantTableHowToReadLinkText:
@@ -27,11 +27,15 @@ export const pageSummaryTexts = {
   opensInNewWindowText: 'opens in a new tab',
   searchText: 'Search',
   searchHintText: 'Type disinfectant name to search',
-  viewFilterText: 'View Filter Options',
+  viewFilterText: 'View filter options',
   insetTextFirst: '* = Number of Millilitres To One Gram Disinfectant',
   insetTextSecond:
-    'All other disinfectants are measured as Number of Parts Water To One Part Disinfectants',
+    'All other disinfectants are measured as Number of Parts Water To One Part Disinfectants.',
   disinfectantEnquiryText: 'Disinfectant enquiries',
   publishedText: 'Published',
-  lastUpdatedText: 'Last Updated'
+  lastUpdatedText: 'Last Updated',
+  filterPanelTitles: {
+    approvalCategories: 'Approval categories',
+    chemicalGroups: 'Chemical groups'
+  }
 }
