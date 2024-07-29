@@ -61,7 +61,7 @@ const fetchData = async (
               unique.includes(item) ? unique : [...unique, item],
             []
           )
-          
+
           approvedDisinfectantList = approvedDisinfectantList.filter(
             (elem) => elem.chemicalGroups !== null
           )
@@ -74,7 +74,6 @@ const fetchData = async (
               checmialgroupArr.includes(chemgroup.toLowerCase().trim())
             )
           })
-
 
           // approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
           //   return chemicalGroupSelected.find((element) => {
