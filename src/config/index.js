@@ -69,7 +69,7 @@ const config = convict({
     apiPath: {
       doc: 'Disinfectant Backend REST API path',
       format: String,
-      default: 'https://disinfectant-backend.dev.cdp-int.defra.cloud', // need env specific url
+      default: 'http://localhost:3001', // need env specific url
       env: 'DIS_BE_API'
     }
   },
