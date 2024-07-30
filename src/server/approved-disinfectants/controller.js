@@ -13,12 +13,16 @@ import { fetchData } from './helpers/fetch-data.js'
 import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
+import { config } from '~/src/config/index.js'
 
 const logger = createLogger()
+const disInfectant = config.get('disinfectant')
+
 const approvedDisinfectantController = {
   handler: async (request, h) => {
     try {
       // set and get yars
+      const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.yar.get('searchPayload')
       const setStartsWith =
         typeof request.query.startwith !== 'undefined' &&
@@ -76,7 +80,8 @@ const approvedDisinfectantController = {
         ],
         searchText,
         lastModifiedDateWithTime,
-        lastModifiedDate
+        lastModifiedDate,
+        envGoLiveDate
       })
     } catch (error) {
       logger.info(`error from controller handler of index ${error.message}`)

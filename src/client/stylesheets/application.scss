@@ -42,3 +42,16 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 .govuk-secondary-text-colour{
     color: #505a5f;
 }
+
+.app-breadcrumbs {
+    @include govuk-font(16);
+}
+
+.govuk-checkboxes__label{
+
+    @include govuk-font(16);
+}
+
+.app-breadcrumbs__link {
+    text-decoration: underline;
+}

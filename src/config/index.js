@@ -71,6 +71,12 @@ const config = convict({
       format: String,
       default: 'http://localhost:3001', // need env specific url
       env: 'DIS_BE_API'
+    },
+    envgolivedate: {
+      doc: 'Disinfectant Backend REST API path',
+      format: String,
+      default: '10 July 2024', // need env specific url
+      env: 'ENV_GOLIVE_DATE'
     }
   },
   httpProxy: {
