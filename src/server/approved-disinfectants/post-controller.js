@@ -9,11 +9,15 @@ import { fetchData } from './helpers/fetch-data.js'
 import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
+import { config } from '~/src/config/index.js'
 
 const logger = createLogger()
+const disInfectant = config.get('disinfectant')
+
 const postController = {
   handler: async (request, h) => {
     try {
+      const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.payload
       const prevSearchPayload = request.yar.get('searchPayload')
       // set and get yars
@@ -91,7 +95,8 @@ const postController = {
         searchText,
         querystring,
         lastModifiedDateWithTime,
-        lastModifiedDate
+        lastModifiedDate,
+        envGoLiveDate
       })
     } catch (error) {
       logger.info(

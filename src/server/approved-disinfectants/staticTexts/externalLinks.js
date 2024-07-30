@@ -20,5 +20,5 @@ export const externalLinks = {
   tboWalesLink: 'https://www.legislation.gov.uk/all/2010/1379',
   goNoteLink:
     'https://www.gov.uk/government/collections/notifiable-diseases-in-animals',
-  disinfectantOfficalMail: 'disinfectants@apha.gsi.gov.uk'
+  disinfectantOfficalMail: 'disinfectant@apha.gov.uk'
 }
