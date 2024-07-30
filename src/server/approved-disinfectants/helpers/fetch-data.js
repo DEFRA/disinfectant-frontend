@@ -19,7 +19,7 @@ const fetchData = async (
     `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList}`,
     options
   ).catch((err) => {
-    logger.info(`err ${JSON.stringify(err.message)}`)
+    logger.info(`err while calling api endpoint ${JSON.stringify(err.message)}`)
   })
   let approvedDisinfectantList = []
   let checmicalGroups = []
@@ -56,11 +56,30 @@ const fetchData = async (
     if (chemicalGroupSelected) {
       if (Array.isArray(chemicalGroupSelected)) {
         if (chemicalGroupSelected.length > 0) {
+          chemicalGroupSelected = chemicalGroupSelected.reduce(
+            (unique, item) =>
+              unique.includes(item) ? unique : [...unique, item],
+            []
+          )
+
+          approvedDisinfectantList = approvedDisinfectantList.filter(
+            (elem) => elem.chemicalGroups !== null
+          )
           approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
-            return chemicalGroupSelected.find((element) => {
-              return el.chemicalGroups?.includes(element)
-            })
+            const checmialgroupArr = el.chemicalGroups
+              ?.toLowerCase()
+              .split(';')
+              .map((elem) => elem.trim())
+            return chemicalGroupSelected.every((chemgroup) =>
+              checmialgroupArr.includes(chemgroup.toLowerCase().trim())
+            )
           })
+
+          // approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
+          //   return chemicalGroupSelected.find((element) => {
+          //     return el.chemicalGroups?.includes(element)
+          //   })
+          // })
         }
       } else {
         approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
