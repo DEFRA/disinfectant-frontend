@@ -55,3 +55,7 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 .app-breadcrumbs__link {
     text-decoration: underline;
 }
+
+.govuk-input{
+    @include govuk-font(16);
+}

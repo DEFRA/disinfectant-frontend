@@ -2,7 +2,7 @@ export const pageSummaryTexts = {
   pageTitle: 'Approved Defra-approved disinfectants',
   pageHeader: 'Disinfectants approved for use in England, Scotland and Wales',
   disinfectantTableHowToReadText:
-    'The table below displays approved disinfectants products and their approved dilution rates for statutory use.',
+    'The table below displays approved disinfectants products and their approved dilution rates for statutory use. Read the guidance on',
   disinfectantTableHowToReadLinkText:
     'To find out when you must use a Defra-approved disinfectant, which product to use, and in what concentration, visit',
   defraDisinfectantWhenAndHowText:
