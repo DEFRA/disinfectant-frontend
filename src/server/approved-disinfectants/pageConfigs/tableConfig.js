@@ -1,8 +1,8 @@
-const className = 'govuk-body-s govuk-!-width-one-quarter'
+const className = 'govuk-body-s'
 export const tableConfig = {
   // caption: "Dates and amounts",
   firstCellIsHeader: true,
-  // classes: 'govuk-table--small-text-until-tablet',
+  classes: 'app-table-layout-width',
 
   head: [
     {

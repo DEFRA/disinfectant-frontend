@@ -17,7 +17,7 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 
 .govuk-pagination__item {
 
-    @include govuk-font(16);
+    @include govuk-font-size(16);
     min-width: 40px;
     padding: govuk-spacing(2) govuk-spacing(2);
 }
@@ -44,12 +44,12 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 }
 
 .app-breadcrumbs {
-    @include govuk-font(16);
+    @include govuk-font-size(16);
 }
 
 .govuk-checkboxes__label{
 
-    @include govuk-font(16);
+    @include govuk-font-size(16);
 }
 
 .app-breadcrumbs__link {
@@ -57,5 +57,16 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 }
 
 .govuk-input{
-    @include govuk-font(16);
+    @include govuk-font-size(16);
+    
 }
+
+.app-table-layout-width {
+    width: 97%;
+    table-layout: fixed;
+}
+
+.govuk-table__header,.govuk-table__cell{
+    word-wrap: break-word;
+}
+
