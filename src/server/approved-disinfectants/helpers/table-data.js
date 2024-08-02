@@ -3,7 +3,7 @@ import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 const logger = createLogger()
 
 function tableData(approvedDisinfectantList) {
-  const className = 'govuk-body-s govuk-!-width-one-quarter'
+  const className = 'govuk-body-s'
   let tableItems = []
   // let tableItems = [{text:'d',classes:className},
   //                     {text:'d',classes:className},
