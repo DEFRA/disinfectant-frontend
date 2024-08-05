@@ -13,9 +13,9 @@
       <div class="govuk-grid-column-two-thirds">
 
         <p class="govuk-body">
-          {{pageSummaryTexts.disinfectantTableHowToReadText}} <a href="{{externalLinks.disInfectantHowToLink}}" class="govuk-link">{{pageSummaryTexts.defraDisinfectantWhenAndHowText}}</a>.
+          {{pageSummaryTexts.disinfectantTableHowToReadText}}
+          <a href="{{externalLinks.disInfectantHowToLink}}" class="govuk-link">{{pageSummaryTexts.defraDisinfectantWhenAndHowText}}</a>.
         </p>
-        
 
         <div>
           <details class="govuk-details">
@@ -32,169 +32,217 @@
               </h1>
               <p class="govuk-body">
                 {{pageSummaryTexts.relevantLawsText}}</p>
+
+              {# England #}
+              <label class="govuk-label govuk-label--s" for="example">
+                {{pageSummaryTexts.countryList.england}}
+              </label>
               <ul class="govuk-list govuk-list--bullet">
+
                 <li>
                   <a class="govuk-link" href="{{externalLinks.dopLink}}">
-                    {{pageSummaryTexts.diseaseOfPoultryOrder}}</a>  ({{pageSummaryTexts.inText}}
-                  <a class="govuk-link" href="{{externalLinks.dopScotlandLink}}">{{pageSummaryTexts.scotlandText}}</a>
+                    {{pageSummaryTexts.england.dop}}</a>
                   {{pageSummaryTexts.andText}}
-                  {{pageSummaryTexts.inText}}
-                  <a class="govuk-link" href="{{externalLinks.dopWalesLink}}">{{pageSummaryTexts.walesText}}</a>) {{pageSummaryTexts.andText}}
                   <a class="govuk-link" href="{{externalLinks.avianFluLink}}">
-                    {{pageSummaryTexts.avianInfluenzaText}}
-                  </a>(in <a class="govuk-link" href="{{externalLinks.avianFluScotlandLink}}">{{pageSummaryTexts.scotlandText}}
-                  </a>
-                  {{pageSummaryTexts.andText}}
-                  {{pageSummaryTexts.inText}}
-                  <a class="govuk-link" href="{{externalLinks.avianFluWalesLink}}">{{pageSummaryTexts.walesText}}</a>)</li>
-                <li>
-                  <a class="govuk-link" href="{{externalLinks.svdoLink}}">{{pageSummaryTexts.swineDiseaseText}}
-                  </a>
-                </li>
-                <li>
-                  <a class="govuk-link" href="{{externalLinks.fmdoLink}}">{{pageSummaryTexts.fmOrderText}}
-                  </a>({{pageSummaryTexts.inText}}
-                  <a class="govuk-link" href="{{externalLinks.fmdoScotlandLink}}">{{pageSummaryTexts.scotlandText}}
-                    <a>{{pageSummaryTexts.andText}}
-                      {{pageSummaryTexts.inText}}
-                      <a class="govuk-link" href="{{externalLinks.fmdoWalesLink}}">{{pageSummaryTexts.walesText}}</a>)</li>
+                    {{pageSummaryTexts.england.avian}}
+                  </li>
+                  <li>
+                    <a class="govuk-link" href="{{externalLinks.svdoLink}}">{{pageSummaryTexts.england.swine}}
+                    </a>
+                  </li>
+                  <li>
+                    <a class="govuk-link" href="{{externalLinks.fmdoLink}}">{{pageSummaryTexts.england.fmdo}}
+                    </li>
                     <li>
                       <a class="govuk-link" href="{{externalLinks.tboLink}}">
-                        {{pageSummaryTexts.tbOderText}}</a>({{pageSummaryTexts.inText}}
-                      <a class="govuk-link" href="{{externalLinks.tboScotlandLink}}">{{pageSummaryTexts.scotlandText}}</a>
-                      {{pageSummaryTexts.andText}}
-                      {{pageSummaryTexts.inText}}
-                      <a class="govuk-link" href="{{externalLinks.tboWalesLink}}">
-                        {{pageSummaryTexts.walesText}}</a>)</li>
-
+                        {{pageSummaryTexts.england.tuber}}</a>
+                    </li>
+                    {# England #}
                   </ul>
 
-                  <p>{{pageSummaryTexts.generalOrderText}}
-                    <a href="{{externalLinks.goNoteLink}}" class="govuk-link" rel="noreferrer noopener" target="_blank">{{pageSummaryTexts.notifiableDiseasesText}} ({{pageSummaryTexts.opensInNewWindowText}}).</a>
-                  </p>
-                </div>
-              </details>
-             
+                  {# Scotland #}
+                  <label class="govuk-label govuk-label--s" for="example">
+                    {{pageSummaryTexts.countryList.scotland}}
+                  </label>
+                  <ul class="govuk-list govuk-list--bullet">
+
+                    <li>
+                      <a class="govuk-link" href="{{externalLinks.dopLink}}">
+                        {{pageSummaryTexts.scotland.dop}}</a>
+                      {{pageSummaryTexts.andText}}
+                      <a class="govuk-link" href="{{externalLinks.avianFluLink}}">
+                        {{pageSummaryTexts.scotland.avian}}
+                      </li>
+                      <li>
+                        <a class="govuk-link" href="{{externalLinks.svdoLink}}">{{pageSummaryTexts.scotland.swine}}
+                        </a>
+                      </li>
+                      <li>
+                        <a class="govuk-link" href="{{externalLinks.fmdoLink}}">{{pageSummaryTexts.scotland.fmdo}}
+                        </li>
+                        <li>
+                          <a class="govuk-link" href="{{externalLinks.tboLink}}">
+                            {{pageSummaryTexts.scotland.tuber}}</a>
+                        </li>
+                        {# Scotland #}
+                      </ul>
+
+                      {# Wales #}
+                      <label class="govuk-label govuk-label--s" for="example">
+                        {{pageSummaryTexts.countryList.wales}}
+                      </label>
+                      <ul class="govuk-list govuk-list--bullet">
+
+                        <li>
+                          <a class="govuk-link" href="{{externalLinks.dopLink}}">
+                            {{pageSummaryTexts.wales.dop}}</a>
+                          {{pageSummaryTexts.andText}}
+                          <a class="govuk-link" href="{{externalLinks.avianFluLink}}">
+                            {{pageSummaryTexts.wales.avian}}
+                          </li>
+                          <li>
+                            <a class="govuk-link" href="{{externalLinks.svdoLink}}">{{pageSummaryTexts.wales.swine}}
+                            </a>
+                          </li>
+                          <li>
+                            <a class="govuk-link" href="{{externalLinks.fmdoLink}}">{{pageSummaryTexts.wales.fmdo}}
+                            </li>
+                            <li>
+                              <a class="govuk-link" href="{{externalLinks.tboLink}}">
+                                {{pageSummaryTexts.wales.tuber}}</a>
+                            </li>
+                            {# Wales #}
+                          </ul>
+
+                          <p>{{pageSummaryTexts.gotText}}
+                            <a href="{{externalLinks.goNoteLink}}" class="govuk-link" rel="noreferrer noopener" target="_blank">{{pageSummaryTexts.notifiableDiseasesText}} ({{pageSummaryTexts.opensInNewWindowText}}).</a>
+                          </p>
+
 
             </div>
-             <div class="govuk-warning-text">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-visually-hidden">Warning</span>
+          </details>
+
+        </div>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
                   This page was last updated at {{lastModifiedDateWithTime}}.
                 </strong>
-              </div>
-          </div>
-          <div class="govuk-grid-column-full">
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-          </div>
-          <div class="govuk-grid-column-two-thirds">
+        </div>
+      </div>
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </div>
+      <div class="govuk-grid-column-two-thirds">
 
-            <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--m" for="event-name">
-                  {{pageSummaryTexts.searchText}}
-                </label>
-              </h1>
-              
-              <input class="govuk-input govuk-!-width-three-quarters"  value="{{searchText}}" placeholder="Type disinfectant name to search" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">
+              {{pageSummaryTexts.searchText}}
+            </label>
+          </h1>
 
-              {% from "govuk/components/button/macro.njk" import govukButton %}
-              {{ govukButton({
+          <input class="govuk-input govuk-!-width-three-quarters"  value="{{searchText}}" placeholder="Type disinfectant name to search" id="searchtext" name="searchtext" type="text" aria-describedby="event-name-hint">
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
                     text: "Search",
                     name : "searchDisinfectant",
                     id : "btnSearch",
                     value : "search"
                   }) }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                  {{pageSummaryTexts.viewFilterText}}
+                </span>
+              </h2>
             </div>
-          </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+              <p class="govuk-body">
+                {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+                {{ govukCheckboxes(approvedCategories) }}
 
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-              <div class="govuk-accordion__section">
-                <div class="govuk-accordion__section-header">
-                  <h2 class="govuk-accordion__section-heading">
-                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                      {{pageSummaryTexts.viewFilterText}}
-                    </span>
-                  </h2>
-                </div>
-                <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-                  <p class="govuk-body">
-                    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-                    {{ govukCheckboxes(approvedCategories) }}
+                {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+                {{ govukCheckboxes(chemicalGroup) }}
 
-                    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-                    {{ govukCheckboxes(chemicalGroup) }}
-
-                    {% from "govuk/components/button/macro.njk" import govukButton %}
-                    {{ govukButton({
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+                {{ govukButton({
                     text: "Apply filters",
                     name : "applyFilter",
                     value : "apply"
                   }) }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="govuk-grid-column-full">
-            <div class="govuk-inset-text">
-              <p class="govuk-body-s">
-                {{pageSummaryTexts.insetTextFirst}}<br>
-                {{pageSummaryTexts.insetTextSecond}}
               </p>
-
             </div>
-          </div>
-          <div class="govuk-grid-column-full">
-            {% from "govuk/components/pagination/macro.njk" import govukPagination %}
-            {{ govukPagination(pagingConfig)}}
-          </div>
-          <div class="govuk-grid-column-full" id="tableDisinfectant">
-            {% from "govuk/components/table/macro.njk" import govukTable %}
-            {{ govukTable(tableConfig)}}
-          </div>
-          <div class="govuk-grid-column-full">
-            {% from "govuk/components/pagination/macro.njk" import govukPagination %}
-            {{ govukPagination(pagingConfig)}}
-          </div>
-
-          <div class="govuk-grid-column-two-thirds">
-            <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
-            <p class="govuk-body-m">
-                  Email  <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
-                {{externalLinks.disinfectantOfficalMail}}
-              </a> for further information.
-                </p>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-          </div>
-          <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body-m">{{pageSummaryTexts.publishedText}} {{envGoLiveDate}}<br>{{pageSummaryTexts.lastUpdatedText}} {{lastModifiedDate}}</p>
-
           </div>
         </div>
-        <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
-      </form>
+      </div>
+      <div class="govuk-grid-column-full">
+        <div class="govuk-inset-text">
+          <p class="govuk-body-s">
+            {{pageSummaryTexts.insetTextFirst}}<br>
+            {{pageSummaryTexts.insetTextSecond}}
+          </p>
 
-      <script>
-        var querystring = document.getElementById('hdnPathValues');
-        const element = document.getElementById("tableDisinfectant");
-        if (querystring.value.trim() !== '') 
-          element.scrollIntoView();
-        
-        var txtSearch = document.getElementById('searchtext')
-        var btnSearch = document.getElementById('btnSearch')
-        txtSearch.addEventListener("keyup", (e) => {
-          btnToggleDisablement();
-        });
-        function btnToggleDisablement() {
-          if (txtSearch.value.length > 2 || txtSearch.value.length === 0) {
-            btnSearch.disabled = false;
-          } else {
-            btnSearch.disabled = true;
-          }
-        }
-      </script>
+        </div>
+      </div>
+      <div class="govuk-grid-column-full">
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+        {{ govukPagination(pagingConfig)}}
+      </div>
+      <div class="govuk-grid-column-full" id="tableDisinfectant">
+        {% from "govuk/components/table/macro.njk" import govukTable %}
+        {{ govukTable(tableConfig)}}
+      </div>
+      <div class="govuk-grid-column-full">
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+        {{ govukPagination(pagingConfig)}}
+      </div>
 
-    {% endblock %}
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
+        <p class="govuk-body-m">
+                  Email  <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
+            {{externalLinks.disinfectantOfficalMail}}
+          </a> for further information.
+                </p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
+          {{envGoLiveDate}}<br>{{pageSummaryTexts.lastUpdatedText}}
+          {{lastModifiedDate}}</p>
+
+      </div>
+    </div>
+    <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
+  </form>
+
+  <script>
+    var querystring = document.getElementById('hdnPathValues');
+    const element = document.getElementById("tableDisinfectant");
+    if (querystring.value.trim() !== '') 
+      element.scrollIntoView();
+    
+    var txtSearch = document.getElementById('searchtext')
+    var btnSearch = document.getElementById('btnSearch')
+    txtSearch.addEventListener("keyup", (e) => {
+      btnToggleDisablement();
+    });
+    function btnToggleDisablement() {
+      if (txtSearch.value.length > 2 || txtSearch.value.length === 0) {
+        btnSearch.disabled = false;
+      } else {
+        btnSearch.disabled = true;
+      }
+    }
+  </script>
+
+{% endblock %}
