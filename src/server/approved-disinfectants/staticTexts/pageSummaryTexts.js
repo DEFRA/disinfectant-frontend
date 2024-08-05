@@ -9,7 +9,7 @@ export const pageSummaryTexts = {
   learnMoreAboutApprovalText: 'Learn more about approval categories',
   approvalCategoriesHeader: 'Approval categories',
   relevantLawsText:
-    'The relevant laws on disinfectant use are called disease orders. There are 4 specific disease orders for the following diseases :',
+    'The relevant laws on disinfectant use are called disease orders. There are 4 specific disease orders for the following diseases:',
   diseaseOfPoultryOrder: 'Diseases of Poultry (England) Order 2003',
   inText: 'in',
   andText: 'and',
