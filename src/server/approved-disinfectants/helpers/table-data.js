@@ -3,16 +3,21 @@ import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 const logger = createLogger()
 
 function tableData(approvedDisinfectantList) {
+  logger.info(`table-data process initiated`)
   const className = 'govuk-body-s'
   let tableItems = []
-  // let tableItems = [{text:'d',classes:className},
-  //                     {text:'d',classes:className},
-  //                     {text:'d',classes:className},
-  //                     {text:'No Results Found',classes:className},
-  //                     {text:'dd',classes:className},
-  //                     {text:'d',classes:className},
-  //                     {text:'d',classes:className},
-  //                     {text:'d',classes:className}];
+  tableItems = [
+    [
+      { html: 'No Results Found', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className },
+      { html: '', classes: className }
+    ]
+  ]
   try {
     tableItems = approvedDisinfectantList?.length > 0 ? [] : tableItems
 
@@ -38,6 +43,7 @@ function tableData(approvedDisinfectantList) {
   } catch (error) {
     logger.info(`error from table-data ${error.message}`)
   }
+  logger.info(`table-data process executed`)
   return tableItems
 }
 export { tableData }

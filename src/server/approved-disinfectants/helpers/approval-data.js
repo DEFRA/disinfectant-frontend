@@ -26,6 +26,7 @@ const items = [
 ]
 
 function approvalData(selectedList) {
+  logger.info(`approval-data process initiated`)
   const approvalItems = []
   try {
     items.forEach((element) => {
@@ -39,6 +40,7 @@ function approvalData(selectedList) {
   } catch (error) {
     logger.info(`error from approval-data ${error.message}`)
   }
+  logger.info(`approval-data process executed`)
   return approvalItems
 }
 

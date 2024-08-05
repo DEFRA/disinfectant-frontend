@@ -15,12 +15,22 @@ const fetchData = async (
   searchText,
   startsWith
 ) => {
+  logger.info(
+    `fetch-data method initiated  ${JSON.stringify(chemicalGroupSelected)} ${JSON.stringify(approvalCategoriesSelected)} ${JSON.stringify(searchText)} ${JSON.stringify(startsWith)} `
+  )
+  logger.info(
+    `api endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList} invoked`
+  )
   const response = await proxyFetch(
     `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList}`,
     options
   ).catch((err) => {
-    logger.info(`err while calling api endpoint ${JSON.stringify(err.message)}`)
+    logger.info(
+      `error while calling api endpoint ${JSON.stringify(err.message)}`
+    )
+    throw err
   })
+
   let approvedDisinfectantList = []
   let checmicalGroups = []
   let lastModifiedTime = null
@@ -49,6 +59,13 @@ const fetchData = async (
       ?.disInfectants
       ? getApprovedListResponse.documents[0].disInfectants
       : []
+    logger.info(
+      `approved list disinfectants ${JSON.stringify(approvedDisinfectantList)}`
+    )
+    if (approvedDisinfectantList.length < 1) {
+      logger.info(`approved list disinfectants less than 1 record`)
+      throw new Error('no records fetched')
+    }
     approvedDisinfectantList = approvedDisinfectantList.sort(function (a, b) {
       return a.disInfectantName.localeCompare(b.disInfectantName)
     })
@@ -178,9 +195,14 @@ const fetchData = async (
           return !isNaN(el.disInfectantName?.charAt(0))
         })
       }
+
+      logger.info(
+        `fetch-data executed ${JSON.stringify(approvedDisinfectantList)}`
+      )
     }
   } catch (error) {
     logger.info(`error from fetch-data ${error.message}`)
+    throw error
   }
   return {
     approvedDisinfectantList,

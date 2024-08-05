@@ -21,6 +21,7 @@ const disInfectant = config.get('disinfectant')
 const approvedDisinfectantController = {
   handler: async (request, h) => {
     try {
+      logger.info(`get controller handler initiated`)
       // set and get yars
       const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.yar.get('searchPayload')
