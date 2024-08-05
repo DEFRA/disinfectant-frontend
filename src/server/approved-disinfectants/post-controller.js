@@ -17,6 +17,9 @@ const disInfectant = config.get('disinfectant')
 const postController = {
   handler: async (request, h) => {
     try {
+      logger.info(
+        `post controller initiated :  ${JSON.stringify(request.payload)}`
+      )
       const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.payload
       const prevSearchPayload = request.yar.get('searchPayload')
@@ -73,7 +76,7 @@ const postController = {
         setStartsWith == null
           ? '#tableDisinfectant'
           : '?startwith=' + setStartsWith + '#tableDisinfectant'
-
+      logger.info(`post controller handler executed`)
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,
         heading: pageSummaryTexts.pageHeader,

@@ -228,8 +228,12 @@
   <script>
     var querystring = document.getElementById('hdnPathValues');
     const element = document.getElementById("tableDisinfectant");
-    if (querystring.value.trim() !== '') 
-      element.scrollIntoView();
+    if (querystring.value.trim() !== '') {
+     // window.location.href = location + querystring.value.trim();
+     // querystring.value = '';
+      element.scrollIntoView(true);
+    }
+     
     
     var txtSearch = document.getElementById('searchtext')
     var btnSearch = document.getElementById('btnSearch')
