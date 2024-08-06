@@ -88,19 +88,24 @@ const fetchData = async (
               .split(';')
               .map((elem) => elem.trim())
             return chemicalGroupSelected.every((chemgroup) =>
-              checmialgroupArr.includes(chemgroup.toLowerCase().trim())
+              checmialgroupArr.find(
+                (elem) => elem === chemgroup.toLowerCase().trim()
+              )
             )
           })
-
-          // approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
-          //   return chemicalGroupSelected.find((element) => {
-          //     return el.chemicalGroups?.includes(element)
-          //   })
-          // })
         }
       } else {
+        approvedDisinfectantList = approvedDisinfectantList.filter(
+          (elem) => elem.chemicalGroups !== null
+        )
         approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
-          return el.chemicalGroups?.includes(chemicalGroupSelected)
+          const checmialgroupArr = el.chemicalGroups
+            ?.toLowerCase()
+            .split(';')
+            .map((elem) => elem.trim())
+          return checmialgroupArr.find(
+            (elem) => elem === chemicalGroupSelected.toLowerCase().trim()
+          )
         })
       }
     }
