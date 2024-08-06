@@ -48,7 +48,7 @@ const fetchData = async (
     lastModifiedTime =
       getApprovedListResponse?.documents[0]?.lastModifiedDateAndTime
 
-    if (lastModifiedTime !== null) {
+    if (typeof lastModifiedTime !== 'undefined' && lastModifiedTime !== null) {
       lastModifiedDateWithTime = formatDate(
         lastModifiedTime,
         "h:mm aaa 'on' EEEE do MMMM yyyy"
