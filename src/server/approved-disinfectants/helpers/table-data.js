@@ -8,7 +8,7 @@ function tableData(approvedDisinfectantList) {
   let tableItems = []
   tableItems = [
     [
-      { html: 'No Results Found', classes: className },
+      { html: 'No Records Found.', classes: className },
       { html: '', classes: className },
       { html: '', classes: className },
       { html: '', classes: className },
