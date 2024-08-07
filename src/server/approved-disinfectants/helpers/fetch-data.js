@@ -193,7 +193,9 @@ const fetchData = async (
     if (startsWith) {
       if (startsWith !== 'View all' && startsWith !== '0 to 9') {
         approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
-          return el.disInfectantName?.startsWith(startsWith)
+          return el.disInfectantName
+            ?.toLowerCase()
+            .startsWith(startsWith.toLowerCase())
         })
       } else if (startsWith === '0 to 9') {
         approvedDisinfectantList = approvedDisinfectantList.filter((el) => {

@@ -8,6 +8,9 @@ function chemicalGroupData(chemicalGroupsList, selectedList) {
   const chemicalGroupItems = []
   try {
     chemicalGroupsList.forEach((element) => {
+      // const isSelected = _.find(selectedList, function (n) {
+      //    return n.toLowerCase().trim() === element.toLowerCase().trim()
+      // })
       const isSelected = _.includes(selectedList, element.trim())
       chemicalGroupItems.push({
         value: element.trim(),
