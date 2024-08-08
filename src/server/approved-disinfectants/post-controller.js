@@ -10,6 +10,7 @@ import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
 import { config } from '~/src/config/index.js'
+import { buildFilter } from './helpers/build-filter.js'
 
 const logger = createLogger()
 const disInfectant = config.get('disinfectant')
@@ -38,23 +39,34 @@ const postController = {
         }
       }
 
-      request.yar.set('searchPayload', searchPayload)
-      const setStartsWith = request.yar.get('startsWith')
+      // request.yar.set('searchPayload', searchPayload)
+      const StartsWith = request.yar.get('startsWith')
       // set and get yars
       const pagingConfig = {
         items: utility.pageIndexGenerator(
           'A',
           'Z',
-          setStartsWith !== null ? setStartsWith : 'View all'
+          StartsWith !== null ? StartsWith : ''
         )
       }
       const searchText = searchPayload?.searchtext
-      const chemGroupSelected = searchPayload?.chkChemicalGroup
-        ? searchPayload.chkChemicalGroup
-        : []
-      const approvalCatSelected = searchPayload?.chkApprovalCategories
-        ? searchPayload.chkApprovalCategories
-        : []
+      // added for filter panel flow
+      const {
+        chemGroupSelected,
+        approvalCatSelected,
+        filterToBeCreated,
+        filterCategories,
+        clearAllLink
+      } = buildFilter(searchPayload, '', StartsWith)
+
+      if (typeof searchPayload !== 'undefined' && searchPayload) {
+        searchPayload.chkChemicalGroup = chemGroupSelected
+        searchPayload.chkApprovalCategories = approvalCatSelected
+      }
+
+      request.yar.set('searchPayload', searchPayload)
+      // added for filter panel flow
+
       const {
         checmicalGroups,
         approvedDisinfectantList,
@@ -64,7 +76,7 @@ const postController = {
         chemGroupSelected,
         approvalCatSelected,
         searchText,
-        setStartsWith
+        StartsWith
       )
       approvedCategories.items = approvalData(approvalCatSelected)
       chemicalGroup.items = chemicalGroupData(
@@ -73,9 +85,9 @@ const postController = {
       )
       tableConfig.rows = tableData(approvedDisinfectantList)
       const querystring =
-        setStartsWith == null
+        StartsWith == null
           ? '#tableDisinfectant'
-          : '?startwith=' + setStartsWith + '#tableDisinfectant'
+          : '?startwith=' + StartsWith + '#tableDisinfectant'
       logger.info(`post controller handler executed`)
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,
@@ -99,7 +111,10 @@ const postController = {
         querystring,
         lastModifiedDateWithTime,
         lastModifiedDate,
-        envGoLiveDate
+        envGoLiveDate,
+        filterToBeCreated,
+        filterCategories,
+        clearAllLink
       })
     } catch (error) {
       logger.info(
