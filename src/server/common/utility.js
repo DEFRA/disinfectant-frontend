@@ -1,16 +1,17 @@
 export const utility = {
   pageIndexGenerator: (charA, charZ, currentState) => {
+    const defaultValue = 'View all'
     const items = []
     const j = charZ.charCodeAt(0)
-    const viewAll = 'View all'
     const numberRange = '0 to 9'
     const redirectionURL = '?startwith='
     const sectionId = '#tableDisinfectant'
     let current = false
-    if (currentState === viewAll) current = true
+    currentState = currentState.trim() === '' ? defaultValue : currentState
+    if (currentState === defaultValue) current = true
     items.push({
-      number: viewAll,
-      href: `${redirectionURL}${viewAll}${sectionId}`,
+      number: defaultValue,
+      href: `${redirectionURL}${defaultValue}${sectionId}`,
       current: current
     })
     current = false

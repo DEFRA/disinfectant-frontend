@@ -60,13 +60,36 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     @include govuk-font-size(16);
     
 }
+// @media (400px <= width) {
+    .app-table-layout-width {
+        width: 97%;
+        table-layout: fixed;
+    }     
+//   }
 
-.app-table-layout-width {
-    width: 97%;
-    table-layout: fixed;
-}
 
 .govuk-table__header,.govuk-table__cell{
     word-wrap: break-word;
+}
+
+.js-enabled .moj-filter-layout__filter {
+ position: relative;
+ max-width: 100%
+}
+
+.moj-filter__options{
+    display:none;
+}
+
+.moj-filter__header{
+    display: none;
+}
+
+.moj-filter__heading-action .govuk-link {
+    @include govuk-font-size(16);
+}
+
+.moj-filter__selected .govuk-heading-s {
+    @include govuk-font-size(16)
 }
 
