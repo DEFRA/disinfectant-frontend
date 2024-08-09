@@ -22,7 +22,7 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     padding: govuk-spacing(2) govuk-spacing(2);
 }
 
-@media (750px <= width) {
+@media (min-width : 750px) {
     .checkboxes-with-two-columns {
         column-count: 2;
 
@@ -62,7 +62,7 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     @include govuk-font-size(16);
     
 }
-@media (750px <= width) {
+@media (min-width:750px) {
     .app-table-layout-width {
         width: 97%;
         table-layout: fixed;
