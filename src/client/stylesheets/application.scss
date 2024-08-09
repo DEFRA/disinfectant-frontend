@@ -22,9 +22,11 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     padding: govuk-spacing(2) govuk-spacing(2);
 }
 
-.checkboxes-with-two-columns {
-    column-count: 2;
+@media (750px <= width) {
+    .checkboxes-with-two-columns {
+        column-count: 2;
 
+    }
 }
 
 .govuk-table {
@@ -60,12 +62,12 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     @include govuk-font-size(16);
     
 }
-// @media (400px <= width) {
+@media (750px <= width) {
     .app-table-layout-width {
         width: 97%;
         table-layout: fixed;
     }     
-//   }
+  }
 
 
 .govuk-table__header,.govuk-table__cell{
@@ -81,9 +83,9 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     display:none;
 }
 
-.moj-filter__header{
-    display: none;
-}
+// .moj-filter__header{
+//     display: none;
+// }
 
 .moj-filter__heading-action .govuk-link {
     @include govuk-font-size(16);
