@@ -6,7 +6,7 @@
     text: heading,
     caption: ""
   }) }}
-
+ 
   <form id="formDisinfectant" method="POST" action='/'>
 
     <div class="govuk-grid-row">
@@ -26,7 +26,7 @@
             </summary>
             <div class="govuk-details__text">
               <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--m" for="example">
+                <label class="govuk-label govuk-label--m">
                   {{pageSummaryTexts.approvalCategoriesHeader}}
                 </label>
               </h1>
@@ -34,7 +34,7 @@
                 {{pageSummaryTexts.relevantLawsText}}</p>
 
               {# England #}
-              <label class="govuk-label govuk-label--s" for="example">
+              <label class="govuk-label govuk-label--s" >
                 {{pageSummaryTexts.countryList.england}}
               </label>
               <ul class="govuk-list govuk-list--bullet">
@@ -61,7 +61,7 @@
                   </ul>
 
                   {# Scotland #}
-                  <label class="govuk-label govuk-label--s" for="example">
+                  <label class="govuk-label govuk-label--s">
                     {{pageSummaryTexts.countryList.scotland}}
                   </label>
                   <ul class="govuk-list govuk-list--bullet">
@@ -88,7 +88,7 @@
                       </ul>
 
                       {# Wales #}
-                      <label class="govuk-label govuk-label--s" for="example">
+                      <label class="govuk-label govuk-label--s" >
                         {{pageSummaryTexts.countryList.wales}}
                       </label>
                       <ul class="govuk-list govuk-list--bullet">
@@ -137,7 +137,7 @@
 
                     <div class="govuk-form-group">
                       <h1 class="govuk-label-wrapper">
-                        <label class="govuk-label govuk-label--m" for="event-name">
+                        <label class="govuk-label govuk-label--m" >
                           {{pageSummaryTexts.searchText}}
                         </label>
                       </h1>
@@ -253,14 +253,36 @@
                 </form>
 
                 <script>
+               
+                  //alert(window.location)
                   var querystring = document.getElementById('hdnPathValues');
                   const element = document.getElementById("tableDisinfectant");
-                  if (querystring.value.trim() !== '') {
-                    // window.location.href = location + querystring.value.trim();
-                    // querystring.value = '';
-                    element.scrollIntoView(true);
-                  }
+                  if (querystring.value.trim() !== '' || window.location.href.includes('startwith')||window.location.href.includes('clear')) {
+                     function getPosition(el) {
+                            var xPos = 0;
+                            var yPos = 0;
 
+                            while (el) {                                 
+                                xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+                                yPos += (el.offsetTop - el.scrollTop + el.clientTop);                              
+                                el = el.offsetParent;
+                            }
+                            return {
+                              x: xPos,
+                              y: yPos
+                            };
+                          }
+
+                          setTimeout(function() {
+                            //window.scrollBy(0, getPosition(element).y);
+                             window.scrollTo({
+                               top: getPosition(element).y,
+                              behavior: "smooth"
+                            });
+                          }, 200);
+
+                  }
+                  
                   var txtSearch = document.getElementById('searchtext')
                   var btnSearch = document.getElementById('btnSearch')
                   txtSearch.addEventListener("keyup", (e) => {

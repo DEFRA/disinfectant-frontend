@@ -84,10 +84,12 @@ const postController = {
         chemGroupSelected
       )
       tableConfig.rows = tableData(approvedDisinfectantList)
+      // const querystring =
+      //   StartsWith == null
+      //     ? '#tableDisinfectant'
+      //     : '?startwith=' + StartsWith + '#tableDisinfectant'
       const querystring =
-        StartsWith == null
-          ? '#tableDisinfectant'
-          : '?startwith=' + StartsWith + '#tableDisinfectant'
+        StartsWith == null ? '' : '?startwith=' + StartsWith + ''
       logger.info(`post controller handler executed`)
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,
