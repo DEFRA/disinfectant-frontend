@@ -254,7 +254,7 @@
 
                 <script>
                
-                  //alert(window.location)
+                  
                   var querystring = document.getElementById('hdnPathValues');
                   const element = document.getElementById("tableDisinfectant");
                   if (querystring.value.trim() !== '' || window.location.href.includes('startwith')||window.location.href.includes('clear')) {
@@ -279,7 +279,7 @@
                                top: getPosition(element).y,
                               behavior: "smooth"
                             });
-                          }, 200);
+                          }, 400);
 
                   }
                   
@@ -295,14 +295,11 @@
                       btnSearch.disabled = true;
                     }
                   }
+                {# document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, user-scalable=no, initial-scale='+(1/window.devicePixelRatio)+''); #}
 
-                  {# document.querySelector('.govuk-pagination__link').addEventListener("click", (e) => {
-                    alert(e)
-                  }); #}
-                  // alert(window)
-                  {# window.onpopstate = function(event) {
-                      alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-                  }; #}
+                  const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
+                  if(navigationType === 'reload'){
+                    window.location.href = window.location.origin;
+                  }                       
                 </script>
-
               {% endblock %}
