@@ -24,8 +24,13 @@ const approvedDisinfectantController = {
     try {
       logger.info(`get controller handler initiated`)
       // set and get yars
+
+      if (Object.keys(request.query).length === 0) {
+        request.yar.set('searchPayload', {})
+      }
       const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.yar.get('searchPayload')
+
       const StartsWith =
         typeof request.query.startwith !== 'undefined' &&
         request.query?.startwith !== null
