@@ -128,7 +128,7 @@ const config = convict({
     enabled: {
       doc: 'Enable Redis on your Frontend. Before you enable Redis, contact the CDP platform team as we need to set up config so you can run Redis in CDP environments',
       format: Boolean,
-      default: false,
+      default: true,
       env: 'REDIS_ENABLED'
     },
     host: {
@@ -155,6 +155,12 @@ const config = convict({
       format: String,
       default: 'cdp-example-node-frontend:',
       env: 'REDIS_KEY_PREFIX'
+    },
+    ttl: {
+      doc: 'Redis cache global ttl',
+      format: Number,
+      default: 480,
+      env: 'REDIS_TTL'
     },
     useSingleInstanceCache: {
       doc: 'Enable the use of a single instance Redis Cache',

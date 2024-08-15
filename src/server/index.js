@@ -9,7 +9,14 @@ import { catchAll } from '~/src/server/common/helpers/errors.js'
 import { secureContext } from '~/src/server/common/helpers/secure-context/index.js'
 import { sessionCache } from '~/src/server/common/helpers/session-cache/session-cache.js'
 import { getCacheEngine } from '~/src/server/common/helpers/session-cache/cache-engine.js'
+import { RedisService } from './common/helpers/redis-service.js'
+import { buildRedisClient } from './common/helpers/redis-client.js'
 
+const redisConfig = config.get('redis')
+let redisClient = null
+if (redisConfig.enabled) {
+  redisClient = buildRedisClient()
+}
 const isProduction = config.get('isProduction')
 
 async function createServer() {
@@ -50,6 +57,12 @@ async function createServer() {
 
   if (isProduction) {
     await server.register(secureContext)
+  }
+
+  if (redisConfig.enabled) {
+    const redisService = new RedisService(redisClient, server)
+    server.decorate('request', 'redis', redisService)
+    server.decorate('server', 'redis', redisService)
   }
 
   await server.register([sessionCache, nunjucksConfig])

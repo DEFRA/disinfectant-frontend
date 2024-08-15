@@ -73,6 +73,7 @@ const postController = {
         lastModifiedDateWithTime,
         lastModifiedDate
       } = await fetchData(
+        request,
         chemGroupSelected,
         approvalCatSelected,
         searchText,

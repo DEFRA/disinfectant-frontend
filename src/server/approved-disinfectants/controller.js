@@ -77,6 +77,7 @@ const approvedDisinfectantController = {
         lastModifiedDateWithTime,
         lastModifiedDate
       } = await fetchData(
+        request,
         chemGroupSelected,
         approvalCatSelected,
         searchText,
