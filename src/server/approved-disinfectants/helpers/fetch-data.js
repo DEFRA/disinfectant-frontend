@@ -5,11 +5,13 @@ import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import { appSpecificConstants } from '~/src/server/common/helpers/constants.js'
 import { formatDate } from '~/src/config/nunjucks/filters/format-date.js'
 
+const redisConfig = config.get('redis')
 const options = { method: 'GET', headers: { 'Content-Type': 'text/json' } }
 const logger = createLogger()
 const disInfectant = config.get('disinfectant')
-
+const rediskey = 'disinfectantApprovedData'
 const fetchData = async (
+  request,
   chemicalGroupSelected,
   approvalCategoriesSelected,
   searchText,
@@ -18,18 +20,39 @@ const fetchData = async (
   logger.info(
     `fetch-data method initiated  ${JSON.stringify(chemicalGroupSelected)} ${JSON.stringify(approvalCategoriesSelected)} ${JSON.stringify(searchText)} ${JSON.stringify(startsWith)} `
   )
-  logger.info(
-    `api endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList} invoked`
-  )
-  const response = await proxyFetch(
-    `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList}`,
-    options
-  ).catch((err) => {
+
+  let getApprovedListResponse = null
+  if (redisConfig.enabled) {
+    logger.info(`Data from cache started to be extracted`)
+    getApprovedListResponse = await request.redis.getData(rediskey)
+  }
+
+  let response
+  if (!getApprovedListResponse) {
     logger.info(
-      `error while calling api endpoint ${JSON.stringify(err.message)}`
+      `fetch-data method - No Data in Cache. API endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList} Invocation started`
     )
-    throw err
-  })
+    response = await proxyFetch(
+      `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList}`,
+      options
+    ).catch((err) => {
+      logger.info(
+        `error while calling api endpoint ${JSON.stringify(err.message)}`
+      )
+      throw err
+    })
+    try {
+      if (response.ok) {
+        getApprovedListResponse = await response.json()
+        if (redisConfig.enabled) {
+          request.redis.storeData(rediskey, getApprovedListResponse)
+        }
+      }
+    } catch (err) {
+      logger.info(`error while getting data from api response : ${err}`)
+      throw err
+    }
+  }
 
   let approvedDisinfectantList = []
   let checmicalGroups = []
@@ -37,11 +60,6 @@ const fetchData = async (
   let lastModifiedDateWithTime = null
   let lastModifiedDate = null
   try {
-    let getApprovedListResponse
-    if (response.ok) {
-      getApprovedListResponse = await response.json()
-    }
-
     checmicalGroups = getApprovedListResponse?.documents[0]?.chemicalGroups
       ? getApprovedListResponse.documents[0].chemicalGroups
       : []
