@@ -257,8 +257,10 @@
                   
                   var querystring = document.getElementById('hdnPathValues');
                   const element = document.getElementById("tableDisinfectant");
-                  if (querystring.value.trim() !== '' || window.location.href.includes('startwith')||window.location.href.includes('clear')) {
-                     function getPosition(el) {
+                  if (querystring.value.trim() !== '' ) {
+                    window.location.href = querystring.value
+                    /*|| window.location.href.includes('startwith')||window.location.href.includes('clear')*/
+                     /*function getPosition(el) {
                             var xPos = 0;
                             var yPos = 0;
 
@@ -279,7 +281,7 @@
                                top: getPosition(element).y,
                               behavior: "smooth"
                             });
-                          }, 400);
+                          }, 400);*/
 
                   }
                   
