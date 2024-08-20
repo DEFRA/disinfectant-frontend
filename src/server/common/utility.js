@@ -5,8 +5,8 @@ export const utility = {
     const j = charZ.charCodeAt(0)
     const numberRange = '0 to 9'
     const redirectionURL = '?startwith='
-    // const sectionId = '#tableDisinfectant'
-    const sectionId = ''
+    const sectionId = '#tableDisinfectant'
+    // const sectionId = ''
     let current = false
     currentState = currentState.trim() === '' ? defaultValue : currentState
     if (currentState === defaultValue) current = true

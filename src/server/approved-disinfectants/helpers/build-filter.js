@@ -17,8 +17,8 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       startsWith !== null &&
       startsWith !== ''
     )
-      // clearAllLink = '?startwith=' + startsWith + '&clear=all#tableDisinfectant'
-      clearAllLink = '?startwith=' + startsWith + '&clear=all'
+      clearAllLink = '?startwith=' + startsWith + '&clear=all#tableDisinfectant'
+    // clearAllLink = '?startwith=' + startsWith + '&clear=all'
 
     let chemGroupSelected = searchPayload?.chkChemicalGroup
       ? searchPayload.chkChemicalGroup
@@ -143,16 +143,16 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
 }
 
 function createHrefLink(startsWith, value) {
-  //   return typeof startsWith !== 'undefined' &&
-  //     startsWith !== null &&
-  //     startsWith !== ''
-  //     ? `?startwith=${startsWith}&clear=${value}#tableDisinfectant`
-  //     : `?clear=${value}#tableDisinfectant`
   return typeof startsWith !== 'undefined' &&
     startsWith !== null &&
     startsWith !== ''
-    ? `?startwith=${startsWith}&clear=${value}`
-    : `?clear=${value}`
+    ? `?startwith=${startsWith}&clear=${value}#tableDisinfectant`
+    : `?clear=${value}#tableDisinfectant`
+  // return typeof startsWith !== 'undefined' &&
+  //   startsWith !== null &&
+  //   startsWith !== ''
+  //   ? `?startwith=${startsWith}&clear=${value}`
+  //   : `?clear=${value}`
 }
 
 export { buildFilter }
