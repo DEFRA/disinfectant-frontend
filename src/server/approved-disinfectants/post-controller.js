@@ -87,7 +87,7 @@ const postController = {
       tableConfig.rows = tableData(approvedDisinfectantList)
       const querystring =
         StartsWith === null || StartsWith === ''
-          ? '#tableDisinfectant'
+          ? '?startwith=View all#tableDisinfectant'
           : '?startwith=' + StartsWith + '#tableDisinfectant'
       // const querystring =
       //   StartsWith == null ? '' : '?startwith=' + StartsWith + ''
