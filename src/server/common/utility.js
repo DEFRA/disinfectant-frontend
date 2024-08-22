@@ -8,7 +8,9 @@ export const utility = {
     const sectionId = '#tableDisinfectant'
     // const sectionId = ''
     let current = false
-    currentState = currentState.trim() === '' ? defaultValue : currentState
+    // currentState = currentState.trim() === '' ? defaultValue : currentState
+    currentState = currentState.trim() === '' ? 'A' : currentState
+
     if (currentState === defaultValue) current = true
     items.push({
       number: defaultValue,

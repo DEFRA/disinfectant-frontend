@@ -301,7 +301,7 @@
 
                   const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
                   if(navigationType === 'reload'){
-                    window.location.href = window.location.origin;
+                    window.location.href = window.location.origin+'/#';
                   }                       
                 </script>
               {% endblock %}
