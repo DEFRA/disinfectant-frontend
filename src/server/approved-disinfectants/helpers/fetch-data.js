@@ -69,7 +69,7 @@ const fetchData = async (
     if (typeof lastModifiedTime !== 'undefined' && lastModifiedTime !== null) {
       lastModifiedDateWithTime = formatDate(
         lastModifiedTime,
-        "h:mm aaa 'on' EEEE do MMMM yyyy"
+        "h:mm aaa ('GMT'xxx) 'on' EEEE do MMMM yyyy"
       )
       lastModifiedDate = formatDate(lastModifiedTime, 'd MMMM yyyy')
     }
