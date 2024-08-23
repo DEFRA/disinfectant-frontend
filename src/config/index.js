@@ -159,7 +159,7 @@ const config = convict({
     ttl: {
       doc: 'Redis cache global ttl',
       format: Number,
-      default: 480,
+      default: 660,
       env: 'REDIS_TTL'
     },
     useSingleInstanceCache: {
