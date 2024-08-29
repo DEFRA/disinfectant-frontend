@@ -88,7 +88,7 @@ const postController = {
       const querystring =
         StartsWith === null || StartsWith === ''
           ? '?startwith=View all#tableDisinfectant'
-          : '?startwith=' + StartsWith + '#tableDisinfectant'
+          : `?startwith=${StartsWith}#tableDisinfectant`
       // const querystring =
       //   StartsWith == null ? '' : '?startwith=' + StartsWith + ''
       logger.info(`post controller handler executed`)
