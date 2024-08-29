@@ -29,7 +29,7 @@ class RedisService {
       'Redis store data'
     )
 
-    return await this.getData(id)
+    return this.getData(id)
   }
 
   async getData(id) {
