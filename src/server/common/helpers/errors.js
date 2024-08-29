@@ -1,23 +1,18 @@
 function statusCodeMessage(statusCode) {
-  switch (true) {
-    case statusCode === 404:
-      return 'If you typed the web address, check it is correct. <br><br> If you pasted the web address, check you copied the entire address.'
-    default:
-      return 'Try again later.<br><br>Email <a href="mailto:disinfectant@apha.gov.uk"> disinfectant@apha.gov.uk </a> for further information.'
+  if (statusCode === 404) {
+    return 'If you typed the web address, check it is correct. <br><br> If you pasted the web address, check you copied the entire address.'
+  } else {
+    return 'Try again later.<br><br>Email <a href="mailto:disinfectant@apha.gov.uk"> disinfectant@apha.gov.uk </a> for further information.'
   }
 }
 function statusCodeHeading(statusCode) {
-  switch (true) {
-    case statusCode === 404:
-      return {
-        title: 'Page Not Found'
-      }
-    default:
-      return {
-        title: 'Sorry, there is a problem with the service'
-      }
+  if (statusCode === 404) {
+    return { title: 'Page Not Found' }
+  } else {
+    return { title: 'Sorry, there is a problem with the service' }
   }
 }
+
 function catchAll(request, h) {
   const { response } = request
   if (!response.isBoom) {

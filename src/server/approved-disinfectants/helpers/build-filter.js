@@ -17,7 +17,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       startsWith !== null &&
       startsWith !== ''
     )
-      clearAllLink = '?startwith=' + startsWith + '&clear=all#tableDisinfectant'
+      clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
     // clearAllLink = '?startwith=' + startsWith + '&clear=all'
 
     let chemGroupSelected = searchPayload?.chkChemicalGroup
@@ -102,8 +102,11 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       if (chemGroupSelected.length > 0) {
         filterToBeCreated = true
         const items = []
-        const filterCategoryChemgroup = {}
-        filterCategoryChemgroup.heading = { text: headerChemicalGroup }
+        const filterCategoryChemgroup = {
+          heading: {
+            text: headerChemicalGroup
+          }
+        }
 
         chemGroupSelected.forEach((element) => {
           items.push({
@@ -118,8 +121,11 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       if (chemGroupSelected !== '') {
         filterToBeCreated = true
         const items = []
-        const filterCategoryChemgroup = {}
-        filterCategoryChemgroup.heading = { text: headerChemicalGroup }
+        const filterCategoryChemgroup = {
+          heading: {
+            text: headerChemicalGroup
+          }
+        }
 
         items.push({
           text: chemGroupSelected,
