@@ -25,11 +25,10 @@ function tableData(approvedDisinfectantList) {
       tableItems.push([
         { html: element.disInfectantName, classes: className },
         {
-          html:
-            `${element.companyName} 
+          html: `${element.companyName} 
             <br><span class="govuk-secondary-text-colour"> 
             ${element.companyAddress != null ? element.companyAddress : ''} 
-            </span>`, 
+            </span>`,
           classes: className
         },
         { html: element.chemicalGroups, classes: className },
