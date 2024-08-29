@@ -1,12 +1,16 @@
 function statusCodeMessage(statusCode) {
-  if (statusCode === 404) {
+  const errorCodeNum = 404
+
+  if (statusCode === errorCodeNum) {
     return 'If you typed the web address, check it is correct. <br><br> If you pasted the web address, check you copied the entire address.'
   } else {
     return 'Try again later.<br><br>Email <a href="mailto:disinfectant@apha.gov.uk"> disinfectant@apha.gov.uk </a> for further information.'
   }
 }
 function statusCodeHeading(statusCode) {
-  if (statusCode === 404) {
+  const errorCodeNum = 404
+
+  if (statusCode === errorCodeNum) {
     return { title: 'Page Not Found' }
   } else {
     return { title: 'Sorry, there is a problem with the service' }
