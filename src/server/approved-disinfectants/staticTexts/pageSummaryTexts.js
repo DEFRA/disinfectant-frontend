@@ -6,7 +6,7 @@ export const pageSummaryTexts = {
   disinfectantTableHowToReadLinkText:
     'To find out when you must use a Defra-approved disinfectant, which product to use, and in what concentration, visit',
   defraDisinfectantWhenAndHowText: 'Defra-approved disinfectants',
-  learnMoreAboutApprovalText: 'Learn more about approval categories',
+  learnMoreAboutApprovalText: 'Learn more about the approval categories',
   approvalCategoriesHeader: 'Approval categories',
   relevantLawsText:
     'The relevant laws on disinfectant use are called disease orders. There are 4 specific disease orders for the following diseases:',
