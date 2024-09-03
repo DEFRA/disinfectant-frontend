@@ -3,7 +3,7 @@ import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 
 const logger = createLogger()
-const buildFilter = (searchPayload, clearValue = '', startsWith) => {
+const buildFilter = (searchPayload, startsWith, clearValue = '') => {
   try {
     let filterToBeCreated = false
     const filterCategories = []
@@ -17,7 +17,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       startsWith !== null &&
       startsWith !== ''
     )
-      clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
+      { clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant` }
     // clearAllLink = '?startwith=' + startsWith + '&clear=all'
 
     let chemGroupSelected = searchPayload?.chkChemicalGroup
@@ -37,16 +37,20 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
           chemGroupSelected = chemGroupSelected.filter(function (item) {
             return item !== clearValue
           })
-        } else {
-          if (chemGroupSelected === clearValue.trim()) chemGroupSelected = []
+        } if (Array.isArray(chemGroupSelected)) {
+          chemGroupSelected = chemGroupSelected.filter(function (item) {
+            return item !== clearValue
+          })
+        } else if (chemGroupSelected === clearValue.trim()) {
+          chemGroupSelected = []
         }
-
+       
+ 
         if (Array.isArray(approvalCatSelected)) {
           approvalCatSelected = approvalCatSelected.filter(function (item) {
             return item !== clearValue
           })
-        } else {
-          if (approvalCatSelected === clearValue.trim())
+        } else if (approvalCatSelected === clearValue.trim()) {
             approvalCatSelected = []
         }
       }
@@ -77,8 +81,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryApprovalCategory.items = items
         filterCategories.push(filterCategoryApprovalCategory)
       }
-    } else {
-      if (approvalCatSelected !== '') {
+    } else if (approvalCatSelected !== '') {
         filterToBeCreated = true
         const items = []
         const filterCategoryApprovalCategory = {}
@@ -95,7 +98,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryApprovalCategory.items = items
         filterCategories.push(filterCategoryApprovalCategory)
       }
-    }
+    
 
     // chemical group
     if (Array.isArray(chemGroupSelected)) {
@@ -117,8 +120,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryChemgroup.items = items
         filterCategories.push(filterCategoryChemgroup)
       }
-    } else {
-      if (chemGroupSelected !== '') {
+    } else if (chemGroupSelected !== '') {
         filterToBeCreated = true
         const items = []
         const filterCategoryChemgroup = {
@@ -134,7 +136,7 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryChemgroup.items = items
         filterCategories.push(filterCategoryChemgroup)
       }
-    }
+    
     logger.info('build filter method executed')
     return {
       chemGroupSelected,
@@ -154,11 +156,6 @@ function createHrefLink(startsWith, value) {
     startsWith !== ''
     ? `?startwith=${startsWith}&clear=${value}#tableDisinfectant`
     : `?clear=${value}#tableDisinfectant`
-  // return typeof startsWith !== 'undefined' &&
-  //   startsWith !== null &&
-  //   startsWith !== ''
-  //   ? `?startwith=${startsWith}&clear=${value}`
-  //   : `?clear=${value}`
 }
 
 export { buildFilter }

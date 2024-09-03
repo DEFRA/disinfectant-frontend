@@ -36,6 +36,8 @@ const postController = {
               : []
         } else if (searchPayload.applyFilter) {
           searchPayload.searchtext = prevSearchPayload?.searchtext
+        } else {
+          //return null
         }
       }
 
@@ -57,7 +59,7 @@ const postController = {
         filterToBeCreated,
         filterCategories,
         clearAllLink
-      } = buildFilter(searchPayload, '', StartsWith)
+      } = buildFilter(searchPayload, StartsWith, '')
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected

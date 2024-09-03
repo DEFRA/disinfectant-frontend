@@ -59,7 +59,7 @@ const approvedDisinfectantController = {
         filterToBeCreated,
         filterCategories,
         clearAllLink
-      } = buildFilter(searchPayload, clearValue, StartsWith)
+      } = buildFilter(searchPayload, StartsWith, clearValue)
 
       //  let chemGroupSelected = chemicalGroupSelected
       //  let approvalCatSelected = approvedCategorySelected
