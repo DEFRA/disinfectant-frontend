@@ -155,7 +155,7 @@
                   </div>
 
                   <div class="govuk-grid-column-two-thirds">
-                    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default"  data-remember-expanded="false">
                       <div class="govuk-accordion__section">
                         <div class="govuk-accordion__section-header">
                           <h2 class="govuk-accordion__section-heading">
@@ -285,7 +285,7 @@
 
                   }
                   
-                  var txtSearch = document.getElementById('searchtext')
+                  {# var txtSearch = document.getElementById('searchtext')
                   var btnSearch = document.getElementById('btnSearch')
                   txtSearch.addEventListener("keyup", (e) => {
                     btnToggleDisablement();
@@ -296,7 +296,7 @@
                     } else {
                       btnSearch.disabled = true;
                     }
-                  }
+                  } #}
                 {# document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, user-scalable=no, initial-scale='+(1/window.devicePixelRatio)+''); #}
 
                   const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
