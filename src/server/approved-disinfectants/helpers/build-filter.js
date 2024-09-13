@@ -26,12 +26,13 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
     let approvalCatSelected = searchPayload?.chkApprovalCategories
       ? searchPayload.chkApprovalCategories
       : []
-
+    let searchText = searchPayload?.searchtext
     // remove filter from array
     if (clearValue !== '') {
       if (clearValue === 'all') {
         chemGroupSelected = []
         approvalCatSelected = []
+        searchText = ''
       } else {
         if (Array.isArray(chemGroupSelected)) {
           chemGroupSelected = chemGroupSelected.filter(function (item) {
@@ -141,7 +142,8 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       approvalCatSelected,
       filterToBeCreated,
       clearAllLink,
-      filterCategories
+      filterCategories,
+      searchText
     }
   } catch (err) {
     logger.info(`build filter error:${err}`)

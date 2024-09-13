@@ -50,7 +50,7 @@ const approvedDisinfectantController = {
           : '' // take from request object
       // added for filter panel flow
 
-      const searchText = searchPayload?.searchtext
+      // let searchText = searchPayload?.searchtext
 
       // added for filter panel flow
       const {
@@ -58,7 +58,8 @@ const approvedDisinfectantController = {
         approvalCatSelected,
         filterToBeCreated,
         filterCategories,
-        clearAllLink
+        clearAllLink,
+        searchText
       } = buildFilter(searchPayload, clearValue, StartsWith)
 
       //  let chemGroupSelected = chemicalGroupSelected
@@ -67,6 +68,7 @@ const approvedDisinfectantController = {
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected
         searchPayload.chkApprovalCategories = approvalCatSelected
+        searchPayload.searchtext = searchText
       }
 
       request.yar.set('searchPayload', searchPayload)
