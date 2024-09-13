@@ -23,21 +23,21 @@ const postController = {
       )
       const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.payload
-      const prevSearchPayload = request.yar.get('searchPayload')
-      // set and get yars
-      if (prevSearchPayload !== null) {
-        if (searchPayload.searchDisinfectant) {
-          searchPayload.chkChemicalGroup = prevSearchPayload?.chkChemicalGroup
-            ? prevSearchPayload.chkChemicalGroup
-            : []
-          searchPayload.chkApprovalCategories =
-            prevSearchPayload?.chkApprovalCategories
-              ? prevSearchPayload.chkApprovalCategories
-              : []
-        } else if (searchPayload.applyFilter) {
-          searchPayload.searchtext = prevSearchPayload?.searchtext
-        }
-      }
+      // const prevSearchPayload = request.yar.get('searchPayload')
+      // // set and get yars
+      // if (prevSearchPayload !== null) {
+      //   if (searchPayload.searchDisinfectant) {
+      //     searchPayload.chkChemicalGroup = prevSearchPayload?.chkChemicalGroup
+      //       ? prevSearchPayload.chkChemicalGroup
+      //       : []
+      //     searchPayload.chkApprovalCategories =
+      //       prevSearchPayload?.chkApprovalCategories
+      //         ? prevSearchPayload.chkApprovalCategories
+      //         : []
+      //   } else if (searchPayload.applyFilter) {
+      //     searchPayload.searchtext = prevSearchPayload?.searchtext
+      //   }
+      // }
 
       // request.yar.set('searchPayload', searchPayload)
       const StartsWith = request.yar.get('startsWith')
@@ -49,19 +49,21 @@ const postController = {
           StartsWith !== null ? StartsWith : ''
         )
       }
-      const searchText = searchPayload?.searchtext
+      // const searchText = searchPayload?.searchtext
       // added for filter panel flow
       const {
         chemGroupSelected,
         approvalCatSelected,
         filterToBeCreated,
         filterCategories,
-        clearAllLink
+        clearAllLink,
+        searchText
       } = buildFilter(searchPayload, '', StartsWith)
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected
         searchPayload.chkApprovalCategories = approvalCatSelected
+        searchPayload.searchtext = searchText
       }
 
       request.yar.set('searchPayload', searchPayload)
