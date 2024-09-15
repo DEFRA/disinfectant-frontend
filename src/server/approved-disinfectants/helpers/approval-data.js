@@ -4,6 +4,11 @@ import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 
 const logger = createLogger()
 
+/**
+ * Generates approval data based on the selected list.
+ * @param {Array} selectedList - The list of selected items.
+ * @returns {Array} - The approval data.
+ */
 function approvalData(selectedList) {
   logger.info(`approval-data process initiated`)
   const approvalItems = []

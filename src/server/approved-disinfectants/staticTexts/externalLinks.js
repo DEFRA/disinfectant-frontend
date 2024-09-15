@@ -1,3 +1,25 @@
+/**
+ * Object containing external links for approved disinfectants.
+ *
+ * @typedef {Object} ExternalLinks
+ * @property {string} homeLink - The link to the home page for guidance on when and how to use approved disinfectants.
+ * @property {string} disInfectantHowToLink - The link to the guidance on when and how to use approved disinfectants.
+ * @property {string} dopLink - The link to the legislation for Disinfectant (England and Wales).
+ * @property {string} dopScotlandLink - The link to the legislation for Disinfectant (Scotland).
+ * @property {string} dopWalesLink - The link to the legislation for Disinfectant (Wales).
+ * @property {string} avianFluLink - The link to the legislation for Avian Flu.
+ * @property {string} avianFluScotlandLink - The link to the legislation for Avian Flu (Scotland).
+ * @property {string} avianFluWalesLink - The link to the legislation for Avian Flu (Wales).
+ * @property {string} svdoLink - The link to the legislation for Specified Veterinary Disease Orders.
+ * @property {string} fmdoLink - The link to the legislation for Foot-and-Mouth Disease Orders.
+ * @property {string} fmdoScotlandLink - The link to the legislation for Foot-and-Mouth Disease Orders (Scotland).
+ * @property {string} fmdoWalesLink - The link to the legislation for Foot-and-Mouth Disease Orders (Wales).
+ * @property {string} tboLink - The link to the legislation for Tuberculosis Orders.
+ * @property {string} tboScotlandLink - The link to the legislation for Tuberculosis Orders (Scotland).
+ * @property {string} tboWalesLink - The link to the legislation for Tuberculosis Orders (Wales).
+ * @property {string} goNoteLink - The link to the government collection of notifiable diseases in animals.
+ * @property {string} disinfectantOfficalMail - The official email address for disinfectant-related inquiries.
+ */
 export const externalLinks = {
   homeLink:
     'https://www.gov.uk/guidance/defra-approved-disinfectant-when-and-how-to-use-it',

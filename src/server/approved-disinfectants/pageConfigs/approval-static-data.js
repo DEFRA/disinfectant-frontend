@@ -1,3 +1,14 @@
+/**
+ * Represents the approval data transfer object.
+ * @typedef {Object} ApprovalDTO
+ * @property {string} value - The value of the approval.
+ * @property {string} text - The text description of the approval.
+ */
+
+/**
+ * Array of approval data transfer objects.
+ * @type {ApprovalDTO[]}
+ */
 const approvalDTO = [
   {
     value: 'fmdo',

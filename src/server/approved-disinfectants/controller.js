@@ -19,6 +19,10 @@ import { buildFilter } from './helpers/build-filter.js'
 const logger = createLogger()
 const disInfectant = config.get('disinfectant')
 
+/**
+ * Controller for handling approved disinfectants.
+ * @namespace approvedDisinfectantController
+ */
 const approvedDisinfectantController = {
   handler: async (request, h) => {
     try {

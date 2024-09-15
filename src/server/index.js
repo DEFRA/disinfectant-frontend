@@ -19,6 +19,10 @@ if (redisConfig.enabled) {
 }
 const isProduction = config.get('isProduction')
 
+/**
+ * Creates a Hapi server instance with the specified configurations.
+ * @returns {Promise<Hapi.Server>} The created server instance.
+ */
 async function createServer() {
   const server = hapi.server({
     port: config.get('port'),

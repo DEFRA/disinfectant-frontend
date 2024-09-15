@@ -3,6 +3,13 @@ import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 
 const logger = createLogger()
+/**
+ * Builds a filter based on the search payload, clear value, and startsWith parameter.
+ * @param {Object} searchPayload - The search payload object.
+ * @param {string} [clearValue=''] - The clear value.
+ * @param {string} [startsWith] - The startsWith parameter.
+ * @returns {Object} - The filter object containing chemGroupSelected, approvalCatSelected, filterToBeCreated, clearAllLink, and filterCategories.
+ */
 const buildFilter = (searchPayload, clearValue = '', startsWith) => {
   try {
     let filterToBeCreated = false
@@ -52,8 +59,16 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       }
     }
 
+    /**
+     * Represents the header approval category.
+     * @type {string}
+     */
     const headerApprovalCategory =
       pageSummaryTexts.filterPanelTitles.approvalCategories
+    /**
+     * Represents the header for the chemical groups in the filter panel.
+     * @type {string}
+     */
     const headerChemicalGroup =
       pageSummaryTexts.filterPanelTitles.chemicalGroups
     // approval categories
@@ -148,6 +163,12 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
   }
 }
 
+/**
+ * Creates a href link with query parameters for filtering.
+ * @param {string} startsWith - The value to filter by.
+ * @param {string} value - The value to clear.
+ * @returns {string} The generated href link.
+ */
 function createHrefLink(startsWith, value) {
   return typeof startsWith !== 'undefined' &&
     startsWith !== null &&

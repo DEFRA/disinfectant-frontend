@@ -1,3 +1,10 @@
+/**
+ * Utility object containing helper functions.
+ *
+ * @typedef {Object} utility
+ * @property {Function} pageIndexGenerator - Generates an array of page index objects.
+ * @property {Function} test - Placeholder function for testing purposes.
+ */
 export const utility = {
   pageIndexGenerator: (charA, charZ, currentState) => {
     const defaultValue = 'View all'

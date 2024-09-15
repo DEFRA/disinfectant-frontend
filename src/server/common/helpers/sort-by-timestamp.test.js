@@ -1,3 +1,8 @@
+/**
+ * Sorts an array of objects by their timestamp property.
+ * @param {string} [order='desc'] - The sorting order. Can be 'asc' for ascending or 'desc' for descending. Defaults to 'desc'.
+ * @returns {Function} - A sorting function that can be used with the Array.sort() method.
+ */
 import { sortByTimestamp } from '~/src/server/common/helpers/sort-by-timestamp.js'
 import { productsFixture } from '~/src/__fixtures__/products.js'
 

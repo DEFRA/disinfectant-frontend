@@ -3,6 +3,12 @@ import _ from 'lodash'
 
 const logger = createLogger()
 
+/**
+ * Generates an array of chemical group items based on the provided chemical groups list and selected list.
+ * @param {string[]} chemicalGroupsList - The list of chemical groups.
+ * @param {string[]} selectedList - The list of selected chemical groups.
+ * @returns {Object[]} - An array of chemical group items.
+ */
 function chemicalGroupData(chemicalGroupsList, selectedList) {
   logger.info(`chemicalgroup-data process initiated`)
   const chemicalGroupItems = []

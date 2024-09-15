@@ -1,5 +1,13 @@
 import { config } from '~/src/config/index.js'
 
+/**
+ * Serve static files plugin for the server.
+ *
+ * @type {Object}
+ * @property {Object} plugin - The plugin object.
+ * @property {string} plugin.name - The name of the plugin.
+ * @property {Function} plugin.register - The registration function for the plugin.
+ */
 const serveStaticFiles = {
   plugin: {
     name: 'staticFiles',

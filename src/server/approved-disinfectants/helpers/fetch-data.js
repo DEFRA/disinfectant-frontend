@@ -11,6 +11,16 @@ const logger = createLogger()
 const disInfectant = config.get('disinfectant')
 const rediskey = 'disinfectantApprovedData'
 
+/**
+ * Fetches data for approved disinfectants based on the provided parameters.
+ *
+ * @param {Object} request - The request object.
+ * @param {string} chemicalGroupSelected - The selected chemical group.
+ * @param {string[]} approvalCategoriesSelected - The selected approval categories.
+ * @param {string} searchText - The search text.
+ * @param {boolean} startsWith - Indicates whether the search should start with the provided text.
+ * @returns {Object} - The fetched data including the approved disinfectant list, chemical groups, last modified date with time, and last modified date.
+ */
 const fetchData = async (
   request,
   chemicalGroupSelected,
@@ -53,6 +63,13 @@ const fetchData = async (
   }
 }
 
+/**
+ * Fetches the approved list from the API.
+ *
+ * @param {Object} request - The request object.
+ * @returns {Promise<Object>} - The approved list response.
+ * @throws {Error} - If there is an error while fetching the data.
+ */
 const fetchApprovedListFromAPI = async (request) => {
   logger.info(
     `fetch-data method - No Data in Cache. API endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList} Invocation started`
@@ -81,6 +98,17 @@ const fetchApprovedListFromAPI = async (request) => {
   }
 }
 
+/**
+ * Processes the approved list of disinfectants based on the provided parameters.
+ *
+ * @param {Object} getApprovedListResponse - The response containing the approved list of disinfectants.
+ * @param {string} chemicalGroupSelected - The selected chemical group for filtering the list.
+ * @param {Array} approvalCategoriesSelected - The selected approval categories for filtering the list.
+ * @param {string} searchText - The search text for filtering the list.
+ * @param {boolean} startsWith - Indicates whether the search text should match the start of the disinfectant names.
+ * @returns {Object} - An object containing the processed approved disinfectant list, chemical groups, last modified date with time, and last modified date.
+ * @throws {Error} - If no records are fetched from the approved list.
+ */
 const processApprovedList = (
   getApprovedListResponse,
   chemicalGroupSelected,
@@ -153,24 +181,51 @@ const processApprovedList = (
   }
 }
 
+/**
+ * Retrieves the chemical groups from the response of the approved list API.
+ * @param {Object} getApprovedListResponse - The response object from the approved list API.
+ * @returns {Array} - An array of chemical groups.
+ */
 const getChemicalGroups = (getApprovedListResponse) => {
   return getApprovedListResponse?.documents[0]?.chemicalGroups || []
 }
 
+/**
+ * Retrieves the last modified date and time from the response of the approved list API.
+ *
+ * @param {Object} getApprovedListResponse - The response object from the approved list API.
+ * @returns {string|undefined} The last modified date and time, or undefined if not available.
+ */
 const getLastModifiedTime = (getApprovedListResponse) => {
   return getApprovedListResponse?.documents[0]?.lastModifiedDateAndTime
 }
 
+/**
+ * Retrieves the list of approved disinfectants from the response object.
+ * @param {Object} getApprovedListResponse - The response object containing the approved list.
+ * @returns {Array} - The list of approved disinfectants.
+ */
 const getDisinfectantList = (getApprovedListResponse) => {
   return getApprovedListResponse?.documents[0]?.disInfectants || []
 }
 
+/**
+ * Sorts the approved disinfectant list in alphabetical order based on the disinfectant name.
+ * @param {Array} approvedDisinfectantList - The list of approved disinfectants to be sorted.
+ * @returns {Array} - The sorted approved disinfectant list.
+ */
 const sortApprovedDisinfectantList = (approvedDisinfectantList) => {
   return approvedDisinfectantList.sort(function (a, b) {
     return a.disInfectantName.localeCompare(b.disInfectantName)
   })
 }
 
+/**
+ * Filters the approved disinfectant list based on the selected chemical group(s).
+ * @param {Array} approvedDisinfectantList - The list of approved disinfectants.
+ * @param {string|string[]} chemicalGroupSelected - The selected chemical group(s).
+ * @returns {Array} - The filtered approved disinfectant list.
+ */
 const filterByChemicalGroup = (
   approvedDisinfectantList,
   chemicalGroupSelected
@@ -222,6 +277,12 @@ const filterByChemicalGroup = (
   return approvedDisinfectantList
 }
 
+/**
+ * Filters the approved disinfectant list based on the selected approval categories.
+ * @param {Array} approvedDisinfectantList - The list of approved disinfectants.
+ * @param {Array|string} approvalCategoriesSelected - The selected approval categories.
+ * @returns {Array} - The filtered approved disinfectant list.
+ */
 const filterByApprovalCategories = (
   approvedDisinfectantList,
   approvalCategoriesSelected
@@ -297,6 +358,12 @@ const filterByApprovalCategories = (
   return approvedDisinfectantList
 }
 
+/**
+ * Filters the approved disinfectant list based on the search text.
+ * @param {Array} approvedDisinfectantList - The list of approved disinfectants.
+ * @param {string} searchText - The search text to filter the list.
+ * @returns {Array} - The filtered approved disinfectant list.
+ */
 const filterBySearchText = (approvedDisinfectantList, searchText) => {
   if (searchText) {
     approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
@@ -309,6 +376,12 @@ const filterBySearchText = (approvedDisinfectantList, searchText) => {
   return approvedDisinfectantList
 }
 
+/**
+ * Filters the approved disinfectant list based on a given starting string.
+ * @param {Array} approvedDisinfectantList - The list of approved disinfectants.
+ * @param {string} startsWith - The starting string to filter by.
+ * @returns {Array} - The filtered approved disinfectant list.
+ */
 const filterByStartsWith = (approvedDisinfectantList, startsWith) => {
   if (startsWith) {
     if (startsWith !== 'View all' && startsWith !== '0 to 9') {

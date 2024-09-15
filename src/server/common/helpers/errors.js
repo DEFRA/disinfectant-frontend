@@ -1,3 +1,8 @@
+/**
+ * Returns the error message based on the provided status code.
+ * @param {number} statusCode - The status code.
+ * @returns {string} - The error message.
+ */
 function statusCodeMessage(statusCode) {
   const errorCodeNum = 404
 
@@ -7,6 +12,11 @@ function statusCodeMessage(statusCode) {
     return 'Try again later.<br><br>Email <a href="mailto:disinfectant@apha.gov.uk"> disinfectant@apha.gov.uk </a> for further information.'
   }
 }
+/**
+ * Returns the heading title based on the given status code.
+ * @param {number} statusCode - The status code.
+ * @returns {Object} - The heading title object.
+ */
 function statusCodeHeading(statusCode) {
   const errorCodeNum = 404
 
@@ -17,6 +27,12 @@ function statusCodeHeading(statusCode) {
   }
 }
 
+/**
+ * Handles all errors in the server.
+ * @param {Object} request - The request object.
+ * @param {Object} h - The response toolkit object.
+ * @returns {Object} - The response object.
+ */
 function catchAll(request, h) {
   const { response } = request
   if (!response.isBoom) {

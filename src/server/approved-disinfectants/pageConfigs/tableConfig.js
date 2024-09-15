@@ -1,4 +1,12 @@
 const className = 'govuk-body-s'
+/**
+ * Configuration object for the table.
+ *
+ * @typedef {Object} tableConfig
+ * @property {boolean} firstCellIsHeader - Indicates whether the first cell in the table is a header cell.
+ * @property {string} classes - CSS classes to be applied to the table.
+ * @property {Array} head - Array of objects representing the table header cells.
+ */
 export const tableConfig = {
   // caption: "Dates and amounts",
   firstCellIsHeader: true,
