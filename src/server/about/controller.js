@@ -3,7 +3,7 @@
  * Provided as an example, remove or modify as required.
  */
 const aboutController = {
-  handler: (request, h) => {
+  handler: (_request, h) => {
     return h.view('about/index', {
       pageTitle: 'About',
       heading: 'About',
