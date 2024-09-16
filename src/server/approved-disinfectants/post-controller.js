@@ -23,23 +23,7 @@ const postController = {
       )
       const envGoLiveDate = disInfectant.envgolivedate
       const searchPayload = request.payload
-      // const prevSearchPayload = request.yar.get('searchPayload')
-      // // set and get yars
-      // if (prevSearchPayload !== null) {
-      //   if (searchPayload.searchDisinfectant) {
-      //     searchPayload.chkChemicalGroup = prevSearchPayload?.chkChemicalGroup
-      //       ? prevSearchPayload.chkChemicalGroup
-      //       : []
-      //     searchPayload.chkApprovalCategories =
-      //       prevSearchPayload?.chkApprovalCategories
-      //         ? prevSearchPayload.chkApprovalCategories
-      //         : []
-      //   } else if (searchPayload.applyFilter) {
-      //     searchPayload.searchtext = prevSearchPayload?.searchtext
-      //   }
-      // }
 
-      // request.yar.set('searchPayload', searchPayload)
       const StartsWith = request.yar.get('startsWith')
       // set and get yars
       const pagingConfig = {
