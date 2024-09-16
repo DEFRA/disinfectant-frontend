@@ -46,6 +46,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
           })
         } else if (chemGroupSelected === clearValue.trim()) {
           chemGroupSelected = []
+        } else {
+          logger.info('No conditions for chemGroupSelected clearance')
         }
 
         if (Array.isArray(approvalCatSelected)) {
@@ -54,6 +56,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
           })
         } else if (approvalCatSelected === clearValue.trim()) {
           approvalCatSelected = []
+        } else {
+          logger.info('No conditions for approvalCatSelected clearance')
         }
       }
     }
@@ -99,6 +103,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
       })
       filterCategoryApprovalCategory.items = items
       filterCategories.push(filterCategoryApprovalCategory)
+    } else {
+      logger.info('No conditions for approvalCatSelected')
     }
 
     // chemical group
@@ -136,6 +142,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
       })
       filterCategoryChemgroup.items = items
       filterCategories.push(filterCategoryChemgroup)
+    } else {
+      logger.info('No conditions for chemGroupSelected')
     }
 
     logger.info('build filter method executed')

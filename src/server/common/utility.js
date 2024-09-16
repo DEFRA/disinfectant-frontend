@@ -11,7 +11,9 @@ export const utility = {
     currentState = currentState.trim() === '' ? defaultValue : currentState
     // currentState = currentState.trim() === '' ? 'A' : currentState
 
-    if (currentState === defaultValue) current = true
+    if (currentState === defaultValue) {
+      current = true
+    }
     items.push({
       number: defaultValue,
       href: `${redirectionURL}${defaultValue}${sectionId}`,
@@ -20,7 +22,9 @@ export const utility = {
     current = false
 
     for (let i = charA.charCodeAt(0); i <= j; ++i) {
-      if (currentState === String.fromCharCode(i)) current = true
+      if (currentState === String.fromCharCode(i)) {
+        current = true
+      }
       items.push({
         number: String.fromCharCode(i),
         href: `${redirectionURL}${String.fromCharCode(i)}${sectionId}`,
@@ -28,7 +32,9 @@ export const utility = {
       })
       current = false
     }
-    if (currentState === numberRange) current = true
+    if (currentState === numberRange) {
+      current = true
+    }
     items.push({
       number: numberRange,
       href: `${redirectionURL}${numberRange}${sectionId}`,
