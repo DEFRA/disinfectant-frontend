@@ -14,7 +14,7 @@ class RedisService {
     await this.client.set(
       id,
       JSON.stringify({
-        ...(storedData && storedData),
+        ...storedData,
         ...data
       }),
       'EX',
@@ -23,7 +23,7 @@ class RedisService {
 
     this.server.logger.debug(
       {
-        ...(storedData && storedData),
+        ...storedData,
         ...data
       },
       'Redis store data'

@@ -58,7 +58,7 @@ const postController = {
         filterCategories,
         clearAllLink,
         searchText
-      } = buildFilter(searchPayload, '', StartsWith)
+      } = buildFilter(searchPayload, StartsWith, '')
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected

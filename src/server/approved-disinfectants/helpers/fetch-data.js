@@ -219,6 +219,8 @@ const fetchData = async (
         approvedDisinfectantList = approvedDisinfectantList.filter((el) => {
           return !isNaN(el.disInfectantName?.charAt(0))
         })
+      } else {
+        // return null
       }
 
       logger.info(

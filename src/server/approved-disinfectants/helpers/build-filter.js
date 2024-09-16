@@ -3,7 +3,7 @@ import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 
 const logger = createLogger()
-const buildFilter = (searchPayload, clearValue = '', startsWith) => {
+const buildFilter = (searchPayload, startsWith, clearValue = '') => {
   try {
     let filterToBeCreated = false
     const filterCategories = []
@@ -16,8 +16,9 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
       typeof startsWith !== 'undefined' &&
       startsWith !== null &&
       startsWith !== ''
-    )
+    ) {
       clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
+    }
     // clearAllLink = '?startwith=' + startsWith + '&clear=all'
 
     let chemGroupSelected = searchPayload?.chkChemicalGroup
@@ -38,17 +39,21 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
           chemGroupSelected = chemGroupSelected.filter(function (item) {
             return item !== clearValue
           })
-        } else {
-          if (chemGroupSelected === clearValue.trim()) chemGroupSelected = []
+        }
+        if (Array.isArray(chemGroupSelected)) {
+          chemGroupSelected = chemGroupSelected.filter(function (item) {
+            return item !== clearValue
+          })
+        } else if (chemGroupSelected === clearValue.trim()) {
+          chemGroupSelected = []
         }
 
         if (Array.isArray(approvalCatSelected)) {
           approvalCatSelected = approvalCatSelected.filter(function (item) {
             return item !== clearValue
           })
-        } else {
-          if (approvalCatSelected === clearValue.trim())
-            approvalCatSelected = []
+        } else if (approvalCatSelected === clearValue.trim()) {
+          approvalCatSelected = []
         }
       }
     }
@@ -78,24 +83,22 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryApprovalCategory.items = items
         filterCategories.push(filterCategoryApprovalCategory)
       }
-    } else {
-      if (approvalCatSelected !== '') {
-        filterToBeCreated = true
-        const items = []
-        const filterCategoryApprovalCategory = {}
-        filterCategoryApprovalCategory.heading = {
-          text: headerApprovalCategory
-        }
-        const approvalCattext = approvalDTO.find(
-          (elem) => elem.value === approvalCatSelected
-        )
-        items.push({
-          text: approvalCattext.text,
-          href: createHrefLink(startsWith, approvalCattext.value)
-        })
-        filterCategoryApprovalCategory.items = items
-        filterCategories.push(filterCategoryApprovalCategory)
+    } else if (approvalCatSelected !== '') {
+      filterToBeCreated = true
+      const items = []
+      const filterCategoryApprovalCategory = {}
+      filterCategoryApprovalCategory.heading = {
+        text: headerApprovalCategory
       }
+      const approvalCattext = approvalDTO.find(
+        (elem) => elem.value === approvalCatSelected
+      )
+      items.push({
+        text: approvalCattext.text,
+        href: createHrefLink(startsWith, approvalCattext.value)
+      })
+      filterCategoryApprovalCategory.items = items
+      filterCategories.push(filterCategoryApprovalCategory)
     }
 
     // chemical group
@@ -118,24 +121,23 @@ const buildFilter = (searchPayload, clearValue = '', startsWith) => {
         filterCategoryChemgroup.items = items
         filterCategories.push(filterCategoryChemgroup)
       }
-    } else {
-      if (chemGroupSelected !== '') {
-        filterToBeCreated = true
-        const items = []
-        const filterCategoryChemgroup = {
-          heading: {
-            text: headerChemicalGroup
-          }
+    } else if (chemGroupSelected !== '') {
+      filterToBeCreated = true
+      const items = []
+      const filterCategoryChemgroup = {
+        heading: {
+          text: headerChemicalGroup
         }
-
-        items.push({
-          text: chemGroupSelected,
-          href: createHrefLink(startsWith, chemGroupSelected)
-        })
-        filterCategoryChemgroup.items = items
-        filterCategories.push(filterCategoryChemgroup)
       }
+
+      items.push({
+        text: chemGroupSelected,
+        href: createHrefLink(startsWith, chemGroupSelected)
+      })
+      filterCategoryChemgroup.items = items
+      filterCategories.push(filterCategoryChemgroup)
     }
+
     logger.info('build filter method executed')
     return {
       chemGroupSelected,
@@ -156,11 +158,6 @@ function createHrefLink(startsWith, value) {
     startsWith !== ''
     ? `?startwith=${startsWith}&clear=${value}#tableDisinfectant`
     : `?clear=${value}#tableDisinfectant`
-  // return typeof startsWith !== 'undefined' &&
-  //   startsWith !== null &&
-  //   startsWith !== ''
-  //   ? `?startwith=${startsWith}&clear=${value}`
-  //   : `?clear=${value}`
 }
 
 export { buildFilter }
