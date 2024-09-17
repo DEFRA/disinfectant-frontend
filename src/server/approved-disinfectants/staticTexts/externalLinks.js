@@ -3,6 +3,8 @@ export const externalLinks = {
     'https://www.gov.uk/guidance/defra-approved-disinfectant-when-and-how-to-use-it',
   disInfectantHowToLink:
     'https://www.gov.uk/guidance/defra-approved-disinfectant-when-and-how-to-use-it',
+  disInfectantHowToStartLink:
+    'https://www.legislation.gov.uk/uksi/2007/448/contents',
   dopLink: 'https://www.legislation.gov.uk/uksi/2003/1078',
   dopScotlandLink: 'https://www.legislation.gov.uk/ssi/2003/354/contents/made',
   dopWalesLink: 'https://www.legislation.gov.uk/all/2003/107',

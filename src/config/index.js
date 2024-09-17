@@ -30,7 +30,8 @@ const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'Defra-approved disinfectants'
+    default:
+      'Disinfectants approved for statutory notifiable animal disease control'
   },
   root: {
     doc: 'Project root',
