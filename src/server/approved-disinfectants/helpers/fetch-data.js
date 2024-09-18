@@ -395,7 +395,7 @@ const filterByStartsWith = (approvedDisinfectantList, startsWith) => {
         return !isNaN(el.disInfectantName?.charAt(0))
       })
     } else {
-      logger.info (`No startsWith condition fulfilled`)
+      logger.info(`No startsWith condition fulfilled`)
     }
   }
 
