@@ -23,8 +23,7 @@ export default {
     '<rootDir>/.server',
     '<rootDir>/.public',
     '<rootDir>/src/__fixtures__',
-    '<rootDir>/src/server/common/test-helpers',
-    '<rootDir>/src/server/approved-disinfectants/helpers/fetch-data.test.js'
+    '<rootDir>/src/server/common/test-helpers'
   ],
   coverageDirectory: '<rootDir>/coverage'
 }
