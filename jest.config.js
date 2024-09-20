@@ -8,7 +8,16 @@ export default {
   testMatch: ['**/src/**/*.test.js'],
   reporters: ['default', ['github-actions', { silent: false }], 'summary'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
-  collectCoverageFrom: ['src/**/helpers'],
+  collectCoverageFrom: [
+    'src/**/approval-data.js',
+    'src/**/sort-by-timestamp.js',
+    'src/**/build-filter.js',
+    'src/**/chemicalgroup-data.js',
+    'src/**/table-data.js',
+    'src/**/format-currency.js',
+    'src/**/format-date.js',
+    'src/**/get-trust-store-certs.js'
+  ],
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/.server',
