@@ -4,7 +4,6 @@ import { chemicalGroup } from './pageConfigs/chemicalGroup.js'
 import { utility } from '../common/utility.js'
 import { tableConfig } from './pageConfigs/tableConfig.js'
 import { externalLinks } from './staticTexts/externalLinks.js'
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import { fetchData } from './helpers/fetch-data.js'
 import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
@@ -12,11 +11,11 @@ import { approvalData } from './helpers/approval-data.js'
 import { config } from '~/src/config/index.js'
 import { buildFilter } from './helpers/build-filter.js'
 
-const logger = createLogger()
 const disInfectant = config.get('disinfectant')
 
 const postController = {
   handler: async (request, h) => {
+    const logger = request.logger
     try {
       logger.info(
         `post controller initiated :  ${JSON.stringify(request.payload)}`
@@ -33,7 +32,7 @@ const postController = {
           StartsWith !== null ? StartsWith : ''
         )
       }
-      // const searchText = searchPayload?.searchtext
+
       // added for filter panel flow
       const {
         chemGroupSelected,
@@ -75,8 +74,7 @@ const postController = {
         StartsWith === null || StartsWith === ''
           ? '?startwith=View all#tableDisinfectant'
           : `?startwith=${StartsWith}#tableDisinfectant`
-      // const querystring =
-      //   StartsWith == null ? '' : '?startwith=' + StartsWith + ''
+
       logger.info(`post controller handler executed`)
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,

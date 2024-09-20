@@ -1,13 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { proxyFetch } from '../../common/helpers/proxy-fetch.js'
 import { config } from '~/src/config/index.js'
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import { appSpecificConstants } from '~/src/server/common/helpers/constants.js'
 import { formatDate } from '~/src/config/nunjucks/filters/format-date.js'
 
 const redisConfig = config.get('redis')
 const options = { method: 'GET', headers: { 'Content-Type': 'text/json' } }
-const logger = createLogger()
+let logger
 const disInfectant = config.get('disinfectant')
 const rediskey = 'disinfectantApprovedData'
 
@@ -28,6 +27,7 @@ const fetchData = async (
   searchText,
   startsWith
 ) => {
+  logger = request.logger
   logger.info(
     `fetch-data method initiated  ${JSON.stringify(chemicalGroupSelected)} ${JSON.stringify(approvalCategoriesSelected)} ${JSON.stringify(searchText)} ${JSON.stringify(startsWith)} `
   )
@@ -71,6 +71,7 @@ const fetchData = async (
  * @throws {Error} - If there is an error while fetching the data.
  */
 const fetchApprovedListFromAPI = async (request) => {
+  const logger = request.logger
   logger.info(
     `fetch-data method - No Data in Cache. API endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList} Invocation started`
   )

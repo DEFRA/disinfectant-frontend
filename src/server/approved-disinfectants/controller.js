@@ -8,7 +8,6 @@ import { chemicalGroup } from './pageConfigs/chemicalGroup.js'
 import { utility } from '../common/utility.js'
 import { tableConfig } from './pageConfigs/tableConfig.js'
 import { externalLinks } from './staticTexts/externalLinks.js'
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import { fetchData } from './helpers/fetch-data.js'
 import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
@@ -16,15 +15,14 @@ import { approvalData } from './helpers/approval-data.js'
 import { config } from '~/src/config/index.js'
 import { buildFilter } from './helpers/build-filter.js'
 
-const logger = createLogger()
 const disInfectant = config.get('disinfectant')
 
 const approvedDisinfectantController = {
   handler: async (request, h) => {
+    const logger = request.logger
     try {
       logger.info(`get controller handler initiated`)
       // set and get yars
-
       if (Object.keys(request.query).length === 0) {
         request.yar.set('searchPayload', {})
       }
@@ -50,8 +48,6 @@ const approvedDisinfectantController = {
           : '' // take from request object
       // added for filter panel flow
 
-      // let searchText = searchPayload?.searchtext
-
       // added for filter panel flow
       const {
         chemGroupSelected,
@@ -61,9 +57,6 @@ const approvedDisinfectantController = {
         clearAllLink,
         searchText
       } = buildFilter(searchPayload, StartsWith, clearValue)
-
-      //  let chemGroupSelected = chemicalGroupSelected
-      //  let approvalCatSelected = approvedCategorySelected
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected
