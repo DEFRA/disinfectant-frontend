@@ -15,10 +15,7 @@ const router = {
       await server.register([health])
 
       // Application specific routes, add your own routes here
-      await server.register([ 
-        approvedDisinfectant,
-        accessibilityStatement
-      ])
+      await server.register([approvedDisinfectant, accessibilityStatement])
 
       // Static assets
       await server.register([serveStaticFiles])
