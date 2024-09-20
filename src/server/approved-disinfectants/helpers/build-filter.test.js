@@ -1,5 +1,14 @@
 /* eslint-disable no-console */
 import { buildFilter } from './build-filter.js'
+const startWithA = '?startwith=A&clear=all#tableDisinfectant'
+const approvalCat = 'Approval categories'
+const svdoText = 'Swine Vesicular Disease Orders (SVDO)'
+const fmdoText = 'Foot and Mouth Disease Orders (FMDO)'
+const dopText =
+  'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)'
+const tbText = 'Tuberculosis Orders (TBO)'
+const goText = 'General Orders (GO)'
+const chemGroupText = 'Chemical groups'
 
 describe('buildFilter', () => {
   test('should return the correct filter object', () => {
@@ -21,38 +30,38 @@ describe('buildFilter', () => {
       'go'
     ])
     expect(result.filterToBeCreated).toBe(true)
-    expect(result.clearAllLink).toBe('?startwith=A&clear=all#tableDisinfectant')
+    expect(result.clearAllLink).toBe(startWithA)
     expect(result.filterCategories).toEqual([
       {
         heading: {
-          text: 'Approval categories'
+          text: approvalCat
         },
         items: [
           {
-            text: 'Foot and Mouth Disease Orders (FMDO)',
+            text: fmdoText,
             href: '?startwith=A&clear=fmdo#tableDisinfectant'
           },
           {
-            text: 'Swine Vesicular Disease Orders (SVDO)',
+            text: svdoText,
             href: '?startwith=A&clear=svdo#tableDisinfectant'
           },
           {
-            text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+            text: dopText,
             href: '?startwith=A&clear=dop#tableDisinfectant'
           },
           {
-            text: 'Tuberculosis Orders (TBO)',
+            text: tbText,
             href: '?startwith=A&clear=tbo#tableDisinfectant'
           },
           {
-            text: 'General Orders (GO)',
+            text: goText,
             href: '?startwith=A&clear=go#tableDisinfectant'
           }
         ]
       },
       {
         heading: {
-          text: 'Chemical groups'
+          text: chemGroupText
         },
         items: [
           {
@@ -72,7 +81,7 @@ describe('buildFilter', () => {
     const clearValue = 'group2'
     const startsWith = 'A'
 
-    const result = await buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual([
@@ -83,7 +92,7 @@ describe('buildFilter', () => {
       'go'
     ])
     expect(result.filterToBeCreated).toBe(true)
-    expect(result.clearAllLink).toBe('?startwith=A&clear=all#tableDisinfectant')
+    expect(result.clearAllLink).toBe(startWithA)
   })
 
   test('should return the correct filter objects for ApprovalCategorySelectedIsNotAnArray', async () => {
@@ -94,12 +103,12 @@ describe('buildFilter', () => {
     const clearValue = 'group2'
     const startsWith = 'A'
 
-    const result = await buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual('fmdo')
     expect(result.filterToBeCreated).toBe(true)
-    expect(result.clearAllLink).toBe('?startwith=A&clear=all#tableDisinfectant')
+    expect(result.clearAllLink).toBe(startWithA)
   })
 
   test('should return the correct filter object when clearValue is "all"', () => {
@@ -115,7 +124,7 @@ describe('buildFilter', () => {
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])
     expect(result.filterToBeCreated).toBe(false)
-    expect(result.clearAllLink).toBe('?startwith=A&clear=all#tableDisinfectant')
+    expect(result.clearAllLink).toBe(startWithA)
     expect(result.filterCategories).toEqual([])
   })
 
@@ -137,38 +146,38 @@ describe('buildFilter', () => {
       'go'
     ])
     expect(result.filterToBeCreated).toBe(true)
-    expect(result.clearAllLink).toBe('?startwith=A&clear=all#tableDisinfectant')
+    expect(result.clearAllLink).toBe(startWithA)
     expect(result.filterCategories).toEqual([
       {
         heading: {
-          text: 'Approval categories'
+          text: approvalCat
         },
         items: [
           {
-            text: 'Foot and Mouth Disease Orders (FMDO)',
+            text: fmdoText,
             href: '?startwith=A&clear=fmdo#tableDisinfectant'
           },
           {
-            text: 'Swine Vesicular Disease Orders (SVDO)',
+            text: svdoText,
             href: '?startwith=A&clear=svdo#tableDisinfectant'
           },
           {
-            text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+            text: dopText,
             href: '?startwith=A&clear=dop#tableDisinfectant'
           },
           {
-            text: 'Tuberculosis Orders (TBO)',
+            text: tbText,
             href: '?startwith=A&clear=tbo#tableDisinfectant'
           },
           {
-            text: 'General Orders (GO)',
+            text: goText,
             href: '?startwith=A&clear=go#tableDisinfectant'
           }
         ]
       },
       {
         heading: {
-          text: 'Chemical groups'
+          text: chemGroupText
         },
         items: [
           {
@@ -206,34 +215,34 @@ describe('buildFilter', () => {
     expect(result.filterCategories).toEqual([
       {
         heading: {
-          text: 'Approval categories'
+          text: approvalCat
         },
         items: [
           {
-            text: 'Foot and Mouth Disease Orders (FMDO)',
+            text: fmdoText,
             href: '?clear=fmdo#tableDisinfectant'
           },
           {
-            text: 'Swine Vesicular Disease Orders (SVDO)',
+            text: svdoText,
             href: '?clear=svdo#tableDisinfectant'
           },
           {
-            text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+            text: dopText,
             href: '?clear=dop#tableDisinfectant'
           },
           {
-            text: 'Tuberculosis Orders (TBO)',
+            text: tbText,
             href: '?clear=tbo#tableDisinfectant'
           },
           {
-            text: 'General Orders (GO)',
+            text: goText,
             href: '?clear=go#tableDisinfectant'
           }
         ]
       },
       {
         heading: {
-          text: 'Chemical groups'
+          text: chemGroupText
         },
         items: [
           {
@@ -266,34 +275,34 @@ describe('buildFilter', () => {
     expect(result.filterCategories).toEqual([
       {
         heading: {
-          text: 'Approval categories'
+          text: approvalCat
         },
         items: [
           {
-            text: 'Foot and Mouth Disease Orders (FMDO)',
+            text: fmdoText,
             href: '?clear=fmdo#tableDisinfectant'
           },
           {
-            text: 'Swine Vesicular Disease Orders (SVDO)',
+            text: svdoText,
             href: '?clear=svdo#tableDisinfectant'
           },
           {
-            text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+            text: dopText,
             href: '?clear=dop#tableDisinfectant'
           },
           {
-            text: 'Tuberculosis Orders (TBO)',
+            text: tbText,
             href: '?clear=tbo#tableDisinfectant'
           },
           {
-            text: 'General Orders (GO)',
+            text: goText,
             href: '?clear=go#tableDisinfectant'
           }
         ]
       },
       {
         heading: {
-          text: 'Chemical groups'
+          text: chemGroupText
         },
         items: [
           {

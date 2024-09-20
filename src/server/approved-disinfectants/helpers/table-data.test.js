@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 import { tableData } from './table-data.js'
 
+const govUkBodySStyle = 'govuk-body-s'
+
 describe('tableData', () => {
   test('should return table items with "No records found" when approvedDisinfectantList is empty', () => {
     const approvedDisinfectantList = []
@@ -8,14 +10,14 @@ describe('tableData', () => {
 
     expect(result).toEqual([
       [
-        { html: 'No records found', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' }
+        { html: 'No records found', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle }
       ]
     ])
   })
@@ -26,14 +28,14 @@ describe('tableData', () => {
 
     expect(result).toEqual([
       [
-        { html: 'No records found', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' },
-        { html: '', classes: 'govuk-body-s' }
+        { html: 'No records found', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle }
       ]
     ])
   })
