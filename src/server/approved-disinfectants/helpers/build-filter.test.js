@@ -409,4 +409,94 @@ describe('buildFilter', () => {
       }
     ])
   })
+
+  test('should return the correct filter object when checmical group and approval categories are non array and non blank for approval category clear flow', () => {
+    const searchPayload = {
+      chkChemicalGroup: 'group1',
+      chkApprovalCategories: 'fmdo'
+    }
+
+    const clearValue = 'fmdo'
+    const startsWith = 'A'
+
+    const result = buildFilter(searchPayload, startsWith, clearValue)
+
+    expect(result.chemGroupSelected).toEqual('group1')
+    expect(result.approvalCatSelected).toEqual([])
+    expect(result.filterToBeCreated).toBe(true)
+    expect(result.clearAllLink).toBe(startWithA)
+
+    expect(result.filterCategories).toEqual([
+      {
+        heading: {
+          text: chemGroupText
+        },
+        items: [
+          {
+            href: '?startwith=A&clear=group1#tableDisinfectant',
+            text: 'group1'
+          }
+        ]
+      }
+    ])
+  })
+
+  test('should return the correct filter object when checmical group and approval categories are non array and non blank for clear wrong value flow', () => {
+    const searchPayload = {
+      chkChemicalGroup: 'group1',
+      chkApprovalCategories: 'fmdo'
+    }
+
+    const clearValue = 'svdo'
+    const startsWith = 'A'
+
+    const result = buildFilter(searchPayload, startsWith, clearValue)
+
+    expect(result.chemGroupSelected).toEqual('group1')
+    expect(result.approvalCatSelected).toEqual('fmdo')
+    expect(result.filterToBeCreated).toBe(true)
+    expect(result.clearAllLink).toBe(startWithA)
+
+    expect(result.filterCategories).toEqual([
+      {
+        heading: {
+          text: approvalCat
+        },
+        items: [
+          {
+            href: '?startwith=A&clear=fmdo#tableDisinfectant',
+            text: fmdoText
+          }
+        ]
+      },
+      {
+        heading: {
+          text: chemGroupText
+        },
+        items: [
+          {
+            href: '?startwith=A&clear=group1#tableDisinfectant',
+            text: 'group1'
+          }
+        ]
+      }
+    ])
+  })
+
+  test('should return the correct filter object when checmical group and approval categories are  blank for bnon clear value flow', () => {
+    const searchPayload = {
+      chkChemicalGroup: '',
+      chkApprovalCategories: ''
+    }
+
+    const startsWith = 'A'
+    const result = buildFilter(searchPayload, startsWith)
+
+    expect(result.chemGroupSelected).toEqual([])
+    expect(result.approvalCatSelected).toEqual([])
+    expect(result.filterToBeCreated).toBe(false)
+    expect(result.clearAllLink).toBe(startWithA)
+
+    expect(result.filterCategories).toEqual([])
+  })
 })
