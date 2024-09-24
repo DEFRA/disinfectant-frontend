@@ -317,4 +317,38 @@ describe('buildFilter', () => {
       }
     ])
   })
+
+  test('should return the correct filter object when checmical group is non array and blank', () => {
+    const searchPayload = {
+      chkChemicalGroup: '',
+      chkApprovalCategories: ['fmdo', 'svdo', 'dop', 'tbo', 'go']
+    }
+    const clearValue = 'all'
+    const startsWith = 'A'
+
+    const result = buildFilter(searchPayload, startsWith, clearValue)
+
+    expect(result.chemGroupSelected).toEqual([])
+    expect(result.approvalCatSelected).toEqual([])
+    expect(result.filterToBeCreated).toBe(false)
+    expect(result.clearAllLink).toBe(startWithA)
+    expect(result.filterCategories).toEqual([])
+  })
+
+  test('should return the correct filter object when checmical group and approval categories are non array and blank', () => {
+    const searchPayload = {
+      chkChemicalGroup: '',
+      chkApprovalCategories: ''
+    }
+    const clearValue = 'all'
+    const startsWith = 'A'
+
+    const result = buildFilter(searchPayload, startsWith, clearValue)
+
+    expect(result.chemGroupSelected).toEqual([])
+    expect(result.approvalCatSelected).toEqual([])
+    expect(result.filterToBeCreated).toBe(false)
+    expect(result.clearAllLink).toBe(startWithA)
+    expect(result.filterCategories).toEqual([])
+  })
 })
