@@ -72,46 +72,49 @@ async function createServer() {
 
   server.ext('onPreResponse', catchAll)
 
-   // --- Penetration Test Fixes Start ---
+  // --- Penetration Test Fixes Start ---
 
-    // Remove the 'X-Powered-By' header and other verbose headers
-    server.ext('onPreResponse', (request, h) => {
-      const response = request.response;
-      if (response.isBoom) {
-          // For error responses
-          response.output.headers['X-Powered-By'] = null;
-      } else {
-          // For successful responses
-          response.header('X-Powered-By', null);
-          response.header('Server', null); // Remove 'Server' header
-      }
-      return h.continue;
-  });
+  // Remove the 'X-Powered-By' header and other verbose headers
+  server.ext('onPreResponse', (request, h) => {
+    const response = request.response
+    if (response.isBoom) {
+      // For error responses
+      response.output.headers['X-Powered-By'] = null
+    } else {
+      // For successful responses
+      response.header('X-Powered-By', null)
+      response.header('Server', null) // Remove 'Server' header
+    }
+    return h.continue
+  })
 
   // Add security headers to prevent vulnerabilities
   server.ext('onPreResponse', (request, h) => {
-      const response = request.response;
-      if (!response.isBoom) {
-          // Add Content-Security-Policy header
-          response.header('Content-Security-Policy', "default-src 'self'");
+    const response = request.response
+    if (!response.isBoom) {
+      // Add Content-Security-Policy header
+      response.header('Content-Security-Policy', "default-src 'self'")
 
-          // Add Referrer-Policy header
-          response.header('Referrer-Policy', 'no-referrer');
+      // Add Referrer-Policy header
+      response.header('Referrer-Policy', 'no-referrer')
 
-          // Prevent MIME-type sniffing
-          response.header('X-Content-Type-Options', 'nosniff');
+      // Prevent MIME-type sniffing
+      response.header('X-Content-Type-Options', 'nosniff')
 
-          // Prevent clickjacking
-          response.header('X-Frame-Options', 'DENY');
+      // Prevent clickjacking
+      response.header('X-Frame-Options', 'DENY')
 
-          // Add cross-domain policies to prevent external cross-domain requests
-          response.header('X-Permitted-Cross-Domain-Policies', 'none');
+      // Add cross-domain policies to prevent external cross-domain requests
+      response.header('X-Permitted-Cross-Domain-Policies', 'none')
 
-          // Clear site data after logout (optional, modify based on use case)
-          response.header('Clear-Site-Data', '"cache", "cookies", "storage", "executionContexts"');
-      }
-      return h.continue;
-  });
+      // Clear site data after logout (optional, modify based on use case)
+      response.header(
+        'Clear-Site-Data',
+        '"cache", "cookies", "storage", "executionContexts"'
+      )
+    }
+    return h.continue
+  })
 
   // --- Penetration Test Fixes End ---
 
