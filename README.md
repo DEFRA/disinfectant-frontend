@@ -1,4 +1,8 @@
-# disinfectant-frontend
+# Disinfectant-Frontend
+
+## Project Overview
+
+This project serves as a frontend for the Core Delivery Platform(CDP), utilising Node.js for the server-side functionslity. It provides an easy-to-use interface for managing CDP services, with built-in support for caching, Redis integration, and Docker-based development environments.
 
 Core delivery platform Node.js Frontend Template.
 
@@ -50,7 +54,30 @@ We use Catbox for server-side caching. Specifically CatboxRedis, the Redis adapt
 
 ## Local Development
 
-### Setup
+### Setup Instructions
+
+#### Cloning the Repository
+
+To set up the project locally on your machine, follow these steps:
+
+1. open your terminal or command prompt.
+2. Navigate to the directory where you'd like to clone the project.
+3. Run the following `git` command to the clone repository:
+
+```bash
+git clone https://github.com/DEFRA/disinfectant-frontend.git
+```
+
+4. After cloning the repository, navigate to the project folder:
+
+```bash
+cd disinfectant-frontend
+```
+
+[!CAUTION]
+Please make sure you have the appropriate Node.js and npm packages installed. For more details, please consult the section above titled `Requirements`.
+
+#### Installing Dependencies
 
 Install application dependencies:
 
@@ -58,7 +85,7 @@ Install application dependencies:
 npm install
 ```
 
-### Development
+#### Running the Application
 
 To run the application in `development` mode run:
 
@@ -66,7 +93,7 @@ To run the application in `development` mode run:
 npm run dev
 ```
 
-### Local JSON API
+#### Local JSON API
 
 Whilst the APIs are being developed this app uses a local JSON mock API. To start this locally run:
 
@@ -74,7 +101,7 @@ Whilst the APIs are being developed this app uses a local JSON mock API. To star
 npm run mockApi
 ```
 
-### Production
+#### Simulate Production Mode
 
 To mimic the application running in `production` mode locally run:
 
@@ -82,7 +109,7 @@ To mimic the application running in `production` mode locally run:
 npm start
 ```
 
-### Npm scripts
+#### Npm scripts
 
 All available Npm scripts can be seen in [package.json](./package.json)
 To view them in your command line run:
@@ -134,6 +161,38 @@ A local environment with:
 ```bash
 docker compose up --build -d
 ```
+
+## Contributing
+
+If a need to alter/add code to this prject arises, please follow the steps below to contribute:
+
+1. Make sure you have cloned the repository as shown in the `Setup Instructutions` above.
+2. Create a new branch with a descriptive name:
+
+```bash
+git checkout -b feature/new-feature-name
+```
+
+3. Make your changes.
+4. Before committing your code, please ensure that your code is properly formatted and free of linting errors. Run the following commands in your code editor terminal in the respecitive order:
+
+```bash
+npm run format
+```
+
+```bash
+npm run lint
+```
+
+Address any issues that may have been flagged 5. Commit your changes:
+
+```bash
+git commit -m "describe what you have done"
+```
+
+6. Submit a pull request and describe your changes
+
+Once your code has been reviewed and tested it will be ready to push to the main branch
 
 ## Licence
 
