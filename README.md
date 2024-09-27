@@ -74,7 +74,7 @@ git clone https://github.com/DEFRA/disinfectant-frontend.git
 cd disinfectant-frontend
 ```
 
-[!CAUTION]
+>⚠️
 Please make sure you have the appropriate Node.js and npm packages installed. For more details, please consult the section above titled `Requirements`.
 
 #### Installing Dependencies
