@@ -5,8 +5,7 @@ export const approvedCategories = {
   classes: 'govuk-checkboxes--small',
   fieldset: {
     legend: {
-      text: pageSummaryTexts.filterPanelTitles.approvalCategories,
-      isPageHeading: true,
+      text: pageSummaryTexts.filterPanelTitles.approvalCategories, 
       classes: 'govuk-fieldset__legend--s'
     }
   }

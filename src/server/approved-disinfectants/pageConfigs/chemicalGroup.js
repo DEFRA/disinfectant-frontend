@@ -6,7 +6,6 @@ export const chemicalGroup = {
   fieldset: {
     legend: {
       text: pageSummaryTexts.filterPanelTitles.chemicalGroups,
-      isPageHeading: true,
       classes: 'govuk-fieldset__legend--s'
     }
   }
