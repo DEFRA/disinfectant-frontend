@@ -23,7 +23,7 @@
         <div class="moj-filter__selected-heading">
 
           <div class="moj-filter__heading-title">
-            <h2 class="govuk-heading-m">{{ params.selectedFilters.heading.html | safe if params.selectedFilters.heading.html else params.selectedFilters.heading.text }}</h2>
+            <h3 class="govuk-heading-m">{{ params.selectedFilters.heading.html | safe if params.selectedFilters.heading.html else params.selectedFilters.heading.text }}</h3>
           </div>
 
           <div class="moj-filter__heading-action">
@@ -33,7 +33,7 @@
         </div>
 
         {% for category in params.selectedFilters.categories %}
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ category.heading.html | safe if category.heading.html else category.heading.text }}</h3>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-0">{{ category.heading.html | safe if category.heading.html else category.heading.text }}</h4>
 
           <ul class="moj-filter-tags">
             {% for item in category.items %}

@@ -10,7 +10,10 @@ describe('tableData', () => {
 
     expect(result).toEqual([
       [
-        { html: 'No records found', classes: govUkBodySStyle },
+        {
+          html: '<span role="alert" aria-live="polite">No records found</span>',
+          classes: govUkBodySStyle
+        },
         { html: '', classes: govUkBodySStyle },
         { html: '', classes: govUkBodySStyle },
         { html: '', classes: govUkBodySStyle },
@@ -28,7 +31,10 @@ describe('tableData', () => {
 
     expect(result).toEqual([
       [
-        { html: 'No records found', classes: govUkBodySStyle },
+        {
+          html: '<span role="alert" aria-live="polite">No records found</span>',
+          classes: govUkBodySStyle
+        },
         { html: '', classes: govUkBodySStyle },
         { html: '', classes: govUkBodySStyle },
         { html: '', classes: govUkBodySStyle },
