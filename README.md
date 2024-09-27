@@ -74,8 +74,8 @@ git clone https://github.com/DEFRA/disinfectant-frontend.git
 cd disinfectant-frontend
 ```
 
->⚠️
-Please make sure you have the appropriate Node.js and npm packages installed. For more details, please consult the section above titled `Requirements`.
+> ⚠️
+> Please make sure you have the appropriate Node.js and npm packages installed. For more details, please consult the section above titled `Requirements`.
 
 #### Installing Dependencies
 
@@ -103,7 +103,7 @@ npm run mockApi
 
 #### Simulate Production Mode
 
-To mimic the application running in `production` mode locally run:
+To mimic the application running in `production` mode locally, run:
 
 ```bash
 npm start
@@ -164,9 +164,9 @@ docker compose up --build -d
 
 ## Contributing
 
-If a need to alter/add code to this prject arises, please follow the steps below to contribute:
+If a need to alter/add code to this project arises, please follow the steps below to contribute:
 
-1. Make sure you have cloned the repository as shown in the `Setup Instructutions` above.
+1. Make sure you have cloned the repository as shown in the `Setup Instructions` above.
 2. Create a new branch with a descriptive name:
 
 ```bash
@@ -174,7 +174,7 @@ git checkout -b feature/new-feature-name
 ```
 
 3. Make your changes.
-4. Before committing your code, please ensure that your code is properly formatted and free of linting errors. Run the following commands in your code editor terminal in the respecitive order:
+4. Before committing your code, please ensure that your code is properly formatted and free of linting errors. Run the following commands in your code editor terminal in the respective order:
 
 ```bash
 npm run format
@@ -192,7 +192,7 @@ git commit -m "describe what you have done"
 
 6. Submit a pull request and describe your changes
 
-Once your code has been reviewed and tested it will be ready to push to the main branch
+7. Once your code has been reviewed and tested, it will be ready to push to the main branch
 
 ## Licence
 
@@ -210,4 +210,4 @@ The Open Government Licence (OGL) was developed by the Controller of Her Majesty
 information providers in the public sector to license the use and re-use of their information under a common open
 licence.
 
-It is designed to encourage use and re-use of information freely and flexibly, with only a few conditions.
+It is designed to encourage use and re-use of information freely and flexibly, with only a few conditions. 
