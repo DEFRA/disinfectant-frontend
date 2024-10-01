@@ -74,6 +74,20 @@ async function createServer() {
 
   // --- Penetration Test Fixes Start ---
 
+  // Remove the 'X-Powered-By' header and other verbose headers
+  server.ext('onPreResponse', (request, h) => {
+    const response = request.response
+    if (response.isBoom) {
+      // For error responses
+      response.output.headers['X-Powered-By'] = null
+    } else {
+      // For successful responses
+      response.header('X-Powered-By', null)
+      response.header('Server', null) // Remove 'Server' header
+    }
+    return h.continue
+  })
+
   // Add security headers to prevent vulnerabilities
   server.ext('onPreResponse', (request, h) => {
     const response = request.response
