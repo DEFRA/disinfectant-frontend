@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { buildFilter } from './build-filter.js'
+import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 const startWithA = '?startwith=A&clear=all#tableDisinfectant'
 const approvalCat = 'Approval categories'
 const svdoText = 'Swine Vesicular Disease Orders (SVDO)'
@@ -9,6 +10,7 @@ const dopText =
 const tbText = 'Tuberculosis Orders (TBO)'
 const goText = 'General Orders (GO)'
 const chemGroupText = 'Chemical groups'
+const logger = createLogger()
 
 describe('buildFilter', () => {
   test('should return the correct filter object', () => {
@@ -19,7 +21,7 @@ describe('buildFilter', () => {
     const clearValue = 'group1'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual(['group2'])
     expect(result.approvalCatSelected).toEqual([
@@ -81,7 +83,7 @@ describe('buildFilter', () => {
     const clearValue = 'group2'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual([
@@ -103,7 +105,7 @@ describe('buildFilter', () => {
     const clearValue = 'group2'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual('fmdo')
@@ -119,7 +121,7 @@ describe('buildFilter', () => {
     const clearValue = 'all'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])
@@ -135,7 +137,7 @@ describe('buildFilter', () => {
     }
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith)
+    const result = buildFilter(searchPayload, logger, startsWith)
 
     expect(result.chemGroupSelected).toEqual(['group1', 'group2'])
     expect(result.approvalCatSelected).toEqual([
@@ -200,7 +202,7 @@ describe('buildFilter', () => {
     }
     const clearValue = 'group1'
 
-    const result = buildFilter(searchPayload, undefined, clearValue)
+    const result = buildFilter(searchPayload, logger, undefined, clearValue)
 
     expect(result.chemGroupSelected).toEqual(['group2'])
     expect(result.approvalCatSelected).toEqual([
@@ -260,7 +262,7 @@ describe('buildFilter', () => {
       chkApprovalCategories: ['fmdo', 'svdo', 'dop', 'tbo', 'go']
     }
 
-    const result = buildFilter(searchPayload)
+    const result = buildFilter(searchPayload, logger)
 
     expect(result.chemGroupSelected).toEqual(['group1', 'group2'])
     expect(result.approvalCatSelected).toEqual([
@@ -326,7 +328,7 @@ describe('buildFilter', () => {
     const clearValue = 'all'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])
@@ -343,7 +345,7 @@ describe('buildFilter', () => {
     const clearValue = 'all'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])
@@ -360,7 +362,7 @@ describe('buildFilter', () => {
     const clearValue = 'all'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])
@@ -377,7 +379,7 @@ describe('buildFilter', () => {
 
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith)
+    const result = buildFilter(searchPayload, logger, startsWith)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual('fmdo')
@@ -419,7 +421,7 @@ describe('buildFilter', () => {
     const clearValue = 'fmdo'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual([])
@@ -450,7 +452,7 @@ describe('buildFilter', () => {
     const clearValue = 'svdo'
     const startsWith = 'A'
 
-    const result = buildFilter(searchPayload, startsWith, clearValue)
+    const result = buildFilter(searchPayload, logger, startsWith, clearValue)
 
     expect(result.chemGroupSelected).toEqual('group1')
     expect(result.approvalCatSelected).toEqual('fmdo')
@@ -490,7 +492,7 @@ describe('buildFilter', () => {
     }
 
     const startsWith = 'A'
-    const result = buildFilter(searchPayload, startsWith)
+    const result = buildFilter(searchPayload, logger, startsWith)
 
     expect(result.chemGroupSelected).toEqual([])
     expect(result.approvalCatSelected).toEqual([])

@@ -79,7 +79,7 @@ const fetchApprovedListFromAPI = async (request) => {
     `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.retrieveList}`,
     options
   ).catch((err) => {
-    logger.info(
+    logger.error(
       `error while calling api endpoint ${JSON.stringify(err.message)}`
     )
     throw err
@@ -94,7 +94,7 @@ const fetchApprovedListFromAPI = async (request) => {
       return getApprovedListResponse
     }
   } catch (err) {
-    logger.info(`error while getting data from api response : ${err}`)
+    logger.error(`error while getting data from api response : ${err}`)
     throw err
   }
 }

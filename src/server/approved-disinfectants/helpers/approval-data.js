@@ -1,10 +1,7 @@
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import _ from 'lodash'
 import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 
-const logger = createLogger()
-
-function approvalData(selectedList) {
+function approvalData(selectedList, logger) {
   logger.info(`approval-data process initiated`)
   const approvalItems = []
   try {
@@ -17,7 +14,7 @@ function approvalData(selectedList) {
       })
     })
   } catch (error) {
-    logger.info(`error from approval-data ${error.message}`)
+    logger.error(`error from approval-data ${error.message}`)
   }
   logger.info(`approval-data process executed`)
   return approvalItems

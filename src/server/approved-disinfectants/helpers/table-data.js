@@ -1,8 +1,4 @@
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
-
-const logger = createLogger()
-
-function tableData(approvedDisinfectantList) {
+function tableData(approvedDisinfectantList, logger) {
   logger.info(`table-data process initiated`)
   const className = 'govuk-body-s'
   let tableItems = []
@@ -43,7 +39,7 @@ function tableData(approvedDisinfectantList) {
       ])
     })
   } catch (error) {
-    logger.info(`error from table-data ${error.message}`)
+    logger.error(`error from table-data ${error.message}`)
   }
   logger.info(`table-data process executed`)
   return tableItems

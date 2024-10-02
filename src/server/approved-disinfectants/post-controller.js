@@ -41,7 +41,7 @@ const postController = {
         filterCategories,
         clearAllLink,
         searchText
-      } = buildFilter(searchPayload, StartsWith, '')
+      } = buildFilter(searchPayload, logger, StartsWith, '')
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected
@@ -64,12 +64,13 @@ const postController = {
         searchText,
         StartsWith
       )
-      approvedCategories.items = approvalData(approvalCatSelected)
+      approvedCategories.items = approvalData(approvalCatSelected, logger)
       chemicalGroup.items = chemicalGroupData(
         checmicalGroups,
-        chemGroupSelected
+        chemGroupSelected,
+        logger
       )
-      tableConfig.rows = tableData(approvedDisinfectantList)
+      tableConfig.rows = tableData(approvedDisinfectantList, logger)
       const querystring =
         StartsWith === null || StartsWith === ''
           ? '?startwith=View all#tableDisinfectant'
@@ -104,7 +105,7 @@ const postController = {
         clearAllLink
       })
     } catch (error) {
-      logger.info(
+      logger.error(
         `error from post controller handler of index ${error.message}`
       )
     }
