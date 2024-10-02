@@ -50,4 +50,13 @@ describe('chemicalGroupData', () => {
       { value: 'group3', text: 'group3', checked: false }
     ])
   })
+
+  test('exception handling should return blank array of chemical group items if checmical list is not array', () => {
+    const chemicalGroupsList = 'group1'
+    const selectedList = ['group4', 'group5']
+
+    const result = chemicalGroupData(chemicalGroupsList, selectedList, logger)
+
+    expect(result).toEqual([])
+  })
 })
