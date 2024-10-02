@@ -1,11 +1,13 @@
 import { chemicalGroupData } from './chemicalgroup-data.js'
+import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
+const logger = createLogger()
 
 describe('chemicalGroupData', () => {
   test('should return an array of chemical group items with correct values and checked status', () => {
     const chemicalGroupsList = ['group1', 'group2', 'group3']
     const selectedList = ['group1', 'group3']
 
-    const result = chemicalGroupData(chemicalGroupsList, selectedList)
+    const result = chemicalGroupData(chemicalGroupsList, selectedList, logger)
 
     expect(result).toEqual([
       { value: 'group1', text: 'group1', checked: true },
@@ -18,7 +20,7 @@ describe('chemicalGroupData', () => {
     const chemicalGroupsList = []
     const selectedList = ['group1', 'group2']
 
-    const result = chemicalGroupData(chemicalGroupsList, selectedList)
+    const result = chemicalGroupData(chemicalGroupsList, selectedList, logger)
 
     expect(result).toEqual([])
   })
@@ -27,7 +29,7 @@ describe('chemicalGroupData', () => {
     const chemicalGroupsList = ['group1', 'group2', 'group3']
     const selectedList = []
 
-    const result = chemicalGroupData(chemicalGroupsList, selectedList)
+    const result = chemicalGroupData(chemicalGroupsList, selectedList, logger)
 
     expect(result).toEqual([
       { value: 'group1', text: 'group1', checked: false },
@@ -40,7 +42,7 @@ describe('chemicalGroupData', () => {
     const chemicalGroupsList = ['group1', 'group2', 'group3']
     const selectedList = ['group4', 'group5']
 
-    const result = chemicalGroupData(chemicalGroupsList, selectedList)
+    const result = chemicalGroupData(chemicalGroupsList, selectedList, logger)
 
     expect(result).toEqual([
       { value: 'group1', text: 'group1', checked: false },

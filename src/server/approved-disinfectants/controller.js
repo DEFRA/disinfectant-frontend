@@ -56,7 +56,7 @@ const approvedDisinfectantController = {
         filterCategories,
         clearAllLink,
         searchText
-      } = buildFilter(searchPayload, StartsWith, clearValue)
+      } = buildFilter(searchPayload, logger, StartsWith, clearValue)
 
       if (typeof searchPayload !== 'undefined' && searchPayload) {
         searchPayload.chkChemicalGroup = chemGroupSelected
@@ -78,12 +78,13 @@ const approvedDisinfectantController = {
         searchText,
         StartsWith
       )
-      approvedCategories.items = approvalData(approvalCatSelected)
+      approvedCategories.items = approvalData(approvalCatSelected, logger)
       chemicalGroup.items = chemicalGroupData(
         checmicalGroups,
-        chemGroupSelected
+        chemGroupSelected,
+        logger
       )
-      tableConfig.rows = tableData(approvedDisinfectantList)
+      tableConfig.rows = tableData(approvedDisinfectantList, logger)
 
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,
@@ -112,7 +113,7 @@ const approvedDisinfectantController = {
         filterCategories
       })
     } catch (error) {
-      logger.info(`error from controller handler of index ${error.message}`)
+      logger.error(`error from controller handler of index ${error.message}`)
     }
   }
 }

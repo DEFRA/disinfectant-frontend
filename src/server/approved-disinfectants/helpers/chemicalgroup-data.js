@@ -1,9 +1,6 @@
-import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 import _ from 'lodash'
 
-const logger = createLogger()
-
-function chemicalGroupData(chemicalGroupsList, selectedList) {
+function chemicalGroupData(chemicalGroupsList, selectedList, logger) {
   logger.info(`chemicalgroup-data process initiated`)
   const chemicalGroupItems = []
   try {
@@ -16,7 +13,7 @@ function chemicalGroupData(chemicalGroupsList, selectedList) {
       })
     })
   } catch (error) {
-    logger.info(`error from checmicalgroup-data ${error.message}`)
+    logger.error(`error from checmicalgroup-data ${error.message}`)
   }
   logger.info(`chemicalgroup-data process executed`)
   return chemicalGroupItems

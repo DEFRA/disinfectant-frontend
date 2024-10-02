@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 import { tableData } from './table-data.js'
+import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 
+const logger = createLogger()
 const govUkBodySStyle = 'govuk-body-s'
 
 describe('tableData', () => {
   test('should return table items with "No records found" when approvedDisinfectantList is empty', () => {
     const approvedDisinfectantList = []
-    const result = tableData(approvedDisinfectantList)
+    const result = tableData(approvedDisinfectantList, logger)
 
     expect(result).toEqual([
       [
@@ -27,7 +29,7 @@ describe('tableData', () => {
 
   test('should handle errors and return default table items', () => {
     const approvedDisinfectantList = null // Simulating an error by passing null
-    const result = tableData(approvedDisinfectantList)
+    const result = tableData(approvedDisinfectantList, logger)
 
     expect(result).toEqual([
       [
@@ -64,7 +66,7 @@ describe('tableData', () => {
         tbo: 'Not approved'
       }
     ] // Simulating an error by passing null
-    const result = tableData(approvedDisinfectantList)
+    const result = tableData(approvedDisinfectantList, logger)
 
     expect(result).toEqual([
       [
@@ -106,7 +108,7 @@ describe('tableData', () => {
         tbo: 'Not approved'
       }
     ] // Simulating an error by passing null
-    const result = tableData(approvedDisinfectantList)
+    const result = tableData(approvedDisinfectantList, logger)
 
     expect(result).toEqual([
       [

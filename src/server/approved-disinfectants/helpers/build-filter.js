@@ -1,8 +1,7 @@
 import { pageSummaryTexts } from '../staticTexts/pageSummaryTexts.js'
 import { approvalDTO } from '../pageConfigs/approval-static-data.js'
-import { createLogger } from '../../common/helpers/logging/logger.js'
 
-const clearSelectedValues = (selectedArray, clearValue) => {
+const clearSelectedValues = (selectedArray, clearValue, logger) => {
   if (Array.isArray(selectedArray)) {
     return selectedArray.filter((item) => item !== clearValue) // returns new filtered array without clearValue value/s
   } else if (selectedArray === clearValue.trim()) {
@@ -13,9 +12,8 @@ const clearSelectedValues = (selectedArray, clearValue) => {
     return selectedArray
   }
 }
-const logger = createLogger()
 
-const buildFilter = (searchPayload, startsWith, clearValue = '') => {
+const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
   try {
     let filterToBeCreated = false
     const filterCategories = []
@@ -46,10 +44,15 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
         approvalCatSelected = []
         searchText = ''
       } else {
-        chemGroupSelected = clearSelectedValues(chemGroupSelected, clearValue)
+        chemGroupSelected = clearSelectedValues(
+          chemGroupSelected,
+          clearValue,
+          logger
+        )
         approvalCatSelected = clearSelectedValues(
           approvalCatSelected,
-          clearValue
+          clearValue,
+          logger
         )
       }
     }
@@ -63,7 +66,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
       filterToBeCreated,
       headerApprovalCategory,
       startsWith,
-      filterCategories
+      filterCategories,
+      logger
     )
 
     // chemical group
@@ -72,7 +76,8 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
       filterToBeCreated,
       headerChemicalGroup,
       startsWith,
-      filterCategories
+      filterCategories,
+      logger
     )
     logger.info('build filter method executed')
     return {
@@ -84,7 +89,7 @@ const buildFilter = (searchPayload, startsWith, clearValue = '') => {
       searchText
     }
   } catch (err) {
-    logger.info(`build filter error:${err}`)
+    logger.error(`build filter error:${err}`)
   }
 }
 function createChemicalGroup(
@@ -92,7 +97,8 @@ function createChemicalGroup(
   filterToBeCreated,
   headerChemicalGroup,
   startsWith,
-  filterCategories
+  filterCategories,
+  logger
 ) {
   if (Array.isArray(chemGroupSelected)) {
     if (chemGroupSelected.length > 0) {
@@ -136,7 +142,8 @@ function createApprovalCategory(
   filterToBeCreated,
   headerApprovalCategory,
   startsWith,
-  filterCategories
+  filterCategories,
+  logger
 ) {
   if (Array.isArray(approvalCatSelected)) {
     if (approvalCatSelected.length > 0) {
