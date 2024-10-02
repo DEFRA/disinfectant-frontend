@@ -79,13 +79,10 @@ async function createServer() {
     if (!response.isBoom) {
       // Add Content-Security-Policy header
       response.header('Content-Security-Policy', getSecurityPolicy())
-
       // Add Referrer-Policy header
       response.header('Referrer-Policy', 'no-referrer')
-
       // Prevent MIME-type sniffing
       response.header('X-Content-Type-Options', 'nosniff')
-
       // Add cross-domain policies to prevent external cross-domain requests
       response.header('X-Permitted-Cross-Domain-Policies', 'none')
     }
