@@ -5,7 +5,6 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
   if (Array.isArray(selectedArray)) {
     return selectedArray.filter((item) => item !== clearValue) // returns new filtered array without clearValue value/s
   } else if (selectedArray === clearValue.trim()) {
-    // removes whitespaces from clearValue
     return [] // return empty array so no filter will be applied
   } else {
     logger.info(`No conditons for ${selectedArray} clearance`)
@@ -38,7 +37,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       ? searchPayload.chkApprovalCategories
       : []
     searchText = searchPayload?.searchtext
-    // remove filter from array
     if (clearValue !== '') {
       if (clearValue === 'all') {
         chemGroupSelected = []
