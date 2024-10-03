@@ -31,13 +31,13 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     ) {
       clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
     }
-    chemGroupSelected = searchPayload?.chkChemicalGroup
-      ? searchPayload.chkChemicalGroup
-      : []
-    approvalCatSelected = searchPayload?.chkApprovalCategories
-      ? searchPayload.chkApprovalCategories
-      : []
-    searchText = searchPayload?.searchtext
+    ;({ chemGroupSelected, approvalCatSelected, searchText } =
+      assignSelectedFilters(
+        chemGroupSelected,
+        searchPayload,
+        approvalCatSelected,
+        searchText
+      ))
     if (clearValue !== '') {
       if (clearValue === 'all') {
         chemGroupSelected = []
@@ -89,6 +89,22 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     searchText
   }
 }
+function assignSelectedFilters(
+  chemGroupSelected,
+  searchPayload,
+  approvalCatSelected,
+  searchText
+) {
+  chemGroupSelected = searchPayload?.chkChemicalGroup
+    ? searchPayload.chkChemicalGroup
+    : []
+  approvalCatSelected = searchPayload?.chkApprovalCategories
+    ? searchPayload.chkApprovalCategories
+    : []
+  searchText = searchPayload?.searchtext
+  return { chemGroupSelected, approvalCatSelected, searchText }
+}
+
 function initializeVariables() {
   const clearAllLink = '?clear=all'
   const chemGroupSelected = []
