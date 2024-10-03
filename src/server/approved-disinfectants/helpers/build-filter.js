@@ -60,7 +60,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     const headerChemicalGroup =
       pageSummaryTexts.filterPanelTitles.chemicalGroups
     filterToBeCreated = createApprovalCategory(
-      approvalCatSelected,
       filterToBeCreated,
       headerApprovalCategory,
       startsWith,
@@ -68,7 +67,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       logger
     )
     filterToBeCreated = createChemicalGroup(
-      chemGroupSelected,
       filterToBeCreated,
       headerChemicalGroup,
       startsWith,
@@ -89,7 +87,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
   }
 }
 function createChemicalGroup(
-  chemGroupSelected,
   filterToBeCreated,
   headerChemicalGroup,
   startsWith,
@@ -134,7 +131,6 @@ function createChemicalGroup(
   return filterToBeCreated
 }
 function createApprovalCategory(
-  approvalCatSelected,
   filterToBeCreated,
   headerApprovalCategory,
   startsWith,
