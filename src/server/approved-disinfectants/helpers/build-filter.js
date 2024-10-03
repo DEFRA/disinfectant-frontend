@@ -1,8 +1,6 @@
 import { pageSummaryTexts } from '../staticTexts/pageSummaryTexts.js'
 import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 
-let chemGroupSelected = []
-let approvalCatSelected = []
 let searchText = ''
 
 const clearSelectedValues = (selectedArray, clearValue, logger) => {
@@ -18,6 +16,8 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
   let clearAllLink = '?clear=all'
   let filterToBeCreated = false
+  let chemGroupSelected = []
+  let approvalCatSelected = []
   const filterCategories = []
   try {
     logger.info(
@@ -60,6 +60,7 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     const headerChemicalGroup =
       pageSummaryTexts.filterPanelTitles.chemicalGroups
     filterToBeCreated = createApprovalCategory(
+      approvalCatSelected,
       filterToBeCreated,
       headerApprovalCategory,
       startsWith,
@@ -67,6 +68,7 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       logger
     )
     filterToBeCreated = createChemicalGroup(
+      chemGroupSelected,
       filterToBeCreated,
       headerChemicalGroup,
       startsWith,
@@ -87,6 +89,7 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
   }
 }
 function createChemicalGroup(
+  chemGroupSelected,
   filterToBeCreated,
   headerChemicalGroup,
   startsWith,
@@ -131,6 +134,7 @@ function createChemicalGroup(
   return filterToBeCreated
 }
 function createApprovalCategory(
+  approvalCatSelected,
   filterToBeCreated,
   headerApprovalCategory,
   startsWith,
@@ -146,6 +150,7 @@ function createApprovalCategory(
         text: headerApprovalCategory
       }
       approvalCatSelected.forEach((element) => {
+        // eslint-disable-next-line
         const approvalCattext = approvalDTO.find(
           (elem) => elem.value === element
         )
@@ -164,6 +169,7 @@ function createApprovalCategory(
     filterCategoryApprovalCategory.heading = {
       text: headerApprovalCategory
     }
+    // eslint-disable-next-line
     const approvalCattext = approvalDTO.find(
       (elem) => elem.value === approvalCatSelected
     )
