@@ -11,7 +11,6 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
     return selectedArray
   }
 }
-
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
   let clearAllLink = '?clear=all'
   let chemGroupSelected = []
