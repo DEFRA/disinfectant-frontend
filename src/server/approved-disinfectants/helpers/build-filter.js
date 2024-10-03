@@ -1,6 +1,10 @@
 import { pageSummaryTexts } from '../staticTexts/pageSummaryTexts.js'
 import { approvalDTO } from '../pageConfigs/approval-static-data.js'
 
+let chemGroupSelected = []
+let approvalCatSelected = []
+let searchText = ''
+
 const clearSelectedValues = (selectedArray, clearValue, logger) => {
   if (Array.isArray(selectedArray)) {
     return selectedArray.filter((item) => item !== clearValue) // returns new filtered array without clearValue value/s
@@ -12,13 +16,8 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
   }
 }
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
-  let {
-    clearAllLink,
-    chemGroupSelected,
-    approvalCatSelected,
-    searchText,
-    filterToBeCreated
-  } = initializeVariables()
+  let clearAllLink = '?clear=all'
+  let filterToBeCreated = false
   const filterCategories = []
   try {
     logger.info(
@@ -31,13 +30,13 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     ) {
       clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
     }
-    ;({ chemGroupSelected, approvalCatSelected, searchText } =
-      assignSelectedFilters(
-        chemGroupSelected,
-        searchPayload,
-        approvalCatSelected,
-        searchText
-      ))
+    chemGroupSelected = searchPayload?.chkChemicalGroup
+      ? searchPayload.chkChemicalGroup
+      : []
+    approvalCatSelected = searchPayload?.chkApprovalCategories
+      ? searchPayload.chkApprovalCategories
+      : []
+    searchText = searchPayload?.searchtext
     if (clearValue !== '') {
       if (clearValue === 'all') {
         chemGroupSelected = []
@@ -89,37 +88,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     searchText
   }
 }
-function assignSelectedFilters(
-  chemGroupSelected,
-  searchPayload,
-  approvalCatSelected,
-  searchText
-) {
-  chemGroupSelected = searchPayload?.chkChemicalGroup
-    ? searchPayload.chkChemicalGroup
-    : []
-  approvalCatSelected = searchPayload?.chkApprovalCategories
-    ? searchPayload.chkApprovalCategories
-    : []
-  searchText = searchPayload?.searchtext
-  return { chemGroupSelected, approvalCatSelected, searchText }
-}
-
-function initializeVariables() {
-  const clearAllLink = '?clear=all'
-  const chemGroupSelected = []
-  const approvalCatSelected = []
-  const searchText = ''
-  const filterToBeCreated = false
-  return {
-    clearAllLink,
-    chemGroupSelected,
-    approvalCatSelected,
-    searchText,
-    filterToBeCreated
-  }
-}
-
 function createChemicalGroup(
   chemGroupSelected,
   filterToBeCreated,
