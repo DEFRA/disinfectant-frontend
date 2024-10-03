@@ -12,11 +12,13 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
   }
 }
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
-  let clearAllLink = '?clear=all'
-  let chemGroupSelected = []
-  let approvalCatSelected = []
-  let searchText = ''
-  let filterToBeCreated = false
+  let {
+    clearAllLink,
+    chemGroupSelected,
+    approvalCatSelected,
+    searchText,
+    filterToBeCreated
+  } = initializeVariables()
   const filterCategories = []
   try {
     logger.info(
@@ -87,6 +89,21 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     searchText
   }
 }
+function initializeVariables() {
+  const clearAllLink = '?clear=all'
+  const chemGroupSelected = []
+  const approvalCatSelected = []
+  const searchText = ''
+  const filterToBeCreated = false
+  return {
+    clearAllLink,
+    chemGroupSelected,
+    approvalCatSelected,
+    searchText,
+    filterToBeCreated
+  }
+}
+
 function createChemicalGroup(
   chemGroupSelected,
   filterToBeCreated,
