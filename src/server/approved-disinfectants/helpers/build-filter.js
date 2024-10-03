@@ -14,18 +14,16 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
 }
 
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
-  let clearAllLink = ''
+  let clearAllLink = '?clear=all'
   let chemGroupSelected = []
   let approvalCatSelected = []
   let searchText = ''
   let filterToBeCreated = false
   const filterCategories = []
-
   try {
     logger.info(
       `build filter method initiated  ${JSON.stringify(searchPayload)} ${clearValue} ${startsWith} `
     )
-    clearAllLink = '?clear=all'
     if (
       typeof startsWith !== 'undefined' &&
       startsWith !== null &&
@@ -33,7 +31,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     ) {
       clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
     }
-
     chemGroupSelected = searchPayload?.chkChemicalGroup
       ? searchPayload.chkChemicalGroup
       : []
@@ -64,7 +61,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       pageSummaryTexts.filterPanelTitles.approvalCategories
     const headerChemicalGroup =
       pageSummaryTexts.filterPanelTitles.chemicalGroups
-    // approval categories
     filterToBeCreated = createApprovalCategory(
       approvalCatSelected,
       filterToBeCreated,
@@ -73,8 +69,6 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       filterCategories,
       logger
     )
-
-    // chemical group
     filterToBeCreated = createChemicalGroup(
       chemGroupSelected,
       filterToBeCreated,
