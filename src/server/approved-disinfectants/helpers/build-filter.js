@@ -14,13 +14,18 @@ const clearSelectedValues = (selectedArray, clearValue, logger) => {
 }
 
 const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
+  let clearAllLink = ''
+  let chemGroupSelected = []
+  let approvalCatSelected = []
+  let searchText = ''
+  let filterToBeCreated = false
+  const filterCategories = []
+
   try {
-    let filterToBeCreated = false
-    const filterCategories = []
     logger.info(
       `build filter method initiated  ${JSON.stringify(searchPayload)} ${clearValue} ${startsWith} `
     )
-    let clearAllLink = '?clear=all'
+    clearAllLink = '?clear=all'
     if (
       typeof startsWith !== 'undefined' &&
       startsWith !== null &&
@@ -28,15 +33,14 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
     ) {
       clearAllLink = `?startwith=${startsWith}&clear=all#tableDisinfectant`
     }
-    // clearAllLink = '?startwith=' + startsWith + '&clear=all'
 
-    let chemGroupSelected = searchPayload?.chkChemicalGroup
+    chemGroupSelected = searchPayload?.chkChemicalGroup
       ? searchPayload.chkChemicalGroup
       : []
-    let approvalCatSelected = searchPayload?.chkApprovalCategories
+    approvalCatSelected = searchPayload?.chkApprovalCategories
       ? searchPayload.chkApprovalCategories
       : []
-    let searchText = searchPayload?.searchtext
+    searchText = searchPayload?.searchtext
     // remove filter from array
     if (clearValue !== '') {
       if (clearValue === 'all') {
@@ -80,16 +84,16 @@ const buildFilter = (searchPayload, logger, startsWith, clearValue = '') => {
       logger
     )
     logger.info('build filter method executed')
-    return {
-      chemGroupSelected,
-      approvalCatSelected,
-      filterToBeCreated,
-      clearAllLink,
-      filterCategories,
-      searchText
-    }
   } catch (err) {
     logger.error(`build filter error:${err}`)
+  }
+  return {
+    chemGroupSelected,
+    approvalCatSelected,
+    filterToBeCreated,
+    clearAllLink,
+    filterCategories,
+    searchText
   }
 }
 function createChemicalGroup(
