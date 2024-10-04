@@ -3,7 +3,60 @@
 {% block content %}
   {{ appHeading({
     text: heading,
-    caption: "Accessibility Statement to come up !!"
+    caption: ""
   }) }}
+
+   <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body">
+          {{pageSummary.pageAccordance}}
+        </p>
+
+        <p class="govuk-body">
+          {{pageSummary.pageApplies}}
+          <a href="{{externalLink.appliesToLink}}" class="defra-link">{{pageSummary.pageLink}}</a>.
+        </p>
+
+        <h2 class="govuk-heading-s"> {{pageSummary.cs}}</h2>
+
+         <p class="govuk-body">
+          {{pageSummary.wcag}}
+        </p>
+
+        <h2 class="govuk-heading-s"> {{pageSummary.prep}}</h2>
+
+         <p class="govuk-body">
+          {{pageSummary.prepDate}}
+        </p>
+
+         <p class="govuk-body">
+          {{pageSummary.evaluate}}
+        </p>
+         <p class="govuk-body">
+          {{pageSummary.review}}
+        </p>
+
+        <h2 class="govuk-heading-s"> {{pageSummary.feedback}}</h2>
+
+         <p class="govuk-body">
+          {{pageSummary.emailStatement}}
+          email <a href="mailto:{{externalLink.accessibilityMail}}">
+            {{externalLink.accessibilityMail}} 
+            </a>
+        </p>
+
+        <h2 class="govuk-heading-s"> {{pageSummary.enforcementProcedure}}</h2>
+
+         <p class="govuk-body">
+          {{pageSummary.regulatoryBodies}}
+        </p>
+
+         <p class="govuk-body">
+          {{pageSummary.complaints}}
+        </p>
+
+        </div> 
+    </div>
 
 {% endblock %}
