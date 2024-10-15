@@ -2,14 +2,14 @@ export const pageSummaryTexts = {
   pageTitle: 'Defra-approved disinfectants',
   pageHeader: 'Disinfectants approved for use in England, Scotland and Wales',
   disinfectantTableHowToReadText:
-    'The table below displays approved disinfectant products and their approved dilution rates for statutory use. Read the guidance on',
+    'The table below displays approved disinfectant products and their approved dilution rates for statutory use. Read the',
   disinfectantTableHowToReadTextStart:
     'The Disinfectants approval scheme is underpinned by the legislation',
   disinfectantTableHowToReadTextStartLink:
     'The Diseases of Animals (Approved Disinfectants) (England) Order 2007 (legislation.gov.uk)',
   disinfectantTableHowToReadLinkText:
     'To find out when you must use a Defra-approved disinfectant, which product to use, and in what concentration, visit',
-  defraDisinfectantWhenAndHowText: 'Defra-approved disinfectants',
+  defraDisinfectantWhenAndHowText: 'guidance on Defra-approved disinfectants',
   learnMoreAboutApprovalText: 'Learn more about the approval categories',
   approvalCategoriesHeader: 'Approval categories',
   relevantLawsText:

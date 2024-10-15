@@ -130,7 +130,7 @@ const processApprovedList = (
     if (typeof lastModifiedTime !== 'undefined' && lastModifiedTime !== null) {
       lastModifiedDateWithTime = formatDate(
         lastModifiedTime,
-        "h:mm aaa ('GMT'xxx) 'on' EEEE do MMMM yyyy"
+        "h:mmaaa ('GMT'xxx) 'on' EEEE d MMMM yyyy"
       )
       lastModifiedDate = formatDate(lastModifiedTime, 'd MMMM yyyy')
     }
