@@ -17,6 +17,21 @@ const router = {
       // Application specific routes, add your own routes here
       await server.register([approvedDisinfectant, accessibilityStatement])
 
+      server.route({
+        method: 'GET',
+        path: '/DisinfectantsExternal/Default.aspx',
+        handler: (request, h) => {
+          return h.redirect('/')
+        }
+      })
+
+      server.route({
+        method: 'GET',
+        path: '/DisinfectantsExternal',
+        handler: (request, h) => {
+          return h.redirect('/')
+        }
+      })
       // Static assets
       await server.register([serveStaticFiles])
     }
