@@ -19,16 +19,6 @@ const approvedDisinfectant = {
           method: 'POST',
           path: '/',
           ...postController
-        },
-        {
-          method: 'GET',
-          path: '/DisinfectantsExternal',
-          ...approvedDisinfectantController
-        },
-        {
-          method: 'GET',
-          path: '/DisinfectantsExternal/Default.aspx',
-          ...approvedDisinfectantController
         }
       ])
     }
