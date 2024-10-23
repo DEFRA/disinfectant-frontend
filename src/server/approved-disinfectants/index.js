@@ -24,6 +24,11 @@ const approvedDisinfectant = {
           method: 'GET',
           path: '/DisinfectantsExternal',
           ...approvedDisinfectantController
+        },
+        {
+          method: 'GET',
+          path: '/DisinfectantsExternal/Default.aspx',
+          ...approvedDisinfectantController
         }
       ])
     }
