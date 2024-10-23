@@ -19,6 +19,11 @@ const approvedDisinfectant = {
           method: 'POST',
           path: '/',
           ...postController
+        },
+        {
+          method: 'GET',
+          path: '/DisinfectantsExternal',
+          ...approvedDisinfectantController
         }
       ])
     }
