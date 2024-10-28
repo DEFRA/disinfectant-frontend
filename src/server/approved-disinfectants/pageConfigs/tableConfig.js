@@ -2,7 +2,7 @@ const className = 'govuk-body-s'
 export const tableConfig = {
   // caption: "Dates and amounts",
   firstCellIsHeader: true,
-  classes: 'app-table-layout-width',
+  classes: 'app-table-layout-width thead-sticky',
 
   head: [
     {

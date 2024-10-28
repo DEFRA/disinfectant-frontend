@@ -92,3 +92,8 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     @include govuk-font-size(16)
 }
 
+.thead-sticky > thead > tr{
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+}
