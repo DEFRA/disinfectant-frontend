@@ -14,6 +14,8 @@ import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
 import { config } from '~/src/config/index.js'
 import { buildFilter } from './helpers/build-filter.js'
+import { approvalDTO } from './pageConfigs/reviewedApproval-static-data.js'
+import { deletedDTO } from './pageConfigs/deletedDisinfectant-static-data.js'
 
 const disInfectant = config.get('disinfectant')
 
@@ -110,7 +112,9 @@ const approvedDisinfectantController = {
         envGoLiveDate,
         filterToBeCreated,
         clearAllLink,
-        filterCategories
+        filterCategories,
+        approvalDTO,
+        deletedDTO
       })
     } catch (error) {
       logger.error(`error from controller handler of index ${error.message}`)

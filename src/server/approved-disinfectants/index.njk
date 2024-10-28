@@ -137,7 +137,7 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-visually-hidden">Warning</span>
-                  This page was last updated at {{lastModifiedDateWithTime}}.
+                  This page was last updated at {{lastModifiedDateWithTime}}.<a href="#end">{{pageSummaryTexts.recentUpdates}} </a>
               </strong>
             </div>
           </div>
@@ -253,27 +253,85 @@
                 </p>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-two-thirds" id="end">
+              
               <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
-                {{envGoLiveDate}}<br>{{pageSummaryTexts.lastUpdatedText}}
-                {{lastModifiedDate}}</p>
+                {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
+                {{lastModifiedDate}}
+                <a
+                  href="#full-history"
+                  id="myID"
+                  class="app-c-published-dates__toggle govuk-link"
+                  data-controls="full-history"
+                  data-expanded="false"
+                  data-toggled-text="- hide all updates"
+                  data-module="ga4-event-tracker"
+                  data-ga4-event='{"event_name":"select_content","type":"content history","section":"Footer"}'
+                  data-ga4-expandable=""
+                  role="button"
+                  aria-controls="full-history"
+                  aria-expanded="false"
+                  data-ga4-event-tracker-module-started="true"
+                  onclick="myFunction()"
+                > + show all updates
+                </a>
+                <div id="myDIV">
+                  <div class="govuk-details__text">
+                    <h3 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--s">
+                        {{pageSummaryTexts.changesToAC}}
+                      </label>
+                    </h3>
+                    {% if approvalDTO and approvalDTO[0].documents.reviewedApprovalCategories.length > 0 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for category in approvalDTO[0].documents.reviewedApprovalCategories %}
+                      <li>{{category.name}}</li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>There are no updates.</p>
+                    {% endif %}
+                    <h3 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--s">
+                        {{pageSummaryTexts.changesToAD}}
+                      </label>
+                    </h3>
+                    {% if deletedDTO and deletedDTO[0].documents.deletedDisinfectants.length > 0 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for category in deletedDTO[0].documents.deletedDisinfectants %}
+                      <li>{{category.name}}</li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>There are no updates.</p>
+                    {% endif %}
+                  </div>
+                </div>
 
-            </div>
-          </div>
-          <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
-        </form>
+                <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
 
-        <script>
+                <script>
+                function myFunction() {
+                  var x = document.getElementById("myDIV");
+                  var y = document.getElementById("myID");
+                  if (x.style.display === "none") {
+                    x.style.display = "block";
+                    y.innerHTML = " -hide all updates";
+                  } else {
+                    x.style.display = "none";
+                  }
+                }
 
-          var querystring = document.getElementById('hdnPathValues');
-          const element = document.getElementById("tableDisinfectant");
-          if (querystring.value.trim() !== '') {
-            window.location.href = querystring.value 
-          } 
+                var querystring = document.getElementById('hdnPathValues');
+                const element = document.getElementById("tableDisinfectant");
+                if (querystring.value.trim() !== '') {
+                  window.location.href = querystring.value;
+                }
 
-          const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
-          if (navigationType === 'reload') {
-            window.location.href = window.location.origin + '/#';
-          }
-        </script>
+                const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
+                if (navigationType === 'reload') {
+                  window.location.href = window.location.origin + '/#';
+                }
+                </script>
+
       {% endblock %}
