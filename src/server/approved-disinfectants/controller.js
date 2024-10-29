@@ -14,6 +14,7 @@ import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
 import { config } from '~/src/config/index.js'
 import { buildFilter } from './helpers/build-filter.js'
+import { fetchDeletedListFromAPI, fetchModifiedApprovalCategoriesListFromAPI } from './helpers/fetch-notificationData.js'
 
 const disInfectant = config.get('disinfectant')
 
@@ -86,6 +87,11 @@ const approvedDisinfectantController = {
       )
       tableConfig.rows = tableData(approvedDisinfectantList, logger)
 
+      // const deletedDisinfectants = await fetchDeletedListFromAPI(request)
+      // const modifiedApprovalCategories = await fetchModifiedApprovalCategoriesListFromAPI(request)
+
+      const deletedDisinfectants = []
+      const modifiedApprovalCategories = [] 
       return h.view('approved-disinfectants/index', {
         pageTitle: pageSummaryTexts.pageTitle,
         heading: pageSummaryTexts.pageHeader,
@@ -110,7 +116,9 @@ const approvedDisinfectantController = {
         envGoLiveDate,
         filterToBeCreated,
         clearAllLink,
-        filterCategories
+        filterCategories,
+        deletedDisinfectants,
+        modifiedApprovalCategories
       })
     } catch (error) {
       logger.error(`error from controller handler of index ${error.message}`)

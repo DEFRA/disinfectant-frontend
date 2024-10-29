@@ -137,7 +137,7 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-visually-hidden">Warning</span>
-                  This page was last updated at {{lastModifiedDateWithTime}}.
+                  This page was last updated at {{lastModifiedDateWithTime}}.<a href="#end">{{pageSummaryTexts.recentUpdates}} </a>
               </strong>
             </div>
           </div>
@@ -253,27 +253,76 @@
                 </p>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-two-thirds" id="end">
+              
               <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
-                {{envGoLiveDate}}<br>{{pageSummaryTexts.lastUpdatedText}}
-                {{lastModifiedDate}}</p>
+                {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
+                {{lastModifiedDate}}
+                <a
+                  href="#full-history"
+                  id="modifiedAndDeletedLink"
+                  class="app-c-published-dates__toggle govuk-link"
+                  onclick="myFunction()"
+                > + show all updates
+                </a>
+                <div id="myDIV" style="display: none">
+                  <div class="govuk-details__text">
+                    <h3 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--s">
+                        {{pageSummaryTexts.changesToAC}}
+                      </label>
+                    </h3>
+                    {% if modifiedApprovalCategories.length > 0 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for category in modifiedApprovalCategories %}
+                      <li>{{category.name}}</li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>There are no updates.</p>
+                    {% endif %}
+                    <h3 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--s">
+                        {{pageSummaryTexts.changesToAD}}
+                      </label>
+                    </h3>
+                    {% if deletedDisinfectants.length > 0 %} 
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for category in deletedDisinfectants %}
+                      <li>{{category.name}}</li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>There are no updates.</p>
+                    {% endif %}
+                  </div>
+                </div>
 
-            </div>
-          </div>
-          <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
-        </form>
+                <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
 
-        <script>
+                <script>
+                function myFunction() {
+                  var x = document.getElementById("myDIV");
+                  var y = document.getElementById("modifiedAndDeletedLink");
+                  if (x.style.display === "none") {
+                    x.style.display = "block";
+                    y.innerHTML = " -hide all updates";
+                  } else {
+                    x.style.display = "none"
+                    y.innerHTML= " +show all updates"
+                  }
+                }
 
-          var querystring = document.getElementById('hdnPathValues');
-          const element = document.getElementById("tableDisinfectant");
-          if (querystring.value.trim() !== '') {
-            window.location.href = querystring.value 
-          } 
+                var querystring = document.getElementById('hdnPathValues');
+                const element = document.getElementById("tableDisinfectant");
+                if (querystring.value.trim() !== '') {
+                  window.location.href = querystring.value;
+                }
 
-          const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
-          if (navigationType === 'reload') {
-            window.location.href = window.location.origin + '/#';
-          }
-        </script>
+                const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
+                if (navigationType === 'reload') {
+                  window.location.href = window.location.origin + '/#';
+                }
+                </script>
+
       {% endblock %}
