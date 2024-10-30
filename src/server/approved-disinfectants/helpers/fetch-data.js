@@ -403,4 +403,69 @@ const filterByStartsWith = (approvedDisinfectantList, startsWith) => {
   return approvedDisinfectantList
 }
 
-export { fetchData }
+const fetchDeletedListFromAPI = async (request) => {
+  const logger = request.logger
+  logger.info(
+    `fetchDeletedListFromAPI method - No Data in Cache. API endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.deletedList} Invocation started`
+  )
+  try {
+    const response = await proxyFetch(
+      `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.deletedList}`,
+      options
+    )
+    if (response.ok) {
+      const deletedDisinfectantResponse = await response.json()
+
+      let deletedDisinfectant = []
+      if (deletedDisinfectantResponse.documents.length > 0)
+        deletedDisinfectant =
+          deletedDisinfectantResponse.documents[0].deletedDisinfectants
+
+      return deletedDisinfectant
+    }
+  } catch (err) {
+    logger.error(
+      `fetchDeletedListFromAPI : error while getting data from api response : ${err}`
+    )
+  }
+}
+
+/**
+ * Fetches the modified approval categories list from the API.
+ *
+ * @param {Object} request - The request object.
+ * @returns {Promise<Object>} - The modified approval categories list response.
+ * @throws {Error} - If there is an error while fetching the data.
+ */
+const fetchModifiedApprovalCategoriesListFromAPI = async (request) => {
+  const logger = request.logger
+  logger.info(
+    `fetchModifiedApprovalCategoriesListFromAPI method - No Data in Cache. API endpoint ${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.disinfectantModifiedList} Invocation started`
+  )
+  try {
+    const response = await proxyFetch(
+      `${disInfectant.apiPath}${appSpecificConstants.apiEndpoint.disinfectantModifiedList}`,
+      options
+    )
+    if (response.ok) {
+      const modifiedApprovalCategoriesResponse = await response.json()
+
+      let modifiedApprovalCategories = []
+      if (modifiedApprovalCategoriesResponse.documents.length > 0)
+        modifiedApprovalCategories =
+          modifiedApprovalCategoriesResponse.documents[0]
+            .modifiedApprovalCategories
+      return modifiedApprovalCategories
+    }
+  } catch (err) {
+    logger.error(
+      `fetchModifiedApprovalCategoriesListFromAPI : error while getting data from api response : ${err}`
+    )
+  }
+}
+
+export {
+  fetchData,
+  fetchDeletedListFromAPI,
+  fetchModifiedApprovalCategoriesListFromAPI
+}

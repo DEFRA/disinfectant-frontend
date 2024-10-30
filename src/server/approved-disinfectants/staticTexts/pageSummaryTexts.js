@@ -73,7 +73,9 @@ export const pageSummaryTexts = {
   gotText:
     'A general order (GO) is issued to control an outbreak of notifiable disease not covered by FMDO, SVDO, DoP, TBO. For more information please see',
   recentUpdates: 'See recent updates',
-  changesToAC: 'Approval categories for the following disinfectants have recently been changed',
-  changesToAD: 'Following disinfectants have recently been removed from the approved list',
+  changesToAC:
+    'Approval categories for the following disinfectants have recently been changed',
+  changesToAD:
+    'Following disinfectants have recently been removed from the approved list',
   noUpdates: 'There are no updates'
 }
