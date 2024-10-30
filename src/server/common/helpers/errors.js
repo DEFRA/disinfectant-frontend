@@ -18,11 +18,15 @@ function statusCodeHeading(statusCode) {
 }
 
 function catchAll(request, h) {
+  const errorCodeNum = 404
   const { response } = request
   if (!response.isBoom) {
     return h.continue
   }
-  request.logger.error(response?.stack)
+
+  if (response.output.statusCode !== errorCodeNum) {
+    request.logger.error(response?.stack)
+  }
   const statusCode = response.output.statusCode
   const errorMessage = statusCodeMessage(statusCode)
   const errorHeading = statusCodeHeading(statusCode)
