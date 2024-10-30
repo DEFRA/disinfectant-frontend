@@ -8,7 +8,11 @@ import { chemicalGroup } from './pageConfigs/chemicalGroup.js'
 import { utility } from '../common/utility.js'
 import { tableConfig } from './pageConfigs/tableConfig.js'
 import { externalLinks } from './staticTexts/externalLinks.js'
-import { fetchData } from './helpers/fetch-data.js'
+import {
+  fetchData,
+  fetchDeletedListFromAPI,
+  fetchModifiedApprovalCategoriesListFromAPI
+} from './helpers/fetch-data.js'
 import { tableData } from './helpers/table-data.js'
 import { chemicalGroupData } from './helpers/chemicalgroup-data.js'
 import { approvalData } from './helpers/approval-data.js'
@@ -65,6 +69,9 @@ const approvedDisinfectantController = {
       }
 
       request.yar.set('searchPayload', searchPayload)
+      const deletedDisinfectants = await fetchDeletedListFromAPI(request)
+      const modifiedApprovalCategories =
+        await fetchModifiedApprovalCategoriesListFromAPI(request)
       // added for filter panel flow
       const {
         checmicalGroups,
@@ -110,7 +117,9 @@ const approvedDisinfectantController = {
         envGoLiveDate,
         filterToBeCreated,
         clearAllLink,
-        filterCategories
+        filterCategories,
+        deletedDisinfectants,
+        modifiedApprovalCategories
       })
     } catch (error) {
       logger.error(`error from controller handler of index ${error.message}`)

@@ -1,6 +1,8 @@
 export const appSpecificConstants = {
   apiEndpoint: {
-    retrieveList: '/list/disinfectantApprovedListSI'
+    retrieveList: '/list/disinfectantApprovedListSI',
+    deletedList: '/list/DisinfectantDeletedListSI',
+    disinfectantModifiedList: '/list/DisinfectantModifiedListSI'
   },
   diseaseOrdervaluesToOmit: {
     notApproved: 'Not approved',
