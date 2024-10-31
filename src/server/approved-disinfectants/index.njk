@@ -235,7 +235,8 @@
               {% from "govuk/components/pagination/macro.njk" import govukPagination %}
               {{ govukPagination(pagingConfig)}}
             </div>
-            <div class="govuk-grid-column-full" id="tableDisinfectant">
+            <div class="govuk-grid-column-full responsive-table-padding" id="tableDisinfectant">
+              <div class="mobile-text"> <p class="govuk-body"> Please scroll the table to the right to see additonal columns.</p> </div>
               <div class="table-responsive">
               {% from "govuk/components/table/macro.njk" import govukTable %}
               {{ govukTable(tableConfig)}}
