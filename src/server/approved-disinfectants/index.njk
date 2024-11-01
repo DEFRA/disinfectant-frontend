@@ -137,7 +137,7 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-visually-hidden">Warning</span>
-                  This page was last updated at {{lastModifiedDateWithTime}}.<a href="#end">{{pageSummaryTexts.recentUpdates}} </a>
+                  This page was last updated at {{lastModifiedDateWithTime}}.<a href="#end" onclick="expandOnClick(event)" a class="govuk-link">{{pageSummaryTexts.recentUpdates}} </a>
               </strong>
             </div>
           </div>
@@ -325,6 +325,14 @@
                 const navigationType = (window.performance.getEntriesByType('navigation')[0]).type;
                 if (navigationType === 'reload') {
                   window.location.href = window.location.origin + '/#';
+                }
+
+                function expandOnClick(event) {
+                  event.preventDefault()
+ 
+                  document.getElementById("end").scrollIntoView({ behaviour: 'smooth'})
+ 
+                  myFunction()
                 }
                 </script>
 
