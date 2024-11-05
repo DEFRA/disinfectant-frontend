@@ -36,7 +36,7 @@ export const pageSummaryTexts = {
     'All other approval rates are displayed as number of millilitres of water to be added to one part disinfectant, where one part disinfectant = 1 millilitre',
   disinfectantEnquiryText: 'Disinfectant enquiries',
   publishedText: 'Published',
-  lastUpdatedText: 'Last Updated',
+  lastUpdatedText: 'Last updated',
   filterPanelTitles: {
     approvalCategories: 'Approval categories',
     chemicalGroups: 'Chemical groups'

@@ -137,7 +137,7 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-visually-hidden">Warning</span>
-                  This page was last updated at {{lastModifiedDateWithTime}}.<a href="#end" onclick="expandOnClick(event)" a class="govuk-link">{{pageSummaryTexts.recentUpdates}} </a>
+                  This page was last updated at {{lastModifiedDateWithTime}}. <a href="#end" onclick="expandOnClick(event)" a class="govuk-link">{{pageSummaryTexts.recentUpdates}} </a>
               </strong>
             </div>
           </div>
@@ -154,7 +154,7 @@
                 </p> 
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </div>
-            <div class="govuk-grid-column-two-thirds" id="end">
+            <div class="govuk-grid-column-two-thirds">
               
               <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
                 {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
@@ -265,20 +265,23 @@
               {{ govukPagination(pagingConfig)}}
             </div>
 
-           
+          <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          </div>
+
             <div class="govuk-grid-column-two-thirds" id="end">
               
               <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
                 {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
                 {{lastModifiedDate}}
                 <a
-                  href="#full-history"
+                  href="#end"
                   id="modifiedAndDeletedLink"
                   class="app-c-published-dates__toggle govuk-link"
-                  onclick="myFunction()"
-                > + show all updates
+                  onclick="expandDiv()"
+                >+ show all updates
                 </a>
-                <div id="myDIV" style="display: none">
+                <div id="divBulletin" style="display: none">
                   <div class="govuk-details__text">
                     <h3 class="govuk-label-wrapper">
                       <label class="govuk-label govuk-label--s">
@@ -314,15 +317,16 @@
                 <input type="hidden" id="hdnPathValues" value="{{querystring}}"/>
 
                 <script>
-                function myFunction() {
-                  var x = document.getElementById("myDIV");
+                function expandDiv(){
+                  var x = document.getElementById("divBulletin");
                   var y = document.getElementById("modifiedAndDeletedLink");
                   if (x.style.display === "none") {
                     x.style.display = "block";
-                    y.innerHTML = " -hide all updates";
-                  } else {
-                    x.style.display = "none"
-                    y.innerHTML= " +show all updates"
+                    y.innerHTML = "- hide all updates";
+                  } 
+                  else {
+                  x.style.display = "none"
+                  y.innerHTML= "+ show all updates"
                   }
                 }
 
@@ -342,7 +346,7 @@
  
                   document.getElementById("end").scrollIntoView({ behaviour: 'smooth'})
  
-                  myFunction()
+                  expandDiv()
                 }
                 </script>
 

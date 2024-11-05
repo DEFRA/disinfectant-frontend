@@ -17,41 +17,6 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
    
 }
 
-.app-main-wrapper-margin{
-    margin: 0 3px 0 -9px;
-}
-
-// @supports (margin: max(calc(0px))) {
-//     .govuk-width-container {
-//       margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
-//       margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
-//     }
-//   }
-//   @media (min-width: 40.0625em) {
-//     .govuk-width-container {
-//       margin-right: 30px;
-//       margin-left: 30px;
-//     }
-//     @supports (margin: max(calc(0px))) {
-//       .govuk-width-container {
-//         margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
-//         margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
-//       }
-//     }
-//   }
-//   @media (min-width: 1020px) {
-//     .govuk-width-container {
-//       margin-right: auto;
-//       margin-left: auto;
-//     }
-//     @supports (margin: max(calc(0px))) {
-//       .govuk-width-container {
-//         margin-right: auto;
-//         margin-left: auto;
-//       }
-//     }
-//   }
-
 .govuk-pagination__item {
 
     @include govuk-font-size(16);
@@ -193,36 +158,12 @@ td .govuk-table-span {
     }    
  }
 
-//   .responsive-table tbody td.actions,
-//   .responsive-table tbody td.govuk-table__cell__actions {
-//     justify-content: inherit;
-//   }
 
-//   .responsive-table tbody td.actions > a,
-//   .responsive-table tbody td.govuk-table__cell__actions > a {
-//     margin-right: 20px;
-//   }
-
-//   @media (min-width: 768px) {
-//     .responsive-table tbody td.actions > a,
-//     .responsive-table tbody td.govuk-table__cell__actions > a {
-//       margin-right: 0px;
-//     }
-//   }
 
   .responsive-table tbody td .govuk-table-span {
     display: block;
     margin-bottom: 7px;
   }
-
-//   .responsive-table tbody td.govuk-table__cell__actions {
-//     text-align: right;
-//   }
-
-//   .responsive-table tbody td.govuk-table__cell__actions a {
-//     display: inline-block;
-//     margin-bottom: 7px;
-//   }
 
   .responsive-table tbody .table-heading {
     font-weight: 700;
@@ -306,15 +247,8 @@ td .govuk-table-span {
       text-align: left;
       border-bottom-width: 1px;
     }
-  }
-//   .responsive-table tbody tr td.numeric, .responsive-table tbody tr th.numeric {
-//     text-align: left;
-//   }
-//   @media (min-width: 768px) {
-//     .responsive-table tbody tr td.numeric, .responsive-table tbody tr th.numeric {
-//       text-align: right;
-//     }
-//   }
+  } 
+
   @media (max-width: 768px) {
     .responsive-table tbody .total {
       display: block;
@@ -376,36 +310,10 @@ td .govuk-table-span {
     }
   }
 
-//   .responsive-table-wide-borders tbody td.actions,
-//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions {
-//     justify-content: inherit;
-//   }
-
-//   .responsive-table-wide-borders tbody td.actions > a,
-//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions > a {
-//     margin-right: 20px;
-//   }
-
-//   @media (min-width: 1015px) {
-//     .responsive-table-wide-borders tbody td.actions > a,
-//     .responsive-table-wide-borders tbody td.govuk-table__cell__actions > a {
-//       margin-right: 0px;
-//     }
-//   }
-
   .responsive-table-wide-borders tbody td .govuk-table-span {
     display: block;
     margin-bottom: 7px;
   }
-
-//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions {
-//     text-align: right;
-//   }
-
-//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions a {
-//     display: inline-block;
-//     margin-bottom: 7px;
-//   }
 
   .responsive-table-wide-borders tbody .table-heading {
     font-weight: 700;
@@ -492,15 +400,6 @@ td .govuk-table-span {
       text-align: left;
     }
   }
-
-//   .responsive-table-wide-borders tbody tr td.numeric, .responsive-table-wide-borders tbody tr th.numeric {
-//     text-align: left;
-//   }
-//   @media (min-width: 1015px) {
-//     .responsive-table-wide-borders tbody tr td.numeric, .responsive-table-wide-borders tbody tr th.numeric {
-//       text-align: right;
-//     }
-//   }
 
   @media (max-width: 1015px) {
     .responsive-table-wide-borders tbody tr td {
