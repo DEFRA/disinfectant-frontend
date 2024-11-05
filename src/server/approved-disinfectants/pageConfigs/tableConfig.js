@@ -1,40 +1,38 @@
+import { pageSummaryTexts } from '../staticTexts/pageSummaryTexts.js'
+
 const className = 'govuk-body-s'
 export const tableConfig = {
   // caption: "Dates and amounts",
-  firstCellIsHeader: true,
-  classes: 'app-table-layout-width thead-sticky',
+  firstCellIsHeader: false,
+  classes: 'app-table-layout-width responsive-table-wide-borders thead-sticky',
 
   head: [
     {
-      text: 'Disinfectant name',
+      text: pageSummaryTexts.tableColumns.disInfectantName,
       classes: className
     },
     {
-      text: 'Company name and address',
+      text: pageSummaryTexts.tableColumns.chemicalgroup,
       classes: className
     },
     {
-      text: 'Chemical group',
+      text: pageSummaryTexts.tableColumns.fmdo,
       classes: className
     },
     {
-      text: 'Foot and Mouth Disease Orders (FMDO)',
+      text: pageSummaryTexts.tableColumns.svdo,
       classes: className
     },
     {
-      text: 'Swine Vesicular Disease Orders (SVDO)',
+      text: pageSummaryTexts.tableColumns.dop,
       classes: className
     },
     {
-      text: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+      text: pageSummaryTexts.tableColumns.tbo,
       classes: className
     },
     {
-      text: 'Tuberculosis Orders (TBO)',
-      classes: className
-    },
-    {
-      text: 'General Orders (GO)',
+      text: pageSummaryTexts.tableColumns.go,
       classes: className
     }
   ]

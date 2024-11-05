@@ -13,7 +13,44 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 
 .govuk-width-container {
     @include govuk-width-container(1250px);
+
+   
 }
+
+.app-main-wrapper-margin{
+    margin: 0 3px 0 -9px;
+}
+
+// @supports (margin: max(calc(0px))) {
+//     .govuk-width-container {
+//       margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+//       margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+//     }
+//   }
+//   @media (min-width: 40.0625em) {
+//     .govuk-width-container {
+//       margin-right: 30px;
+//       margin-left: 30px;
+//     }
+//     @supports (margin: max(calc(0px))) {
+//       .govuk-width-container {
+//         margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+//         margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
+//       }
+//     }
+//   }
+//   @media (min-width: 1020px) {
+//     .govuk-width-container {
+//       margin-right: auto;
+//       margin-left: auto;
+//     }
+//     @supports (margin: max(calc(0px))) {
+//       .govuk-width-container {
+//         margin-right: auto;
+//         margin-left: auto;
+//       }
+//     }
+//   }
 
 .govuk-pagination__item {
 
@@ -25,7 +62,6 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
 @media (min-width : 750px) {
     .checkboxes-with-two-columns {
         column-count: 2;
-
     }
 }
 
@@ -97,36 +133,394 @@ $moj-assets-path: "~@ministryofjustice/frontend/moj/assets/";
     visibility: hidden;
 }
 
+td .govuk-table-span {
+    display: block;
+    margin-bottom: 7px;
+  }
+  
+  .responsive-table {
+    width: 100%;
+  }
+
+  .responsive-table thead {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table thead {
+      clip: auto;
+      display: table-header-group;
+      height: auto;
+      overflow: auto;
+      position: relative;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody {
+      display: table-row-group;
+    }
+  }
+
+  .responsive-table tbody td {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody td {
+      display: table-cell;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .responsive-table tbody td {
+      padding: 5px 0;
+    }
+  }
+
+//   .responsive-table tbody td.actions,
+//   .responsive-table tbody td.govuk-table__cell__actions {
+//     justify-content: inherit;
+//   }
+
+//   .responsive-table tbody td.actions > a,
+//   .responsive-table tbody td.govuk-table__cell__actions > a {
+//     margin-right: 20px;
+//   }
+
+//   @media (min-width: 768px) {
+//     .responsive-table tbody td.actions > a,
+//     .responsive-table tbody td.govuk-table__cell__actions > a {
+//       margin-right: 0px;
+//     }
+//   }
+
+  .responsive-table tbody td .govuk-table-span {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+//   .responsive-table tbody td.govuk-table__cell__actions {
+//     text-align: right;
+//   }
+
+//   .responsive-table tbody td.govuk-table__cell__actions a {
+//     display: inline-block;
+//     margin-bottom: 7px;
+//   }
+
+  .responsive-table tbody .table-heading {
+    font-weight: 700;
+    text-align: left;
+    padding-right: 1em;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody .table-heading {
+      display: none;
+    }
+  }
+
+  .responsive-table tbody .govuk-table-heading-wrapper {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody .govuk-table-heading-wrapper {
+      display: none;
+    }
+  }
+
+  .responsive-table tbody .table-header {
+    line-height: 1.1111 ;
+  }
+
+  .responsive-table tbody .table-header .table-heading {
+    display: inline;
+    padding-right: 0;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody .table-header .table-heading {
+      display: none;
+    }
+  }
+
+  .responsive-table tbody tr {
+    display: block;
+    margin-bottom: -1px;
+    padding-top: 1em;
+    border-top: 1px solid #b1b4b6;
+    border-bottom: 1px solid #b1b4b6;
+  }
+
+  .responsive-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody tr {
+      display: table-row;
+    }
+  }
+
+  .responsive-table tbody tr th {
+    text-align: right;
+  }
+
+  .responsive-table tbody tr th .table-heading {
+    display: inline;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody tr th {
+      text-align: left;
+    }
+  }
+
+  .responsive-table tbody tr td, .responsive-table tbody tr th {
+    min-width: 1px;
+    text-align: right;
+    border-bottom-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-table tbody tr td, .responsive-table tbody tr th {
+      text-align: left;
+      border-bottom-width: 1px;
+    }
+  }
+//   .responsive-table tbody tr td.numeric, .responsive-table tbody tr th.numeric {
+//     text-align: left;
+//   }
+//   @media (min-width: 768px) {
+//     .responsive-table tbody tr td.numeric, .responsive-table tbody tr th.numeric {
+//       text-align: right;
+//     }
+//   }
+  @media (max-width: 768px) {
+    .responsive-table tbody .total {
+      display: block;
+    }
+  }
+  
+  .responsive-table-wide-borders {
+    width: 100%;
+  }
+
+  @media (max-width: 1015px) {
+    .responsive-table-wide-borders .govuk-body-s {
+      margin: 0;
+    }
+  }
+
+  .responsive-table-wide-borders thead {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders thead {
+      clip: auto;
+      display: table-header-group;
+      height: auto;
+      overflow: auto;
+      position: relative;
+      width: auto;
+    }
+  }
+  
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody {
+      display: table-row-group;
+    }
+  }
+
+  .responsive-table-wide-borders tbody td {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody td {
+      display: table-cell;
+    }
+  }
+
+  @media (max-width: 1015px) {
+    .responsive-table-wide-borders tbody td {
+      padding: 14px 0 7px;
+    }
+  }
+
+//   .responsive-table-wide-borders tbody td.actions,
+//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions {
+//     justify-content: inherit;
+//   }
+
+//   .responsive-table-wide-borders tbody td.actions > a,
+//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions > a {
+//     margin-right: 20px;
+//   }
+
+//   @media (min-width: 1015px) {
+//     .responsive-table-wide-borders tbody td.actions > a,
+//     .responsive-table-wide-borders tbody td.govuk-table__cell__actions > a {
+//       margin-right: 0px;
+//     }
+//   }
+
+  .responsive-table-wide-borders tbody td .govuk-table-span {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions {
+//     text-align: right;
+//   }
+
+//   .responsive-table-wide-borders tbody td.govuk-table__cell__actions a {
+//     display: inline-block;
+//     margin-bottom: 7px;
+//   }
+
+  .responsive-table-wide-borders tbody .table-heading {
+    font-weight: 700;
+    text-align: left;
+    padding-right: 1em;
+    display: block;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody .table-heading {
+      display: none;
+    }
+  }
+
+  .responsive-table-wide-borders tbody .govuk-table-heading-wrapper {
+    display: block;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody .govuk-table-heading-wrapper {
+      display: none;
+    }
+  }
+
+  .responsive-table-wide-borders tbody .table-header {
+    line-height: 1.1111 ;
+  }
+  
+  .responsive-table-wide-borders tbody .table-header .table-heading {
+    display: inline;
+    padding-right: 0;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody .table-header .table-heading {
+      display: none;
+    }
+  }
+
+  .responsive-table-wide-borders tbody tr {
+    display: block;
+    margin-bottom: -1px;
+    padding-top: 1em;
+  }
+
+  .responsive-table-wide-borders tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1015px) {
+    .responsive-table-wide-borders tbody tr {
+      border-bottom: 3px solid #d8dde0;
+    }
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody tr {
+      display: table-row;
+    }
+  }
+
+  .responsive-table-wide-borders tbody tr th {
+    text-align: right;
+  }
+
+  .responsive-table-wide-borders tbody tr th .table-heading {
+    display: inline;
+    width: 100%;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody tr th {
+      text-align: left;
+    }
+  }
+
+  .responsive-table-wide-borders tbody tr td, .responsive-table-wide-borders tbody tr th {
+    min-width: 1px;
+    text-align: right;
+  }
+
+  @media (min-width: 1015px) {
+    .responsive-table-wide-borders tbody tr td, .responsive-table-wide-borders tbody tr th {
+      text-align: left;
+    }
+  }
+
+//   .responsive-table-wide-borders tbody tr td.numeric, .responsive-table-wide-borders tbody tr th.numeric {
+//     text-align: left;
+//   }
+//   @media (min-width: 1015px) {
+//     .responsive-table-wide-borders tbody tr td.numeric, .responsive-table-wide-borders tbody tr th.numeric {
+//       text-align: right;
+//     }
+//   }
+
+  @media (max-width: 1015px) {
+    .responsive-table-wide-borders tbody tr td {
+      border-bottom: 1px solid #d8dde0;
+    }
+
+    .responsive-table-wide-borders tbody tr td:last-child {
+      border-bottom-width: 0;
+    }
+  }
+
+  @media (max-width: 1015px) {
+    .responsive-table-wide-borders tbody .total {
+      display: block;
+    }
+  }
+
+  .govuk-grid-column-full {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 15px;
+}
+
 .thead-sticky > thead > tr{
     position: sticky;
     top: 0;
     background-color: #ffffff;
 } 
-
-
-
- 
-.mobile-text {
-    display: none;
-}
- 
- 
-@media (max-width: 768px) {
-    .mobile-text {
-        display: block;
-        font-size: 16px; 
-        margin-bottom: 10px;  
-        color: #333333; 
-    }
-
-    .table-responsive {         
-        overflow-x: auto;
-        width: 100%;
-    }
-}
-
-.responsive-table-padding{
-
-    padding-bottom: 25px;
-}
  
