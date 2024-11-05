@@ -1,30 +1,30 @@
 /* eslint-disable no-console */
-// import { tableData } from './table-data.js'
-// import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
+import { tableData } from './table-data.js'
+import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 
-// const logger = createLogger()
-// const govUkBodySStyle = 'govuk-body-s'
+const logger = createLogger()
+const govUkBodySStyle = 'govuk-body-s'
 
 describe('tableData', () => {
-  // test('should return table items with "No records found" when approvedDisinfectantList is empty', () => {
-  //   const approvedDisinfectantList = []
-  //   const result = tableData(approvedDisinfectantList, logger)
-  //   expect(result).toEqual([
-  //     [
-  //       {
-  //         html: '<span role="alert" aria-live="polite">No records found</span>',
-  //         classes: govUkBodySStyle
-  //       },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle }
-  //     ]
-  //   ])
-  // })
+  test('should return table items with "No records found" when approvedDisinfectantList is empty', () => {
+    const approvedDisinfectantList = []
+    const result = tableData(approvedDisinfectantList, logger)
+    expect(result).toEqual([
+      [
+        {
+          html: '<span role="alert" aria-live="polite">No records found</span>',
+          classes: govUkBodySStyle
+        },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle },
+        { html: '', classes: govUkBodySStyle }
+      ]
+    ])
+  })
   // test('should handle errors and return default table items', () => {
   //   const approvedDisinfectantList = null // Simulating an error by passing null
   //   const result = tableData(approvedDisinfectantList, logger)
