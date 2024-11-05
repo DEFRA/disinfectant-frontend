@@ -6,17 +6,58 @@ function tableData(approvedDisinfectantList, logger) {
   let tableItems = []
   tableItems = [
     [
+      // {
+      //   html: '',
+      //   classes: className
+      // },
+      // { html: '', classes: className },
+      // { html: '', classes: className },
+      // { html: '', classes: className },
+      // { html: '', classes: className },
+      // { html: '', classes: className },
+      // { html: '', classes: className },
+      // { html: '', classes: className }
+
       {
-        html: '<span role="alert" aria-live="polite">No records found</span>',
+        html: `<div class="govuk-table-heading-wrapper">
+                <span class="table-heading">${pageSummaryTexts.tableColumns.disInfectantName}</span>
+              </div> 
+              <div>
+              <span class="govuk-table-span" role="alert" aria-live="polite">No records found</span>
+              </div>`,
         classes: className
       },
-      { html: '', classes: className },
-      { html: '', classes: className },
-      { html: '', classes: className },
-      { html: '', classes: className },
-      { html: '', classes: className },
-      { html: '', classes: className },
-      { html: '', classes: className }
+
+      {
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.chemicalgroup}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      },
+      {
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.fmdo}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      },
+      {
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.svdo}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      },
+      {
+        html: `<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      },
+      {
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.tbo}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      },
+      {
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.go}</span></div>
+        <div> <span class="govuk-table-span"></span></div>`,
+        classes: className
+      }
     ]
   ]
   try {

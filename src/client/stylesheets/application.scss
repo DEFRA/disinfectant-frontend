@@ -187,6 +187,12 @@ td .govuk-table-span {
     }
   }
 
+ @media (max-width:768px) {
+    .govuk-body-s {
+        font-size: 11px;
+    }    
+ }
+
 //   .responsive-table tbody td.actions,
 //   .responsive-table tbody td.govuk-table__cell__actions {
 //     justify-content: inherit;
