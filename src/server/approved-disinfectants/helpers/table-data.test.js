@@ -12,38 +12,73 @@ describe('tableData', () => {
     expect(result).toEqual([
       [
         {
-          html: '<span role="alert" aria-live="polite">No records found</span>',
+          html: '<div class="govuk-table-heading-wrapper">\n                <span class="table-heading">Disinfectant name, company name and address</span>\n              </div> \n              <div>\n              <span class="govuk-table-span" role="alert" aria-live="polite">No records found</span>\n              </div>',
           classes: govUkBodySStyle
         },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle },
-        { html: '', classes: govUkBodySStyle }
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Chemical group</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Foot and Mouth Disease Orders (FMDO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Swine Vesicular Disease Orders (SVDO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Tuberculosis Orders (TBO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">General Orders (GO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        }
       ]
     ])
   })
-  // test('should handle errors and return default table items', () => {
-  //   const approvedDisinfectantList = null // Simulating an error by passing null
-  //   const result = tableData(approvedDisinfectantList, logger)
-  //   expect(result).toEqual([
-  //     [
-  //       {
-  //         html: '<span role="alert" aria-live="polite">No records found</span>',
-  //         classes: govUkBodySStyle
-  //       },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle },
-  //       { html: '', classes: govUkBodySStyle }
-  //     ]
-  //   ])
-  // })
+
+  test('should handle errors and return default table items', () => {
+    const approvedDisinfectantList = null // Simulating an error by passing null
+    const result = tableData(approvedDisinfectantList, logger)
+    expect(result).toEqual([
+      [
+        {
+          html: '<div class="govuk-table-heading-wrapper">\n                <span class="table-heading">Disinfectant name, company name and address</span>\n              </div> \n              <div>\n              <span class="govuk-table-span" role="alert" aria-live="polite">No records found</span>\n              </div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Chemical group</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Foot and Mouth Disease Orders (FMDO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Swine Vesicular Disease Orders (SVDO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Tuberculosis Orders (TBO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        },
+        {
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">General Orders (GO)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          classes: govUkBodySStyle
+        }
+      ]
+    ])
+  })
   // test('should create table data with json input', () => {
   //   const approvedDisinfectantList = [
   //     {
