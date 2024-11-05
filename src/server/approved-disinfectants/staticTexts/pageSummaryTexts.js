@@ -77,5 +77,14 @@ export const pageSummaryTexts = {
     'Approval categories for the following disinfectants have recently been changed',
   changesToAD:
     'Following disinfectants have recently been removed from the approved list',
-  noUpdates: 'There are no updates'
+  noUpdates: 'There are no updates',
+  tableColumns: {
+    disInfectantName: 'Disinfectant name, company name and address',
+    chemicalgroup: 'Chemical group',
+    fmdo: 'Foot and Mouth Disease Orders (FMDO)',
+    svdo: 'Swine Vesicular Disease Orders (SVDO)',
+    dop: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
+    tbo: 'Tuberculosis Orders (TBO)',
+    go: 'General Orders (GO)'
+  }
 }

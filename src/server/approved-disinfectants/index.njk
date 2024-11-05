@@ -141,6 +141,25 @@
               </strong>
             </div>
           </div>
+          
+          <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          </div>
+           <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
+              <p class="govuk-body-m">
+                  For any support or queries please email to &nbsp; <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
+                  {{externalLinks.disinfectantOfficalMail}}.
+                </a>
+                </p> 
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            </div>
+            <div class="govuk-grid-column-two-thirds" id="end">
+              
+              <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
+                {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
+                {{lastModifiedDate}}
+                </div>
           <div class="govuk-grid-column-full">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           </div>
@@ -222,7 +241,7 @@
               {%endif%}
             </div>
 
-            <div class="govuk-grid-column-full">
+            <div class="govuk-grid-column-two-thirds">
               <div class="govuk-inset-text">
                 <p class="govuk-body-s">
                   {{pageSummaryTexts.insetTextFirst}}<br>
@@ -236,11 +255,10 @@
               {{ govukPagination(pagingConfig)}}
             </div>
             <div class="govuk-grid-column-full responsive-table-padding" id="tableDisinfectant">
-              <div class="mobile-text"> <p class="govuk-body"> Please scroll the table to the right to see additonal columns.</p> </div>
-              <div class="table-responsive">
+               
               {% from "govuk/components/table/macro.njk" import govukTable %}
               {{ govukTable(tableConfig)}}
-              </div>
+              
             </div>
             <div class="govuk-grid-column-full">
               {% from "govuk/components/pagination/macro.njk" import govukPagination %}
@@ -250,9 +268,9 @@
             <div class="govuk-grid-column-two-thirds">
               <h2 class="govuk-heading-m">{{pageSummaryTexts.disinfectantEnquiryText}}</h2>
               <p class="govuk-body-m">
-                  Email &nbsp; <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
-                  {{externalLinks.disinfectantOfficalMail}}
-                </a>  &nbsp; for further information.
+                  For any support or queries please email to &nbsp; <a href="mailto:{{externalLinks.disinfectantOfficalMail}}">
+                  {{externalLinks.disinfectantOfficalMail}}.
+                </a>
                 </p>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </div>

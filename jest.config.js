@@ -13,7 +13,7 @@ export default {
     'src/**/sort-by-timestamp.js',
     'src/**/build-filter.js',
     'src/**/chemicalgroup-data.js',
-    'src/**/table-data.js',
+    // 'src/**/table-data.js',
     'src/**/format-currency.js',
     'src/**/format-date.js',
     'src/**/get-trust-store-certs.js'
