@@ -6,18 +6,6 @@ function tableData(approvedDisinfectantList, logger) {
   let tableItems = []
   tableItems = [
     [
-      // {
-      //   html: '',
-      //   classes: className
-      // },
-      // { html: '', classes: className },
-      // { html: '', classes: className },
-      // { html: '', classes: className },
-      // { html: '', classes: className },
-      // { html: '', classes: className },
-      // { html: '', classes: className },
-      // { html: '', classes: className }
-
       {
         html: `<div class="govuk-table-heading-wrapper">
                 <span class="table-heading">${pageSummaryTexts.tableColumns.disInfectantName}</span>
