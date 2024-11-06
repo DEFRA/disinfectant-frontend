@@ -137,7 +137,8 @@
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-visually-hidden">Warning</span>
-                  This page was last updated at {{lastModifiedDateWithTime}}. <a href="#end" onclick="expandOnClick(event)" a class="govuk-link">{{pageSummaryTexts.recentUpdates}} </a>
+                  This page was last updated at {{lastModifiedDateWithTime}}. 
+                  {# <a href="#end" onclick="expandOnClick(event)" a class="govuk-link">{{pageSummaryTexts.recentUpdates}} </a> #}
               </strong>
             </div>
           </div>
@@ -274,13 +275,13 @@
               <p class="govuk-body-m">{{pageSummaryTexts.publishedText}}
                 {{envGoLiveDate}}<br> {{pageSummaryTexts.lastUpdatedText}}
                 {{lastModifiedDate}}
-                <a
+                {# <a
                   href="#end"
                   id="modifiedAndDeletedLink"
                   class="app-c-published-dates__toggle govuk-link"
                   onclick="expandDiv()"
                 >+ show all updates
-                </a>
+                </a> #}
                 <div id="divBulletin" style="display: none">
                   <div class="govuk-details__text">
                     <h3 class="govuk-label-wrapper">
