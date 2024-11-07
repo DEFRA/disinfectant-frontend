@@ -67,32 +67,32 @@ function tableData(approvedDisinfectantList, logger) {
 
         {
           html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.chemicalgroup}</span></div>
-          <div> <span class="govuk-table-span">${element.chemicalGroups != null ? element.chemicalGroups : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.chemicalGroups != null ? element.chemicalGroups : ''}</span></div>`,
           classes: className
         },
         {
           html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.fmdo}</span></div>
-          <div> <span class="govuk-table-span">${element.fmdo != null ? element.fmdo : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.fmdo != null ? element.fmdo : ''}</span></div>`,
           classes: className
         },
         {
           html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.svdo}</span></div>
-          <div> <span class="govuk-table-span">${element.svdo != null ? element.svdo : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.svdo != null ? element.svdo : ''}</span></div>`,
           classes: className
         },
         {
           html: `<div class="govuk-table-heading-wrapper column-width-50pc"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
-          <div> <span class="govuk-table-span">${element.dop != null ? element.dop : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.dop != null ? element.dop : ''}</span></div>`,
           classes: className
         },
         {
           html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.tbo}</span></div>
-          <div> <span class="govuk-table-span">${element.tbo != null ? element.tbo : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.tbo != null ? element.tbo : ''}</span></div>`,
           classes: className
         },
         {
           html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.go}</span></div>
-          <div> <span class="govuk-table-span">${element.go != null ? element.go : ''}</span></div>`,
+          <div> <span class="govuk-table-span first-column-padding">${element.go != null ? element.go : ''}</span></div>`,
           classes: className
         }
       ])
