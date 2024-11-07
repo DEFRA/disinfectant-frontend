@@ -140,6 +140,9 @@ td .govuk-table-span {
     justify-content: space-between;
   }
 
+  
+  
+
   @media (min-width: 768px) {
     .responsive-table tbody td {
       display: table-cell;
@@ -153,6 +156,12 @@ td .govuk-table-span {
   }
 
  @media (max-width:480px) {
+    .govuk-body-s {
+        font-size: 12px;
+    }
+ }
+
+ @media (min-width: 481px) and (max-width: 768px) {
     .govuk-body-s {
         font-size: 14px;
     }
@@ -293,9 +302,15 @@ td .govuk-table-span {
   }
 
   .responsive-table-wide-borders tbody td {
-    display: block;
-    // display: flex;
+    display: flex;
     justify-content: space-between;
+  }
+
+  @media (max-width:480px) {
+    .responsive-table-wide-borders tbody td {
+        display: block;        
+        justify-content: space-between;
+      }
   }
 
   @media (min-width: 1015px) {
@@ -392,7 +407,30 @@ td .govuk-table-span {
 
   .responsive-table-wide-borders tbody tr td, .responsive-table-wide-borders tbody tr th {
     min-width: 1px;
-    // text-align: right;
+    text-align: right;
+  }
+
+  .column-width-50pc{
+    width: 50%;
+  }
+
+  .first-column-padding{
+    padding-top: 0
+  }
+
+  @media (max-width:480px) {
+    .responsive-table-wide-borders tbody tr td, .responsive-table-wide-borders tbody tr th {
+        min-width: 1px;    
+        text-align: left;     
+      }
+
+      .first-column-padding{
+        padding-top:14px
+      }
+
+      .column-width-50pc{
+        width: 100%;
+      }
   }
 
   @media (min-width: 1015px) {

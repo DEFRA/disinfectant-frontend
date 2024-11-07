@@ -32,7 +32,7 @@ function tableData(approvedDisinfectantList, logger) {
         classes: className
       },
       {
-        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
+        html: `<div class="govuk-table-heading-wrapper column-width-50pc"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
         <div> <span class="govuk-table-span"></span></div>`,
         classes: className
       },
@@ -58,7 +58,7 @@ function tableData(approvedDisinfectantList, logger) {
                   <span class="table-heading">${pageSummaryTexts.tableColumns.disInfectantName}</span>
                 </div> 
                 <div>
-                <span class="govuk-table-span govuk-body-s"><strong>${element.disInfectantName}</strong></span> 
+                <span class="govuk-table-span govuk-body first-column-padding"><strong>${element.disInfectantName}</strong></span> 
                 <span class="govuk-table-span govuk-!-margin-bottom-0">${element.companyName}</span>
                 <span class="govuk-table-span govuk-secondary-text-colour">${element.companyAddress != null ? element.companyAddress : ''}</span>
                 </div>`,
@@ -81,7 +81,7 @@ function tableData(approvedDisinfectantList, logger) {
           classes: className
         },
         {
-          html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
+          html: `<div class="govuk-table-heading-wrapper column-width-50pc"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
           <div> <span class="govuk-table-span">${element.dop != null ? element.dop : ''}</span></div>`,
           classes: className
         },
