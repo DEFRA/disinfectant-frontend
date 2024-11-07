@@ -136,7 +136,6 @@ td .govuk-table-span {
 
   .responsive-table tbody td {
     display: block;
-    // display: flex;
     justify-content: space-between;
   }
 
@@ -156,8 +155,12 @@ td .govuk-table-span {
   }
 
  @media (max-width:480px) {
-    .govuk-body-s {
-        font-size: 12px;
+    .govuk-table-span {
+        font-size: 14px;
+    }
+
+    .table-heading {
+        font-size: 14px;
     }
  }
 
