@@ -28,7 +28,7 @@ describe('tableData', () => {
           classes: govUkBodySStyle
         },
         {
-          html: '<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
           classes: govUkBodySStyle
         },
         {
@@ -65,7 +65,7 @@ describe('tableData', () => {
           classes: govUkBodySStyle
         },
         {
-          html: '<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
+          html: '<div class="govuk-table-heading-wrapper"><span class="table-heading">Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)</span></div>\n        <div> <span class="govuk-table-span"></span></div>',
           classes: govUkBodySStyle
         },
         {
