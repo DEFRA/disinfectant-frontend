@@ -32,7 +32,7 @@ function tableData(approvedDisinfectantList, logger) {
         classes: className
       },
       {
-        html: `<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
+        html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
         <div> <span class="govuk-table-span"></span></div>`,
         classes: className
       },
@@ -81,7 +81,7 @@ function tableData(approvedDisinfectantList, logger) {
           classes: className
         },
         {
-          html: `<div class="govuk-table-heading-wrapper" style="max-width: 50%"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
+          html: `<div class="govuk-table-heading-wrapper"><span class="table-heading">${pageSummaryTexts.tableColumns.dop}</span></div>
           <div> <span class="govuk-table-span">${element.dop != null ? element.dop : ''}</span></div>`,
           classes: className
         },
