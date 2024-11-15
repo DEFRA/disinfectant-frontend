@@ -103,7 +103,7 @@ function tableData(approvedDisinfectantList, logger) {
       tableItems.push(createTableItem(element, className))
     })
   } catch (error) {
-    logger.error(`error from table-data ${error.message}`)
+    logger.error(`error from table-data ${error.message}`) // logs error code
   }
   logger.info(`table-data process executed`)
   return tableItems
