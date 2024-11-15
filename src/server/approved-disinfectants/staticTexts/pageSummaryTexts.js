@@ -86,5 +86,13 @@ export const pageSummaryTexts = {
     dop: 'Diseases of Poultry Order and the Avian Influenza and Influenza of Avian Origin in Mammals Order (DoP, AI & IAOM)',
     tbo: 'Tuberculosis Orders (TBO)',
     go: 'General Orders (GO)'
-  }
+  },
+  useInScotland: 'For use in Scotland, Defra approves disinfectants under',
+  scotlandOrder:
+    'The Diseases of Animals (Approved Disinfectants) (Scotland) Order 2008',
+  behalfOfScottish: ' on behalf of Scottish Ministers.',
+  useInWales: 'For use in Wales, Defra approves disinfectants under',
+  walesOrder:
+    'The Diseases of Animals (Approved Disinfectants) (Wales) Order 2007',
+  behalfOfWelsh: ' on behalf of Welsh Ministers.'
 }
