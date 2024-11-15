@@ -23,8 +23,6 @@ export const externalLinks = {
   goNoteLink:
     'https://www.gov.uk/government/collections/notifiable-diseases-in-animals',
   disinfectantOfficalMail: 'disinfectant@apha.gov.uk',
-  doSScotland:
-  'https://www.legislation.gov.uk/ssi/2008/219/contents/made',
-  doSWales:
-  'https://www.legislation.gov.uk/wsi/2007/2803/made'
+  doSScotland: 'https://www.legislation.gov.uk/ssi/2008/219/contents/made',
+  doSWales: 'https://www.legislation.gov.uk/wsi/2007/2803/made'
 }
