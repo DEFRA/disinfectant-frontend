@@ -1,5 +1,5 @@
 /**
- * A GDS styled example about page controller.
+ * A GDS styled example about the page controller.
  * Provided as an example, remove or modify as required.
  */
 import { approvedCategories } from './pageConfigs/approvedCategory.js'
