@@ -139,9 +139,12 @@ td .govuk-table-span {
     justify-content: space-between;
   }
 
+  @media (min-width: 768px) {
+    .govuk-header__logo {
+     width: 20%;
+    }
+  }
   
-  
-
   @media (min-width: 768px) {
     .responsive-table tbody td {
       display: table-cell;
