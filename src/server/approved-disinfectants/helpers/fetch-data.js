@@ -166,7 +166,7 @@ const processApprovedList = (
       startsWith
     )
 
-    logger.info(
+    logger.debug(
       `fetch-data executed ${JSON.stringify(approvedDisinfectantList)}`
     )
   } catch (error) {
