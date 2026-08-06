@@ -38,13 +38,14 @@ $chevron-altitude-calculated: govuk-em(5.655px, $font-size);
   // Add both margin and padding such that the chevron appears centrally
   // between each breadcrumb item
   margin-left: govuk-em(govuk-spacing(2), $font-size);
-  padding-left: govuk-em(govuk-spacing(2), $font-size) + $chevron-altitude-calculated;
+  padding-left: govuk-em(govuk-spacing(2), $font-size) +
+    $chevron-altitude-calculated;
 
   float: left;
 
   // Create a chevron using a box with borders on two sides, rotated 45deg.
   &::before {
-    content: "";
+    content: '';
     display: block;
 
     position: absolute;
@@ -53,7 +54,10 @@ $chevron-altitude-calculated: govuk-em(5.655px, $font-size);
 
     // Offset by the difference between the width of the non-rotated square
     // and its width when rotated
-    left: (($chevron-altitude-calculated * -2) + $chevron-size + $chevron-border-width);
+    left: (
+      ($chevron-altitude-calculated * -2) + $chevron-size +
+        $chevron-border-width
+    );
 
     width: $chevron-size;
     height: $chevron-size;
@@ -66,12 +70,12 @@ $chevron-altitude-calculated: govuk-em(5.655px, $font-size);
     border-width: $chevron-border-min-width $chevron-border-min-width 0 0;
     border-color: $chevron-border-colour;
 
-    @supports (border-width: unquote("max(0px)")) {
-      $border-width-eval: "max(#{$chevron-border-min-width}, #{$chevron-border-width})";
+    @supports (border-width: unquote('max(0px)')) {
+      $border-width-eval: 'max(#{$chevron-border-min-width}, #{$chevron-border-width})';
 
       // Ensure that the chevron never gets smaller than 16px
       border-width: unquote($border-width-eval) unquote($border-width-eval) 0 0;
-      font-size: unquote("max(#{$font-size * 1px}, 1em)");
+      font-size: unquote('max(#{$font-size * 1px}, 1em)');
     }
   }
 
@@ -86,7 +90,7 @@ $chevron-altitude-calculated: govuk-em(5.655px, $font-size);
   }
 
   &.app-breadcrumbs__list-item--current {
-    color: govuk-colour("dark-grey");
+    color: govuk-colour('dark-grey');
   }
 }
 
