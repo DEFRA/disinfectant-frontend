@@ -77,7 +77,8 @@ export const pageSummaryTexts = {
     'Approval categories for the following disinfectants have recently been changed',
   changesToAD:
     'Following disinfectants have recently been removed from the approved list',
-  noUpdates: 'There are no updates',
+  // noUpdates: 'There are no updates', /** Commenting this line as data not populating as per requirement */
+  noUpdates: 'Please check the full list',
   tableColumns: {
     disInfectantName: 'Disinfectant name, company name and address',
     chemicalgroup: 'Chemical group',
